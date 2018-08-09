@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin:400,500,600,700");
+
+body {
+font-family: 'Cabin', sans-serif;
+/*text-transform: uppercase;*/
+
+font-weight: 400;
+top: 0;
+left: 0;
+width: 100%;
+height: auto;
+/*text-align: center;*/
+margin: 0;
+
+}
+
+.linkcolor {
+color: black!important;
+background: white!important;
+}
+
+a:link {
+font-size: 20px;
+font-weight: 400;
+-webkit-box-shadow: none;
+box-shadow: none;
+color: white;
+border-radius: 0px;
+background: #ed1c24;
+}
+
+a:visited {
+font-size: 20px;
+font-weight: 400;
+-webkit-box-shadow: none;
+box-shadow: none;
+color: white;
+border-radius: 0px;
+background: #ed1c24;
+}
+
+a:hover {
+font-size: 20px;
+font-weight: 400;
+-webkit-box-shadow: none;
+box-shadow: none;
+color: white;
+border-radius: 0px;
+background-c: #ed1c24;
+}
+
+a:active {
+font-size: 20px;
+font-weight: 400;
+-webkit-box-shadow: none;
+box-shadow: none;
+color: white;
+border-radius: 0px;
+background: #ed1c24;
+}
+
+
+
+.form-signin {
+max-width: 330px;
+padding: 15px;
+margin: 0 auto;
+}
+
+.form-signin label {
+font-size: 20px
+}
+
+.addy {
+margin-top: 30px;
+line-height: 0.7; 
+}
+
+.head {
+text-align: right;
+}
+.head h1{
+}
+
+label {
+font-size: 20px;
+}
+
+.spacer {
+margin-bottom: 20px;
+border-radius: 0px!important;
+background: #ed1c24!important;
+}
+
+.rtSpacer {
+margin-right: 10px;
+}
+.form-submit input{
+color: white;
+}
+
+.alert-style {
+border-radius: 0px!important;
+font-size: 20px;
+font-weight: 400;
+}
