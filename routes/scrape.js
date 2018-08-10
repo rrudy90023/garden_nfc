@@ -10,7 +10,7 @@ var router = express.Router();
 
 
 
-router.get('/scrape', function(req, res, next){
+router.get('/', function(req, res, next){
   // Let's scrape Anchorman 2
   url = 'http://www.imdb.com/title/tt1229340/';
 
@@ -43,7 +43,7 @@ router.get('/scrape', function(req, res, next){
     })
 
    // res.send('Check your console!')
-    res.render('galleries/scrape');
+    res.render('scrape', json);
   })
 })
 
