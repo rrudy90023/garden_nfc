@@ -7,7 +7,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var fs      = require('fs');
 //var restrict = require('../auth/restrict')
-var Gallery = require('../models/gallery').Gallery;
+var Gallery = require('../models/garden').Gallery;
 /* GET users listing. */
 
 router.get('/api', function(req, res, next) {
@@ -16,15 +16,15 @@ router.get('/api', function(req, res, next) {
     //   return res.redirect('/');
     // }
 
-  Gallery.find({}, function(err, galleries){
-    var galleryMap = {};
+  Garden.find({}, function(err, plants){
+    var gardenMap = {};
     //dockets.forEach(function(docket){
-      for(var i = 0; i<galleries.length; i++){ 
-      galleryMap[i] = galleries;
+      for(var i = 0; i<plants.length; i++){ 
+      gardenMap[i] = plants;
 
       };
     //});
-    res.json(galleries);
+    res.json(plants);
 
 
   })
@@ -67,7 +67,7 @@ router.get('/scrape', function(req, res, next){
 
 
     //res.send('Check your console!')
-    res.render('galleries/scrape', json);
+    res.render('plants/scrape', json);
   })
 })
 
@@ -80,26 +80,25 @@ router.get('/', function(req, res, next) {
       return res.redirect('/');
     }
 
-    Gallery.find({}, function(err, galleries){
+    Garden.find({}, function(err, plants){
       // var docketMap = {};
       // //dockets.forEach(function(docket){
       //   for(var i = 0; i<dockets.length; i++){ 
       //     var doclist = dockets[i];
-      var model = galleries.map(function (gal){
+      var model = plants.map(function (plant){
 
                return {
-                  title: 'List of Galleries',
-                  galleryName: gal.galleryName,
-                  address: gal.address,
-                  city: gal.city,
-                  zipcode: gal.zipcode,
-                  state: gal.state,
-                  vrid: gal.vrid,
-                  id: gal._id
+                  title: 'List of Plants',
+                  plantname: plant.plantname,
+                  imageurl: plant.imageurl,
+                  desc: plant.desc,
+                  specs: plant.specs,
+                  dateplanted: plant.dateplanted,
+                  scrapeurl: plant.scrapeurl
                };
         });
       console.log(model);
-      res.render('galleries/index', { "gallist": model, "firstName": req.user.firstName });
+      res.render('plants/index', { "plantlist": model, "firstName": req.user.firstName });
     });
       //});
 });
@@ -114,27 +113,27 @@ router.get('/create', function(req, res, next) {
     return res.redirect('/');
   }
   var vm = {
-    title: 'Create a Gallery',
+    title: 'Add plant to garden',
     firstName: req.user.firstName
   };
-  res.render('galleries/create', vm);
+  res.render('plants/create', vm);
 });
 
 
 
 
 router.post('/create', function(req, res, next) {
-  userService.addGallery(req.body, function(err) {
+  userService.addPlant(req.body, function(err) {
     //if (err) {
       //console.log(err);
       var vm = {
-        title: 'Create a Gallery',
+        title: 'Add a plant to garden',
         input: req.body
         //error: err
       };
       console.log(req.body);
       //delete vm.input.password;
-      res.redirect('/galleries');
+      res.redirect('/plants');
     //}
     // req.login(req.body, function(err) {
     //   res.redirect('/dockets');
@@ -151,22 +150,21 @@ router.get('/:id',function(req, res, next){
   }
 
 
-  Gallery.findById(req.params.id, function(err, gallery){
+  Garden.findById(req.params.id, function(err, plant){
 
     var ebin = {
-      title: 'Edit Gallery',
-      galleryName: gallery.galleryName,
-      address: gallery.address,
-      city: gallery.city,
-      zipcode: gallery.zipcode,
-      state: gallery.state,
-      vrid: gallery.vrid,
-      id: gallery._id,
-      firstName: req.user.firstName
-
+        title: 'Edit Plant',
+        plantname: plant.plantname,
+        imageurl: plant.imageurl,
+        desc: plant.desc,
+        specs: plant.specs,
+        dateplanted: plant.dateplanted,
+        scrapeurl: plant.scrapeurl,
+        id: garden._id,
+        firstName: req.user.firstName
     };
     console.log(ebin)
-    res.render('galleries/edit', ebin);
+    res.render('plants/edit', ebin);
     //res.json(docket);
 
   });
@@ -181,12 +179,12 @@ router.get('/:id',function(req, res, next){
 
 router.post('/:id',function(req, res){
 
-  var name = req.body.galleryName;
-  var address = req.body.address;
-  var city = req.body.city;
-  var zipcode = req.body.zipcode;
-  var state = req.body.state;
-  var vrid = req.body.vrid;
+  var plantname = req.body.plantname;
+  var imageurl = req.body.imageurl;
+  var desc = req.body.desc;
+  var specs = req.body.specs;
+  var dateplanted = req.body.dateplanted;
+  var scrapeurl = req.body.scrapeurl;
 
     
 
@@ -194,13 +192,13 @@ router.post('/:id',function(req, res){
 
 
 
-  Gallery.findById(req.params.id, function(err, gallery){
+  Garden.findById(req.params.id, function(err, plant){
 
-    gallery.remove(function(err){
+    plant.remove(function(err){
 
       console.log("deleted");
 
-      res.redirect('/galleries');
+      res.redirect('/plants');
     //res.json(docket);
 
     });
@@ -209,22 +207,22 @@ router.post('/:id',function(req, res){
 
   } else {
 
-    Gallery.findById(req.params.id, function(err, gallery){
+    Garden.findById(req.params.id, function(err, plant){
 
-      gallery.galleryName = name;
-      gallery.address = address;
-      gallery.city = city;
-      gallery.zipcode = zipcode;
-      gallery.state = state;
-      gallery.vrid = vrid;
+      plant.plantname = plantname;
+      plant.imageurl = imageurl;
+      plant.desc = desc;
+      plant.specs = specs;
+      plant.dateplanted = dateplanted;
+      plant.scrapeurl = scrapeurl;
 
 
 
-      gallery.save(function(err){
+      plant.save(function(err){
 
         console.log("edited");
 
-        res.redirect('/galleries');
+        res.redirect('/plants');
       //res.json(docket);
 
       });

@@ -16,6 +16,7 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/create', function(req, res, next) {
+
   userService.addUser(req.body, function(err) {
     if (err) {
       console.log(err);
@@ -27,10 +28,15 @@ router.post('/create', function(req, res, next) {
       delete vm.input.password;
       return res.render('users/create', vm);
     }
+
     req.login(req.body, function(err) {
-      res.redirect('/galleries');
+      res.redirect('/plants');
     });
+
+
   });
+
+
 });
 
 router.post('/login',
@@ -43,7 +49,7 @@ router.post('/login',
   }, 
   passport.authenticate('local', {
     failureRedirect: '/', 
-    successRedirect: '/galleries',
+    successRedirect: '/plants',
     failureFlash: 'Invalid credentials'
   }));
 

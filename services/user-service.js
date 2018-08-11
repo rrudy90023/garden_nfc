@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt');
 var User = require('../models/user').User;
-var Gallery = require('../models/gallery').Gallery;
+var Garden = require('../models/garden').Garden;
 
 
 exports.addUser = function(user, next) {
@@ -27,17 +27,17 @@ exports.addUser = function(user, next) {
 
 
 
-exports.addGallery = function(gallery, next) {
-    var newGallery = new Gallery({
-      galleryName: gallery.galleryName,
-      address: gallery.address,
-      city: gallery.city,
-      zipcode: gallery.zipcode,
-      state: gallery.state,
-      vrid: gallery.vrid
+exports.addPlant = function(plant, next) {
+    var newPlant = new Garden({
+      plantname: plant.plantname,
+      imageurl: plant.imageurl,
+      desc: plant.desc,
+      specs: plant.specs,
+      dateplanted: plant.dateplanted,
+      scrapeurl: plant.scrapeurl
     });
     
-    newGallery.save(function(err) {
+    newPlant.save(function(err) {
       next(null);
     });
 };
