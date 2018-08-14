@@ -7,7 +7,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var fs      = require('fs');
 //var restrict = require('../auth/restrict')
-var Gallery = require('../models/garden').Gallery;
+var Garden = require('../models/garden').Garden;
 /* GET users listing. */
 
 router.get('/api', function(req, res, next) {
@@ -80,12 +80,12 @@ router.get('/', function(req, res, next) {
       return res.redirect('/');
     }
 
-    Garden.find({}, function(err, plants){
+    Garden.find({}, function(err, gardens){
       // var docketMap = {};
       // //dockets.forEach(function(docket){
       //   for(var i = 0; i<dockets.length; i++){ 
       //     var doclist = dockets[i];
-      var model = plants.map(function (plant){
+      var model = gardens.map(function (plant){
 
                return {
                   title: 'List of Plants',
@@ -94,7 +94,8 @@ router.get('/', function(req, res, next) {
                   desc: plant.desc,
                   specs: plant.specs,
                   dateplanted: plant.dateplanted,
-                  scrapeurl: plant.scrapeurl
+                  scrapeurl: plant.scrapeurl,
+                  id: plant._id
                };
         });
       console.log(model);
@@ -160,7 +161,7 @@ router.get('/:id',function(req, res, next){
         specs: plant.specs,
         dateplanted: plant.dateplanted,
         scrapeurl: plant.scrapeurl,
-        id: garden._id,
+        id: plant._id,
         firstName: req.user.firstName
     };
     console.log(ebin)

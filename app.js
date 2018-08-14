@@ -14,7 +14,7 @@ var MongoStore = connectMongo(expressSession);
 var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var galleries = require('./routes/galleries');
+var plants = require('./routes/plants');
 var scrape = require('./routes/scrape');
 
 
@@ -54,7 +54,7 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 //app.use(restrict);
-app.use('/galleries', galleries);
+app.use('/plants', plants);
 app.use('/scrape', scrape);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

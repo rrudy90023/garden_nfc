@@ -14,8 +14,9 @@
 		<input type="email" id="email" name="email" class="form-control" required value="{{input.email}}"/>
 	</div>
 	<div class="form-group">
-		<label for="password">Password</label>
-		<input type="password" id="password" name="password" class="form-control" autocomplete="off" required value="{{input.password}}"/>
+		<label for="password">Create password</label>
+		<input type="password" id="password" name="password" class="form-control" autocomplete="off" minlength="6"
+       maxlength="6" size="6" required value="{{input.password}}"/>
 	</div>
 	<div class="form-submit">
 		<input type="submit" class="btn btn-lg btn-danger btn-block spacer" value="Create my account" />

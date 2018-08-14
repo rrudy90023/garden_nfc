@@ -1,38 +1,38 @@
 
-	<h2>Create gallery<h2>
+	<h2>Add plant<h2>
 
 	<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="post">
 		<div class="form-group">
-			<label for="galleryName">Gallery name</label>
-			<input type="text" id="galleryName" name="galleryName" class="form-control" required value="{{input.galleryName}}"/>
+			<label for="plantname">Plant name</label>
+			<input type="text" id="plantname" name="plantname" class="form-control" required value="{{input.plantname}}"/>
 		</div>
 		<div class="form-group">
-			<label for="address">Address</label>
-			<input type="text" id="address" name="address" class="form-control" required value="{{input.address}}"/>
-		</div>
-
-		<div class="form-group">
-			<label for="city">City</label>
-			<input type="text" id="city" name="city" class="form-control" required value="{{input.city}}"/>
+			<label for="imageurl">Image</label>
+			<input type="text" id="imageurl" name="imageurl" class="form-control" required value="{{input.imageurl}}"/>
 		</div>
 
 		<div class="form-group">
-			<label for="state">State</label>
-			<input type="text" id="state" name="state" class="form-control" required value="{{input.state}}"/>
+			<label for="desc">Description</label>
+			<input type="text" id="desc" name="desc" class="form-control" required value="{{input.desc}}"/>
 		</div>
 
 		<div class="form-group">
-			<label for="zipcode">Zipcode</label>
-			<input type="text" id="zipcode" name="zipcode" class="form-control" required value="{{input.zipcode}}"/>
+			<label for="specs">Specification</label>
+			<input type="text" id="specs" name="specs" class="form-control" required value="{{input.specs}}"/>
 		</div>
 
 		<div class="form-group">
-			<label for="vrid">VR id name</label>
-			<input type="text" id="vrid" name="vrid" class="form-control" required value="{{input.vrid}}"/>
+			<label for="dateplanted">Date planted</label>
+			<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{input.dateplanted}}"/>
+		</div>
+
+		<div class="form-group">
+			<label for="scrapeurl">Scrape URL</label>
+			<input type="text" id="scrapeurl" name="scrapeurl" class="form-control" required value="{{input.scrapeurl}}"/>
 		</div>
 
 		<div class="form-submit">
-			<input type="submit" class="btn btn-lg btn-danger btn-block spacer" value="Create a gallery" />
+			<input type="submit" class="btn btn-lg btn-danger btn-block spacer" value="Add plant to garden" />
 		</div>
 		<span style="color:red">{{error}}</span>
 	</form>
