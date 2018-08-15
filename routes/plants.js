@@ -144,7 +144,7 @@ router.post('/create', function(req, res, next) {
 
 
 
-router.get('/:id',function(req, res, next){
+router.get('/:id/edit',function(req, res, next){
   
   if (!req.isAuthenticated()) {
     return res.redirect('/');
@@ -178,7 +178,7 @@ router.get('/:id',function(req, res, next){
 
 
 
-router.post('/:id',function(req, res){
+router.post('/:id/edit',function(req, res){
 
   var plantname = req.body.plantname;
   var imageurl = req.body.imageurl;
