@@ -15,7 +15,7 @@ var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var plants = require('./routes/plants');
-var scrape = require('./routes/scrape');
+// var scrape = require('./routes/scrape');
 
 
 var passportConfig = require('./auth/passport-config');
@@ -55,7 +55,7 @@ app.use('/', routes);
 app.use('/users', users);
 //app.use(restrict);
 app.use('/plants', plants);
-app.use('/scrape', scrape);
+// app.use('/scrape', scrape);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

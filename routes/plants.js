@@ -32,44 +32,68 @@ router.get('/api', function(req, res, next) {
 });
 
 
-router.get('/scrape', function(req, res, next){
+router.get('/:id/view', function(req, res, next){
   // Let's scrape Anchorman 2
-  url = 'http://www.imdb.com/title/tt1229340/';
 
-  request(url, function(error, response, html){
-    
-      var $ = cheerio.load(html);
+  Garden.findById(req.params.id, function(err, plant){
 
-      var title, release, rating;
-      var json = { title : "", release : "", rating : ""};
+    var ebin = {
+        title: 'Edit Plant',
+        plantname: plant.plantname,
+        imageurl: plant.imageurl,
+        desc: plant.desc,
+        specs: plant.specs,
+        dateplanted: plant.dateplanted,
+        scrapeurl: plant.scrapeurl,
+        id: plant._id
+        //firstName: req.user.firstName
+    };
 
-      $('.title_wrapper').filter(function(){
-        var data = $(this);
-        title = data.children().first().text().trim();
-        release = data.children().last().children().last().text().trim();
+    var url = ebin.scrapeurl;
+    //console.log(url);
 
-        json.title = title;
-        json.release = release;
+      request(url, function(error, response, html){
+        
+
+
+          var $ = cheerio.load(html);
+
+          var name, release, rating;
+          var json = { name : "", release : "", rating : ""};
+
+          $('.title_wrapper').filter(function(){
+            var data = $(this);
+            name = data.children().first().text().trim();
+            release = data.children().last().children().last().text().trim();
+
+            json.name = name;
+            json.release = release;
+          })
+
+          $('.ratingValue').filter(function(){
+            var data = $(this);
+            rating = data.text().trim();
+
+            json.rating = rating;
+          })
+
+          var pack = Object.assign({}, ebin, json);
+          //$.extend(ebin, json);
+          
+          console.log(pack)
+
+        //res.send('Check your console!')
+        res.render('plants/view', pack);
       })
-
-      $('.ratingValue').filter(function(){
-        var data = $(this);
-        rating = data.text().trim();
-
-        json.rating = rating;
-      })
-    
-
-    fs.writeFile('output.json', JSON.stringify(json, null, 4), function(err){
-      console.log('File successfully written! - Check your project directory for the output.json file');
     })
 
 
+  });
 
-    //res.send('Check your console!')
-    res.render('plants/scrape', json);
-  })
-})
+
+ // url = 'http://www.imdb.com/title/tt1229340/';
+
+
 
 
 
@@ -98,7 +122,7 @@ router.get('/', function(req, res, next) {
                   id: plant._id
                };
         });
-      console.log(model);
+      //console.log(model);
       res.render('plants/index', { "plantlist": model, "firstName": req.user.firstName });
     });
       //});
@@ -164,7 +188,7 @@ router.get('/:id/edit',function(req, res, next){
         id: plant._id,
         firstName: req.user.firstName
     };
-    console.log(ebin)
+    //console.log(ebin)
     res.render('plants/edit', ebin);
     //res.json(docket);
 
