@@ -38,7 +38,7 @@ router.get('/:id/view', function(req, res, next){
   Garden.findById(req.params.id, function(err, plant){
 
     var ebin = {
-        title: 'Edit Plant',
+        title: plant.plantname,
         plantname: plant.plantname,
         imageurl: plant.imageurl,
         desc: plant.desc,
@@ -58,30 +58,32 @@ router.get('/:id/view', function(req, res, next){
 
           var $ = cheerio.load(html);
 
-          var name, release, rating;
-          var json = { name : "", release : "", rating : ""};
+          var botname = $('.firstHeading');
+          var json = { botname : ""};
 
-          $('.title_wrapper').filter(function(){
+          $('#content').filter(function(){
             var data = $(this);
-            name = data.children().first().text().trim();
-            release = data.children().last().children().last().text().trim();
 
-            json.name = name;
-            json.release = release;
+
+
+            botname = data.find(botname).text().trim();
+            
+
+            json.botname = botname;
+
+
+            
           })
 
-          $('.ratingValue').filter(function(){
-            var data = $(this);
-            rating = data.text().trim();
-
-            json.rating = rating;
-          })
+          //$('.ratingValue').filter(function(){
+            //var data = $(this);
+            //rating = data.text().trim();
+            //json.rating = rating;
+          //})
 
           var pack = Object.assign({}, ebin, json);
-          //$.extend(ebin, json);
-          
           console.log(pack)
-
+          //$.extend(ebin, json);
         //res.send('Check your console!')
         res.render('plants/view', pack);
       })
@@ -178,7 +180,7 @@ router.get('/:id/edit',function(req, res, next){
   Garden.findById(req.params.id, function(err, plant){
 
     var ebin = {
-        title: 'Edit Plant',
+        title: 'Edit '+ plant.plantname,
         plantname: plant.plantname,
         imageurl: plant.imageurl,
         desc: plant.desc,
