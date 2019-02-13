@@ -21,7 +21,7 @@
     "express-session": "latest",
     "hbs": "latest",
     "mongoose": "latest",
-    "morgan": "latest",
+    "morgan": "^1.9.1",
     "passport": "latest",
     "passport-local": "^1.0.0",
     "request": "latest",
