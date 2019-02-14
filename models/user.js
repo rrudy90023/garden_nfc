@@ -11,7 +11,7 @@ var userSchema = new Schema({
 });
 
 userSchema.path('email').validate(function(value, next) {
-  userService.findUser(value, function(err, user) {
+  userService.findUser(value, function(err, user, next) {
     if (err) {
       console.log(err);
       return next(false);
