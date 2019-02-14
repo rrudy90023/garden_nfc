@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "latest"
+    "node": "10.x"
   },
   "dependencies": {
     "bcrypt": "latest",
@@ -19,7 +19,7 @@
     "express": "latest",
     "express-session": "^1.11.3",
     "hbs": "latest",
-    "mongoose": "latest",
+    "mongoose": "4.13.14",
     "morgan": "^1.9.1",
     "passport": "latest",
     "passport-local": "^1.0.0",
