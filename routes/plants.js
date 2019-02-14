@@ -4,7 +4,7 @@ var passport = require('passport');
 var userService = require('../services/user-service');
 var config = require('../config');
 var request = require('request');
-var cheerio = require('cheerio');
+//var cheerio = require('cheerio');
 var fs      = require('fs');
 //var restrict = require('../auth/restrict')
 var Garden = require('../models/garden').Garden;
@@ -33,7 +33,6 @@ router.get('/api', function(req, res, next) {
 
 
 router.get('/:id/view', function(req, res, next){
-  // Let's scrape Anchorman 2
 
   Garden.findById(req.params.id, function(err, plant){
 
@@ -44,60 +43,11 @@ router.get('/:id/view', function(req, res, next){
         desc: plant.desc,
         specs: plant.specs,
         dateplanted: plant.dateplanted,
-        scrapeurl: plant.scrapeurl,
         id: plant._id
-        //firstName: req.user.firstName
     };
-
-    var url = ebin.scrapeurl;
-    //console.log(url);
-
-      request(url, function(error, response, html){
-        
-
-
-          var $ = cheerio.load(html);
-
-          var botname = $('.firstHeading');
-          var json = { botname : ""};
-
-          $('#content').filter(function(){
-            var data = $(this);
-
-
-
-            botname = data.find(botname).text().trim();
-            
-
-            json.botname = botname;
-
-
-            
-          })
-
-          //$('.ratingValue').filter(function(){
-            //var data = $(this);
-            //rating = data.text().trim();
-            //json.rating = rating;
-          //})
-
-          var pack = Object.assign({}, ebin, json);
-          console.log(pack)
-          //$.extend(ebin, json);
-        //res.send('Check your console!')
-        res.render('plants/view', pack);
-      })
+        res.render('plants/view', ebin);
     })
-
-
   });
-
-
- // url = 'http://www.imdb.com/title/tt1229340/';
-
-
-
-
 
 
 router.get('/', function(req, res, next) {
@@ -120,7 +70,7 @@ router.get('/', function(req, res, next) {
                   desc: plant.desc,
                   specs: plant.specs,
                   dateplanted: plant.dateplanted,
-                  scrapeurl: plant.scrapeurl,
+                  //scrapeurl: plant.scrapeurl,
                   id: plant._id
                };
         });
@@ -186,7 +136,7 @@ router.get('/:id/edit',function(req, res, next){
         desc: plant.desc,
         specs: plant.specs,
         dateplanted: plant.dateplanted,
-        scrapeurl: plant.scrapeurl,
+        //scrapeurl: plant.scrapeurl,
         id: plant._id,
         firstName: req.user.firstName
     };
@@ -211,7 +161,7 @@ router.post('/:id/edit',function(req, res){
   var desc = req.body.desc;
   var specs = req.body.specs;
   var dateplanted = req.body.dateplanted;
-  var scrapeurl = req.body.scrapeurl;
+  //var scrapeurl = req.body.scrapeurl;
 
     
 
@@ -241,7 +191,7 @@ router.post('/:id/edit',function(req, res){
       plant.desc = desc;
       plant.specs = specs;
       plant.dateplanted = dateplanted;
-      plant.scrapeurl = scrapeurl;
+      //plant.scrapeurl = scrapeurl;
 
 
 

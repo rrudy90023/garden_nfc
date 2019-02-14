@@ -8,7 +8,7 @@ var gardenSchema = new Schema({
   desc: { type: String, required: 'Please enter description'},
   specs: { type: String, required: 'Please enter specs'},
   dateplanted: { type: String, required: 'Please enter date planted'},
-  scrapeurl: { type: String, required: 'Please enter scrape url'},
+  //scrapeurl: { type: String, required: 'Please enter scrape url'},
   created: { type: Date, default: Date.now }
 });
 
