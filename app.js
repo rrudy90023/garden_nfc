@@ -9,15 +9,10 @@ var expressSession = require('express-session');
 var flash = require('connect-flash');
 var connectMongo = require('connect-mongo');
 var MongoStore = connectMongo(expressSession);
-
-
 var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var plants = require('./routes/plants');
-// var scrape = require('./routes/scrape');
-
-
 var passportConfig = require('./auth/passport-config');
 var restrict = require('./auth/restrict');
 passportConfig();
@@ -30,7 +25,6 @@ app.set('production', process.env.NODE_ENV == 'production');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,21 +44,17 @@ app.use(expressSession(
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use('/', routes);
 app.use('/users', users);
 //app.use(restrict);
 app.use('/plants', plants);
-// app.use('/scrape', scrape);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
-
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -76,7 +66,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {

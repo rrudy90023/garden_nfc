@@ -26,6 +26,12 @@ exports.addUser = function(user, next) {
 };
 
 
+// router.param("id", (req, res, id) => {
+//   Meeting.findById(id)
+//     .then(meeting => { meeting })
+//     .catch(err => res.status(404).send("Meeting not found"))
+// });
+
 
 exports.addPlant = function(plant, next) {
     var newPlant = new Garden({
@@ -42,9 +48,7 @@ exports.addPlant = function(plant, next) {
     });
 };
 
-
-
-
+//
 
 exports.findUser = function(email, next) {
   User.findOne({email: email.toLowerCase()}, function(err, user) {

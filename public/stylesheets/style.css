@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Cabin:400,500,600,700");
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700');
 
 body {
-font-family: 'Cabin', sans-serif;
+font-family: 'Playfair Display', serif;
 /*text-transform: uppercase;*/
 
 font-weight: 400;
@@ -24,9 +24,9 @@ font-size: 20px;
 font-weight: 400;
 -webkit-box-shadow: none;
 box-shadow: none;
-color: white;
+color: black;
 border-radius: 0px;
-background: #ed1c24;
+background: #ffbf00;
 }
 
 a:visited {
@@ -34,9 +34,9 @@ font-size: 20px;
 font-weight: 400;
 -webkit-box-shadow: none;
 box-shadow: none;
-color: white;
+color: black;
 border-radius: 0px;
-background: #ed1c24;
+background: #ffbf00;
 }
 
 a:hover {
@@ -44,9 +44,9 @@ font-size: 20px;
 font-weight: 400;
 -webkit-box-shadow: none;
 box-shadow: none;
-color: white;
+color: black;
 border-radius: 0px;
-background-c: #ed1c24;
+background: #ffbf00;
 }
 
 a:active {
@@ -54,9 +54,9 @@ font-size: 20px;
 font-weight: 400;
 -webkit-box-shadow: none;
 box-shadow: none;
-color: white;
+color: black;
 border-radius: 0px;
-background: #ed1c24;
+background: #ffbf00;
 }
 
 
@@ -77,6 +77,9 @@ line-height: 0.7;
 }
 
 .head {
+width: 100%;
+position: relative;
+display: inline-block;
 text-align: right;
 }
 .head h1{
@@ -89,14 +92,14 @@ font-size: 20px;
 .spacer {
 margin-bottom: 20px;
 border-radius: 0px!important;
-background: #ed1c24!important;
+background: #ffbf00!important;
 }
 
 .rtSpacer {
 margin-right: 10px;
 }
 .form-submit input{
-color: white;
+color: black;
 }
 
 .alert-style {

@@ -8,12 +8,16 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+//
+
 router.get('/create', function(req, res, next) {
   var vm = {
     title: 'Create an account'
   };
   res.render('users/create', vm);
 });
+
+//
 
 router.post('/create', function(req, res, next) {
 
@@ -32,12 +36,10 @@ router.post('/create', function(req, res, next) {
     req.login(req.body, function(err) {
       res.redirect('/plants');
     });
-
-
   });
-
-
 });
+
+//
 
 router.post('/login',
   function(req, res, next) {
@@ -52,6 +54,8 @@ router.post('/login',
     successRedirect: '/plants',
     failureFlash: 'Invalid credentials'
   }));
+
+//
 
 router.get('/logout', function(req, res, next) {
   req.logout();

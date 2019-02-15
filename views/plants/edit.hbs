@@ -1,49 +1,39 @@
+<h2>Edit {{this.plantname}}<h2>
 
-	<h2>Edit {{this.plantname}}<h2>
+<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="post">
+	<div class="form-group">
+		<label for="plantname">Plant name</label>
+		<input type="text" id="plantname" name="plantname" class="form-control" required value="{{this.plantname}}"/>
+	</div>
+	<div class="form-group">
+		<label for="imageurl">Image</label>
+		<input type="text" id="imageurl" name="imageurl" class="form-control" required value="{{this.imageurl}}"/>
+	</div>
 
-	<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="post">
-		<div class="form-group">
-			<label for="plantname">Plant name</label>
-			<input type="text" id="plantname" name="plantname" class="form-control" required value="{{this.plantname}}"/>
-		</div>
-		<div class="form-group">
-			<label for="imageurl">Image</label>
-			<input type="text" id="imageurl" name="imageurl" class="form-control" required value="{{this.imageurl}}"/>
-		</div>
+	<div class="form-group">
+		<label for="desc">Description</label>
+		<input type="text" id="desc" name="desc" class="form-control" required value="{{this.desc}}"/>
+	</div>
 
-		<div class="form-group">
-			<label for="desc">Description</label>
-			<input type="text" id="desc" name="desc" class="form-control" required value="{{this.desc}}"/>
-		</div>
+	<div class="form-group">
+		<label for="specs">Specification</label>
+		<input type="text" id="specs" name="specs" class="form-control" required value="{{this.specs}}"/>
+	</div>
 
-		<div class="form-group">
-			<label for="specs">Specification</label>
-			<input type="text" id="specs" name="specs" class="form-control" required value="{{this.specs}}"/>
-		</div>
+	<div class="form-group">
+		<label for="dateplanted">Date planted</label>
+		<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{this.dateplanted}}"/>
+	</div>
 
-		<div class="form-group">
-			<label for="dateplanted">Date planted</label>
-			<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{this.dateplanted}}"/>
-		</div>
+	<div class="form-submit">
+		<input type="submit" class="btn btn-lg btn-block spacer" value="Save Changes" />
+	</div>
+	<span style="color:red">{{error}}</span>
+</form>
 
-{{!-- 		<div class="form-group">
-			<label for="scrapeurl">Scrape URL</label>
-			<input type="text" id="scrapeurl" name="scrapeurl" class="form-control" required value="{{this.scrapeurl}}"/>
-		</div> --}}
-
-
-{{!-- 		<a href="http://rudes.de/vr/index.html?image=examples/pano/{{this.vrid}}_4096.jpg&is_stereo=true&preview=examples/pano/{{this.vrid}}_2048.jpg" class="spacer btn btn-lg btn-default btn-block">View plant</a> --}}
-
-
-		<div class="form-submit">
-			<input type="submit" class="btn btn-lg btn-danger btn-block spacer" value="Save Changes" />
-		</div>
-		<span style="color:red">{{error}}</span>
-	</form>
-
-	<form class="col-xs-12 col-md-8"  name="create-gallery-form" id="create-gallery-form" method="post" action="{{this.id/edit}}?method=delete">
-		<div class="form-submit">
-			<input type="submit" class="btn btn-lg btn-danger btn-block spacer" name="delete" value="Delete plant" />
-		</div>
-	</form>
+<form class="col-xs-12 col-md-8"  name="create-gallery-form" id="create-gallery-form" method="post" action="{{this.id/edit}}?method=delete">
+	<div class="form-submit">
+		<input type="submit" class="btn btn-lg btn-block spacer" name="delete" value="Delete plant" />
+	</div>
+</form>
 
