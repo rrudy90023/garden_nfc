@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700');
-
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
 body {
-font-family: 'Playfair Display', serif;
 /*text-transform: uppercase;*/
-
 font-weight: 400;
 top: 0;
 left: 0;
@@ -12,6 +10,46 @@ height: auto;
 /*text-align: center;*/
 margin: 0;
 
+}
+
+h3, h4, label {
+font-family: 'Oswald', sans-serif;
+text-transform: capitalize;
+}
+
+h1, h2 {
+text-transform: uppercase;
+font-family: 'Oswald', sans-serif;	
+margin-right: 0;
+margin-left: 0!important;
+}
+
+input {
+font-family: 'Playfair+Display', serif;
+}
+
+p, a, span {
+font-family: 'Playfair+Display', serif;
+}
+
+.jumbotron {
+padding: 0;
+margin-bottom: 0;
+background-color: white;
+border-radius: 0;
+height: 700px;
+}
+
+.plantlabel {
+height: auto;
+background-color: white;
+position: absolute;
+bottom: 0;
+}
+
+.plantlabel h1, h2, span, hr{
+margin-right: 15px;
+margin-left: 15px;
 }
 
 .linkcolor {
@@ -81,6 +119,7 @@ width: 100%;
 position: relative;
 display: inline-block;
 text-align: right;
+margin: 0 auto;
 }
 .head h1{
 }

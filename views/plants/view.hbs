@@ -1,6 +1,10 @@
-<h1>{{plantname}}</h1>
-<div>{{botname}}</div>
-<div>{{release}}</div>
-<div>{{desc}}</div>
-<div>{{rating}}</div>
-<div><img src="{{imageurl}}"></div>
+<div class="jumbotron" style='background-image: url({{imageurl}}); background-repeat: no-repeat'>
+	<div class="plantlabel">
+		<h1 class="display-4">{{plantname}}</h1>
+		{{!-- <h2>{{botname}}</h2> --}}
+		<hr class="my-4">
+		{{!-- <span class="lead">{{release}}</span> --}}
+		<span class="lead">{{desc}}</span>
+		{{!-- <span class="lead">{{rating}}</span> --}}
+	</div>
+</div>
