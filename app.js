@@ -17,7 +17,7 @@ var passportConfig = require('./auth/passport-config');
 var restrict = require('./auth/restrict');
 passportConfig();
 
-mongoose.connect(config.mongoUri, { useNewUrlParser: true });
+mongoose.connect(config.mongoUri, { useMongoClient: true });
 
 var app = express();
 
