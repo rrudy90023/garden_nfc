@@ -1,12 +1,10 @@
-<a href="/plants/create" class="btn btn-lg btn">Add plant to garden</a>
-
-{{#each plantlist}}
-
-	<div class="addy">
-		<h3>{{this.plantname}}</h3>
-
-			<a href="/plants/{{this.id}}/edit" class="btn btn-default btn-lg btn">Edit Details</a>
-			<a href="/plants/{{this.id}}/view" class="btn btn-default btn-lg btn">View Plant</a>
-	</div>
-
-{{/each}}
+<div class="adminContainer">
+	<h2>Current Inventory</h2>
+	{{#each plantlist}}
+		<div class="addy">
+			<h5>{{this.plantname}}</h5>
+				<a href="/plants/{{this.id}}/edit" class="btn btn-default btn-lg btn">Edit Details</a>
+				<a href="/plants/{{this.id}}/view" class="btn btn-default btn-lg btn">View Plant</a>
+		</div>
+	{{/each}}
+</div>

@@ -7,12 +7,14 @@ top: 0;
 left: 0;
 width: 100%;
 height: auto;
+font-family: 'Playfair+Display', serif;
 /*text-align: center;*/
+background-color: lightgray;
 margin: 0;
 
 }
 
-h3, h4, label {
+h3, h4, h5, label {
 font-family: 'Oswald', sans-serif;
 text-transform: capitalize;
 }
@@ -32,24 +34,26 @@ p, a, span {
 font-family: 'Playfair+Display', serif;
 }
 
-.jumbotron {
+.jumbotron-fluid, .container-fluid {
 padding: 0;
-margin-bottom: 0;
-background-color: white;
-border-radius: 0;
-height: 700px;
+margin: 0;
+width: 100vw;
+height: 100vh;
 }
 
+.adminContainer {
+padding: 15px;
+}
 .plantlabel {
 height: auto;
 background-color: white;
 position: absolute;
 bottom: 0;
+padding: 15px;
 }
 
 .plantlabel h1, h2, span, hr{
-margin-right: 15px;
-margin-left: 15px;
+/*padding: 15px;*/
 }
 
 .linkcolor {
@@ -102,11 +106,21 @@ background: #ffbf00;
 .form-signin {
 max-width: 330px;
 padding: 15px;
-margin: 0 auto;
+margin: auto;
+right: 0;
+left: 0;
+bottom: 0;
+top: 0;
+position: absolute;
+height: 310px;
 }
 
 .form-signin label {
 font-size: 20px
+}
+
+.form-control {
+	margin-bottom: 15px;
 }
 
 .addy {
@@ -120,6 +134,7 @@ position: relative;
 display: inline-block;
 text-align: right;
 margin: 0 auto;
+padding: 15px;
 }
 .head h1{
 }

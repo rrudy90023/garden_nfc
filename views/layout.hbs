@@ -9,12 +9,13 @@
         <link rel='stylesheet' href='/stylesheets/style.css' type='text/css' media='all' /> 
     </head>
     <body>
-        <div id="page" class="container">
+        <div id="page" class="container-fluid">
 
             {{#if firstName}}
             <div id="greeting" class="row head">
             	<h1 class="rtSpacer">Hi, {{firstName}}!</h1>
-            	<a href="/users/logout" class="btn btn-link linkcolor">Log Out</a>
+            	<a href="/users/logout" class="btn btn-link linkcolor">Log out</a>
+                <a href="/plants/create" class="btn btn-link linkcolor">Add plant</a>
             </div>
             {{/if}}		
 
