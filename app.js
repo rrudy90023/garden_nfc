@@ -5,19 +5,21 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
+//middleware connectors
 var expressSession = require('express-session');
 var flash = require('connect-flash');
 var connectMongo = require('connect-mongo');
 var MongoStore = connectMongo(expressSession);
 var config = require('./config');
+//routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var plants = require('./routes/plants');
 var passportConfig = require('./auth/passport-config');
 var restrict = require('./auth/restrict');
 passportConfig();
-
-mongoose.connect(config.mongoUri, { useMongoClient: true });
+// mongoose auth db variable
+mongoose.connect(config.mongoUri, { useNewUrlParser: true });
 
 var app = express();
 
