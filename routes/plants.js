@@ -126,7 +126,7 @@ router.get('/create', function(req, res, next) {
 
 //Add new plant POST
 
-router.post('/create' , upload.single('imageurl'), function(req, res, next) {
+router.post('/create' , function(req, res, next) {
   userService.addPlant(req.body, function(err) {
       var vm = {
         title: 'Add a plant to garden',
