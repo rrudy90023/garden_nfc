@@ -1,12 +1,8 @@
-<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="post">
+<form action="/upload" enctype="multipart/form-data" class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="post">
 	<h2 style='margin-bottom: 30px; padding-top: 15px;'>Add plant</h2>
 	<div class="form-group">
 		<label for="plantname">Plant name</label>
 		<input type="text" id="plantname" name="plantname" class="form-control" required value="{{input.plantname}}"/>
-	</div>
-	<div class="form-group">
-		<label for="imageurl">Image</label>
-		<input type="text" id="imageurl" name="imageurl" class="form-control" required value="{{input.imageurl}}"/>
 	</div>
 
 	<div class="form-group">
@@ -22,6 +18,11 @@
 	<div class="form-group">
 		<label for="dateplanted">Date planted</label>
 		<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{input.dateplanted}}"/>
+	</div>
+
+	<div class="form-group">
+		<label for="imageurl">Image upload</label>
+		<input type="file" id="imageurl" name="imageurl" class="form-control" required value="{{this.imageurl}}"/>
 	</div>
 
 	<div class="form-submit">

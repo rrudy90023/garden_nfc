@@ -1,27 +1,32 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var passport = require('passport');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport = require('passport');
 //middleware connectors
-var expressSession = require('express-session');
-var flash = require('connect-flash');
-var connectMongo = require('connect-mongo');
-var MongoStore = connectMongo(expressSession);
-var config = require('./config');
+const expressSession = require('express-session');
+const flash = require('connect-flash');
+const connectMongo = require('connect-mongo');
+const MongoStore = connectMongo(expressSession);
+const config = require('./config');
+const methodOverride = require('method-override');
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
 //routes
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var plants = require('./routes/plants');
-var passportConfig = require('./auth/passport-config');
-var restrict = require('./auth/restrict');
+const routes = require('./routes/index');
+const users = require('./routes/users');
+const plants = require('./routes/plants');
+const passportConfig = require('./auth/passport-config');
+const restrict = require('./auth/restrict');
 passportConfig();
 // mongoose auth db variable
 mongoose.connect(config.mongoUri, { useNewUrlParser: true });
 
-var app = express();
+const app = express();
 
 app.set('production', process.env.NODE_ENV == 'production');
 // view engine setup
@@ -32,6 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 app.use(expressSession(
     {
@@ -50,6 +56,11 @@ app.use('/', routes);
 app.use('/users', users);
 //app.use(restrict);
 app.use('/plants', plants);
+
+
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
