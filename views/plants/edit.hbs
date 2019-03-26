@@ -1,6 +1,6 @@
 
 
-<form action="/upload" enctype="multipart/form-data" class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="POST">
+<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form"  method="post">
 	<h2 style='margin-bottom: 30px; padding-top: 15px;'>Edit {{this.plantname}}</h2>
 	<div class="form-group">
 		<label for="plantname">Plant name</label>
@@ -20,17 +20,24 @@
 		<label for="dateplanted">Date planted</label>
 		<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{this.dateplanted}}"/>
 	</div>
+{{!-- 	<div class="form-group">
+		<label for="imageurl">Image</label>
+		<input type="text" id="imageurl" name="imageurl" class="form-control" value="{{this.imageurl}}"/>
+	</div> --}}
+
+
 	<div class="form-group">
-		<label for="imageurl">Image upload</label>
-		<input type="file" id="imageurl" name="imageurl" class="form-control" required value="{{this.imageurl}}"/>
+		<label for="imageurl">Image</label>
+		<input type="file" id="imageurl" name="imageurl" class="form-control" action="/create" enctype="multipart/form-data" value="{{this.imageurl}}"/>
 	</div>
+
 	<div class="form-submit">
 		<input type="submit" class="btn btn-lg btn-block spacer" value="Save Changes" />
 	</div>
 	<span style="color:red">{{error}}</span>
 </form>
 
-<form class="col-xs-12 col-md-8"  name="create-gallery-form" id="create-gallery-form" method="post" action="{{this.id/edit}}?method=DELETE">
+<form class="col-xs-12 col-md-8"  name="create-gallery-form" id="create-gallery-form" method="post" action="{{this.id/edit}}?method=delete">
 	<div class="form-submit">
 		<input type="submit" class="btn btn-lg btn-block spacer" name="delete" value="Delete plant" />
 	</div>

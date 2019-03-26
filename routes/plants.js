@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
+const mongoose = require('mongoose');
 const userService = require('../services/user-service');
 const config = require('../config');
 const request = require('request');
 const fs      = require('fs');
-const app = require('../app')
+const Garden = require('../models/garden').Garden;
+
 //file upload
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -14,16 +15,36 @@ const crypto = require('crypto');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
-// main
-const Garden = require('../models/garden').Garden;
+const conn = require('../conn');
+/* GET users listing. */
 
-const conn = mongoose.createConnection(config.mongoUri, { useNewUrlParser: true });
+//console.log("plants.js", conn.connectorCreate)
+
+router.get('/api', function(req, res, next) {
+  //res.send('respond with a resource');
+    // if (!req.isAuthenticated()) {
+    //   return res.redirect('/');
+    // }
+
+  Garden.find({}, function(err, plants){
+    var gardenMap = {};
+      for(var i = 0; i<plants.length; i++){ 
+      gardenMap[i] = plants;
+      };
+    res.json(plants);
+  })
+});
+
+//
+
+
+//const conn = mongoose.createConnection(config.mongoUri, { useNewUrlParser: true });
 // Init gfs
 let gfs;
-
-conn.once('open', () => {
+let connector = conn.connectorCreate;
+connector.once('open', () => {
   // Init stream
-  gfs = Grid(conn.db, mongoose.mongo);
+  gfs = Grid(connector.db, mongoose.mongo);
   gfs.collection('uploads');
 });
 // Create storage engine
@@ -45,28 +66,11 @@ const storage = new GridFsStorage({
     });
   }
 });
-const upload = multer({ storage });
+
+const create = multer({ storage });
 
 
-
-
-//API
-router.get('/api', function(req, res, next) {
-  //res.send('respond with a resource');
-    // if (!req.isAuthenticated()) {
-    //   return res.redirect('/');
-    // }
-
-  Garden.find({}, function(err, plants){
-    var gardenMap = {};
-      for(var i = 0; i<plants.length; i++){ 
-      gardenMap[i] = plants;
-      };
-    res.json(plants);
-  })
-});
-
-//Plant view PUBLIC
+//
 
 router.get('/:id/view', function(req, res, next){
 
@@ -85,7 +89,7 @@ router.get('/:id/view', function(req, res, next){
     })
   });
 
-//Admin view
+//
 
 router.get('/', function(req, res, next) {
 
@@ -110,13 +114,14 @@ router.get('/', function(req, res, next) {
     });
 });
 
-//Add new plant view
+//
 
 router.get('/create', function(req, res, next) {
 
   if (!req.isAuthenticated()) {
     return res.redirect('/');
   }
+
   var vm = {
     title: 'Add plant to garden',
     firstName: req.user.firstName
@@ -124,9 +129,15 @@ router.get('/create', function(req, res, next) {
   res.render('plants/create', vm);
 });
 
-//Add new plant POST
+//
 
-router.post('/create' , function(req, res, next) {
+// router.post('/upload', upload.single('file'), (req, res) => {
+//   // res.json({ file: req.file });
+//   //res.redirect('/');
+// });
+
+//
+router.post('/create', create.single('file'), function(req, res, next) {
   userService.addPlant(req.body, function(err) {
       var vm = {
         title: 'Add a plant to garden',
@@ -135,9 +146,11 @@ router.post('/create' , function(req, res, next) {
       console.log(req.body);
       res.redirect('/plants');
   });
+
+  console.log(create)
 });
 
-//Edit plant details view
+//
 
 router.get('/:id/edit',function(req, res, next){
   
@@ -160,32 +173,7 @@ router.get('/:id/edit',function(req, res, next){
   });
 });
 
-//view image
-// @route GET /image/:filename
-// @desc Display Image
-router.get('/image/:filename', (req, res) => {
-  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-    // Check if file
-    if (!file || file.length === 0) {
-      return res.status(404).json({
-        err: 'No file exists'
-      });
-    }
-
-    // Check if image
-    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-      // Read output to browser
-      const readstream = gfs.createReadStream(file.filename);
-      readstream.pipe(res);
-    } else {
-      res.status(404).json({
-        err: 'Not an image'
-      });
-    }
-  });
-});
-
-//Edit plant details view POST and DELETE
+//
 
 router.post('/:id/edit',function(req, res){
 

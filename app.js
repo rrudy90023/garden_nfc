@@ -5,26 +5,21 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
-//middleware connectors
 const expressSession = require('express-session');
 const flash = require('connect-flash');
 const connectMongo = require('connect-mongo');
 const MongoStore = connectMongo(expressSession);
 const config = require('./config');
-const methodOverride = require('method-override');
-const crypto = require('crypto');
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-//routes
+const conn = require('./conn');
 const routes = require('./routes/index');
 const users = require('./routes/users');
 const plants = require('./routes/plants');
 const passportConfig = require('./auth/passport-config');
 const restrict = require('./auth/restrict');
 passportConfig();
-// mongoose auth db variable
-mongoose.connect(config.mongoUri, { useNewUrlParser: true });
+
+//console.log(conn.connector)
+//mongoose.connect(config.mongoUri, { useNewUrlParser: true });
 
 const app = express();
 
@@ -37,7 +32,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'));
 
 app.use(expressSession(
     {
@@ -56,11 +50,6 @@ app.use('/', routes);
 app.use('/users', users);
 //app.use(restrict);
 app.use('/plants', plants);
-
-
-
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
