@@ -37,7 +37,6 @@ router.get('/api', function(req, res, next) {
 
 //
 
-
 //const conn = mongoose.createConnection(config.mongoUri, { useNewUrlParser: true });
 // Init gfs
 let gfs;
@@ -66,8 +65,7 @@ const storage = new GridFsStorage({
     });
   }
 });
-
-const create = multer({ storage });
+const upload = multer({ storage });
 
 
 //
@@ -79,7 +77,7 @@ router.get('/:id/view', function(req, res, next){
     var ebin = {
         title: plant.plantname,
         plantname: plant.plantname,
-        imageurl: plant.imageurl,
+        // imageurl: plant.imageurl,
         desc: plant.desc,
         specs: plant.specs,
         dateplanted: plant.dateplanted,
@@ -103,7 +101,7 @@ router.get('/', function(req, res, next) {
                return {
                   title: 'List of Plants',
                   plantname: plant.plantname,
-                  imageurl: plant.imageurl,
+                  //imageurl: plant.imageurl,
                   desc: plant.desc,
                   specs: plant.specs,
                   dateplanted: plant.dateplanted,
@@ -121,7 +119,6 @@ router.get('/create', function(req, res, next) {
   if (!req.isAuthenticated()) {
     return res.redirect('/');
   }
-
   var vm = {
     title: 'Add plant to garden',
     firstName: req.user.firstName
@@ -131,13 +128,7 @@ router.get('/create', function(req, res, next) {
 
 //
 
-// router.post('/upload', upload.single('file'), (req, res) => {
-//   // res.json({ file: req.file });
-//   //res.redirect('/');
-// });
-
-//
-router.post('/create', create.single('file'), function(req, res, next) {
+router.post('/create', upload.single('imageurl'),function(req, res, next) {
   userService.addPlant(req.body, function(err) {
       var vm = {
         title: 'Add a plant to garden',
@@ -146,8 +137,6 @@ router.post('/create', create.single('file'), function(req, res, next) {
       console.log(req.body);
       res.redirect('/plants');
   });
-
-  console.log(create)
 });
 
 //
@@ -162,7 +151,7 @@ router.get('/:id/edit',function(req, res, next){
     var ebin = {
         title: 'Edit '+ plant.plantname,
         plantname: plant.plantname,
-        imageurl: plant.imageurl,
+        // imageurl: plant.imageurl,
         desc: plant.desc,
         specs: plant.specs,
         dateplanted: plant.dateplanted,
@@ -178,7 +167,7 @@ router.get('/:id/edit',function(req, res, next){
 router.post('/:id/edit',function(req, res){
 
   var plantname = req.body.plantname;
-  var imageurl = req.body.imageurl;
+  // var imageurl = req.body.imageurl;
   var desc = req.body.desc;
   var specs = req.body.specs;
   var dateplanted = req.body.dateplanted;
@@ -195,7 +184,7 @@ router.post('/:id/edit',function(req, res){
 
     Garden.findById(req.params.id, function(err, plant){
       plant.plantname = plantname;
-      plant.imageurl = imageurl;
+      // plant.imageurl = imageurl;
       plant.desc = desc;
       plant.specs = specs;
       plant.dateplanted = dateplanted;

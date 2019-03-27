@@ -1,4 +1,4 @@
-<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" method="post">
+<form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" enctype="multipart/form-data" method="POST">
 	<h2 style='margin-bottom: 30px; padding-top: 15px;'>Add plant</h2>
 	<div class="form-group">
 		<label for="plantname">Plant name</label>
@@ -11,7 +11,7 @@
 
 	<div class="form-group">
 		<label for="imageurl">Image</label>
-		<input type="file" id="imageurl" name="imageurl" class="form-control" action="/create" enctype="multipart/form-data" value="{{this.imageurl}}"/>
+		<input type="file" id="imageurl" name="imageurl" class="form-control"/>
 	</div>
 
 	<div class="form-group">
