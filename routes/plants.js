@@ -128,19 +128,53 @@ router.get('/create', function(req, res, next) {
 
 //
 
-router.post('/create', upload.single('imageurl'),function(req, res, next) {
+
+
+router.post('/create', upload.single('file'), function(req, res, next) {
   userService.addPlant(req.body, function(err) {
       var vm = {
         title: 'Add a plant to garden',
-        input: req.body
+        input: req.body,
+        imageurl : req.file.filename
       };
-      console.log(req.body);
+
+      //var image = { imageurl : req.file.filename}
+
+      //var pack = Object.assign({}, vm, image);
+          //$.extend(ebin, json);
+      console.log(vm);
+      //res.json({ file: req.file });
       res.redirect('/plants');
   });
 });
 
 //
 
+// @route GET /image/:filename
+// @desc Display Image
+router.get('/image/:filename', (req, res) => {
+  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    // Check if file
+    if (!file || file.length === 0) {
+      return res.status(404).json({
+        err: 'No file exists'
+      });
+    }
+
+    // Check if image
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+      // Read output to browser
+      const readstream = gfs.createReadStream(file.filename);
+      readstream.pipe(res);
+    } else {
+      res.status(404).json({
+        err: 'Not an image'
+      });
+    }
+  });
+});
+
+//
 router.get('/:id/edit',function(req, res, next){
   
   if (!req.isAuthenticated()) {

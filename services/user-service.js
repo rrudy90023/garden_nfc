@@ -36,11 +36,11 @@ exports.addUser = function(user, next) {
 exports.addPlant = function(plant, next) {
     var newPlant = new Garden({
       plantname: plant.plantname,
-      imageurl: plant.imageurl,
+      // imageurl: plant.imageurl,
       desc: plant.desc,
       specs: plant.specs,
       dateplanted: plant.dateplanted,
-      scrapeurl: plant.scrapeurl
+      file: plant.file
     });
     
     newPlant.save(function(err) {
