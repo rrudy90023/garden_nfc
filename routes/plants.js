@@ -131,18 +131,20 @@ router.get('/create', function(req, res, next) {
 
 
 router.post('/create', upload.single('file'), function(req, res, next) {
-  userService.addPlant(req.body, function(err) {
+
       var vm = {
         title: 'Add a plant to garden',
         input: req.body,
-        imageurl : req.file.filename
       };
+      var model = vm.input;
 
-      //var image = { imageurl : req.file.filename}
+      model["file"] = req.file.filename;
+      //var file = { file : vm.file}
 
       //var pack = Object.assign({}, vm, image);
           //$.extend(ebin, json);
-      console.log(vm);
+  userService.addPlant(model, function(err) {
+      console.log(model);
       //res.json({ file: req.file });
       res.redirect('/plants');
   });
