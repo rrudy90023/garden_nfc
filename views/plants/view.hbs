@@ -1,10 +1,12 @@
-<div class="jumbotron-fluid" style='background-image: url(http://localhost:3000/plants/image/{{this.file}}); background-repeat: no-repeat; background-size:cover'>
+<div class="jumbotron-fluid" style='background-image: url(http://localhost:3000/plants/image/{{file}}); background-repeat: no-repeat; background-size:cover'>
+<div class="jumbotron-fluid">
+	{{!-- <img src="http://localhost:3000/plants/image/{{file}}"> --}}
 	<div class="plantlabel">
-		<h1 class="display-4">{{this.file}}</h1>
+		<h1 class="display-4">{{plantname}}</h1>
 		{{!-- <h2>{{botname}}</h2> --}}
 		<hr class="my-4">
 		{{!-- <span class="lead">{{release}}</span> --}}
-		<span class="lead">{{this.desc}}</span>
+		<span class="lead">{{desc}}</span>
 		{{!-- <span class="lead">{{rating}}</span> --}}
 	</div>
 </div>
