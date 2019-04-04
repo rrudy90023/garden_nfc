@@ -65,9 +65,8 @@ const storage = new GridFsStorage({
     });
   }
 });
+
 const upload = multer({ storage });
-
-
 //
 
 router.get('/:id/view', function(req, res, next){
@@ -77,7 +76,7 @@ router.get('/:id/view', function(req, res, next){
     var ebin = {
         title: plant.plantname,
         plantname: plant.plantname,
-        // imageurl: plant.imageurl,
+        file: plant.file,
         desc: plant.desc,
         specs: plant.specs,
         dateplanted: plant.dateplanted,
@@ -101,7 +100,7 @@ router.get('/', function(req, res, next) {
                return {
                   title: 'List of Plants',
                   plantname: plant.plantname,
-                  //imageurl: plant.imageurl,
+                  file: plant.file,
                   desc: plant.desc,
                   specs: plant.specs,
                   dateplanted: plant.dateplanted,
@@ -131,18 +130,13 @@ router.get('/create', function(req, res, next) {
 
 
 router.post('/create', upload.single('file'), function(req, res, next) {
-
       var vm = {
         title: 'Add a plant to garden',
         input: req.body,
       };
       var model = vm.input;
-
       model["file"] = req.file.filename;
-      //var file = { file : vm.file}
 
-      //var pack = Object.assign({}, vm, image);
-          //$.extend(ebin, json);
   userService.addPlant(model, function(err) {
       console.log(model);
       //res.json({ file: req.file });
@@ -187,7 +181,7 @@ router.get('/:id/edit',function(req, res, next){
     var ebin = {
         title: 'Edit '+ plant.plantname,
         plantname: plant.plantname,
-        // imageurl: plant.imageurl,
+        file: plant.file,
         desc: plant.desc,
         specs: plant.specs,
         dateplanted: plant.dateplanted,
@@ -200,10 +194,10 @@ router.get('/:id/edit',function(req, res, next){
 
 //
 
-router.post('/:id/edit',function(req, res){
+router.post('/:id/edit', upload.single('file'), function(req, res){
 
   var plantname = req.body.plantname;
-  // var imageurl = req.body.imageurl;
+  var file = req.file.filename;
   var desc = req.body.desc;
   var specs = req.body.specs;
   var dateplanted = req.body.dateplanted;
@@ -220,7 +214,7 @@ router.post('/:id/edit',function(req, res){
 
     Garden.findById(req.params.id, function(err, plant){
       plant.plantname = plantname;
-      // plant.imageurl = imageurl;
+      plant.file = file;
       plant.desc = desc;
       plant.specs = specs;
       plant.dateplanted = dateplanted;
