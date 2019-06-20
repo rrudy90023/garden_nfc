@@ -40,7 +40,8 @@ exports.addPlant = function(plant, next) {
       desc: plant.desc,
       specs: plant.specs,
       dateplanted: plant.dateplanted,
-      file: plant.file
+      file: plant.file,
+      picId: plant.picId
     });
     
     newPlant.save(function(err) {

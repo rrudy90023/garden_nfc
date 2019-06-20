@@ -26,15 +26,30 @@
 		<input type="file" id="imageurl" name="file" class="form-control" value="{{this.file}}"/>
 	</div>
 
+
 	<div class="form-submit">
 		<input type="submit" class="btn btn-lg btn-block spacer" value="Save Changes" />
 	</div>
 	<span style="color:red">{{error}}</span>
 </form>
 
-<form class="col-xs-12 col-md-8"  name="create-gallery-form" id="create-gallery-form" method="post" action="{{this.id/edit}}?method=delete">
+{{!-- <form class="col-xs-12 col-md-8"  name="create-gallery-form" id="create-gallery-form" method="POST" action="{{this.id/edit}}?method=DELETE">
 	<div class="form-submit">
 		<input type="submit" class="btn btn-lg btn-block spacer" name="delete" value="Delete plant" />
 	</div>
-</form>
+</form> --}}
 
+{{!-- 	{{#each files}}
+		<div class="">
+			<h5>{{this.filename}}</h5>
+			<img src="/plants/image/{{this.filename}}">
+			<form method="POST" action="files/{{this._id}}?method=DELETE">
+            	<button class="btn btn-danger btn-block mt-4">Delete</button>
+            </form>
+		</div>
+	{{/each}} --}}
+
+			<img src="/plants/image/{{this.file}}">
+			<form method="POST" action="../files/{{this.picId}}?method=DELETE">
+            	<button class="btn btn-danger btn-block mt-4">Delete</button>
+            </form>
