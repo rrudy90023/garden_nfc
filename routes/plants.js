@@ -118,6 +118,10 @@ router.get('/', function(req, res, next) {
     });
 });
 
+
+
+
+
 //
 
 router.get('/create', function(req, res, next) {
@@ -172,6 +176,7 @@ router.get('/files', (req, res) => {
   });
 });
 
+
 // @route GET /files/:filename
 // @desc  Display single file object
 router.get('/files/:filename', (req, res) => {
@@ -186,6 +191,7 @@ router.get('/files/:filename', (req, res) => {
     return res.json(file);
   });
 });
+
 
 // @route GET /image/:filename
 // @desc Display Image
@@ -214,8 +220,6 @@ router.get('/image/:filename', (req, res) => {
 //
 
 
-
-
 router.get('/:id/edit',function(req, res, next){
   
   if (!req.isAuthenticated()) {
@@ -240,11 +244,9 @@ router.get('/:id/edit',function(req, res, next){
         console.log(ebin);
         res.render('plants/edit', ebin);
       });
-
 });
 
 //
-
 
 
 router.post('/:id/edit', upload.single('file'), function(req, res){
@@ -293,26 +295,22 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
         res.redirect('/plants');
       });
     });
-
-
   }
-
-
-  //}
 });
 
 
 router.post('/:id', (req, res) => {
 
   if (req.query.method === "DELETE") {
+    gfs.remove({_id: picId, root: 'uploads'});
     Garden.findById(req.params.id, function(err, plant){
         plant.remove(function(err){
-          console.log("deleted all");
+
+          console.log("deleted all" + "  " + plant);
           res.redirect('/plants');
         });
     });
   }
-
 })
 
 //router.use('/files/picId', picId);
@@ -321,7 +319,7 @@ router.post('/files/:id', (req, res) => {
   console.log("deleted image called")
   if (req.query.method === "DELETE") {
     gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
-      res.redirect('/plants');
+      res.redirect('/files/:id');
     });
   };
 });
