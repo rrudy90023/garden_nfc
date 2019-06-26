@@ -1,23 +1,4 @@
 <h1 class="" style="text-align: center; padding: 15px; font-size: 12vw;">Sanctuary 3437</h1>
-<form class="form-signin" name="login-form" id="login-form" method="post" action="/users/login">
-  {{!-- <label for="email">Email</label> --}}
-  <input type="email" class="form-control" id="email" placeholder="Email address" name="email" required />
-  {{!-- <label for="password">Password</label> --}}
-  <input type="password" class="form-control" id="password" placeholder="Password" name="password" required />
-  <div class="form-group">
-    <input type="checkbox" id="rememberMe" name="rememberMe"  />
-    <label for="rememberMe">Remember me</label>
-  </div>
-  <div class="form-submit">
-    <input type="submit" class="btn btn-lg btn-block spacer" value="Log in" />
-  </div>
-
-    {{#if error}}
-    <div style="color:red;">{{error}}</div>
-    {{/if}}
-    
-  <a href="/users/create" class="btn btn-lg btn-block">Create an account</a>
-</form>
 
 
 

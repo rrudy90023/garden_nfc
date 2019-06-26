@@ -11,7 +11,44 @@ font-family: 'Playfair+Display', serif;
 /*text-align: center;*/
 background-color: lightgray;
 margin: 0;
+}
 
+.material-icons.md-36 { 
+font-size: 36px; 
+}
+
+.editIcons {
+position: relative;
+top: 10px;
+margin-right: 10px;
+}
+
+.addIcons {
+position: relative;
+}	
+
+
+.deleteIcon {
+background: url('../fonts/baseline-delete-24px.svg') no-repeat;
+width: 36px;
+height: 36px;
+position: relative;
+background-color: #dc3545;
+background-position: 26px 8px;
+background-size: 36px 36px;
+}
+
+
+.addPlant div {
+display: inline-block;
+}
+
+.lead {
+font-style: italic; 
+}
+
+textarea {
+white-space: pre-line;	
 }
 
 h3, h4, h5, label {
@@ -44,7 +81,16 @@ height: 100vh;
 .adminContainer {
 padding: 15px;
 }
+
+.modal-content, textarea {
+border-radius: 0!important;	
+}
+
+.modal-body {
+white-space: pre-line!important;
+}
 .plantlabel {
+cursor: pointer;
 height: auto;
 background-color: white;
 position: absolute;
@@ -59,6 +105,30 @@ padding: 15px;
 .linkcolor {
 color: black!important;
 background: white!important;
+}
+
+.closeIcon {
+cursor: pointer;	
+}
+
+.iconLink{
+background: transparent!important;
+text-decoration: none!important;	
+}
+
+.launchIcon {
+top: 13px;
+position: relative;
+left: 6px;
+}
+
+.infoIcon {
+position: relative;
+}
+
+
+hr, .mt-4, .my-4 {
+margin: 0!important;	
 }
 
 a:link {
@@ -135,6 +205,25 @@ margin-bottom: 20px;
 .addy div {
 margin-right: 30px;
 }
+
+.addyList {
+width: 100%;
+display: flex;
+margin-bottom: 20px;
+}
+
+
+.addyList input, .addyList a {
+width: 90px;
+height: 55px;
+margin-right: 30px;
+}
+
+.cookieCrumb {
+text-transform: uppercase;
+text-decoration: underline;
+}
+
 .head {
 width: 100%;
 position: relative;

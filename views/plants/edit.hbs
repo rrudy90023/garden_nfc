@@ -3,13 +3,16 @@
 
 	<h1>Edit</h1>
 	<div class="addy">
+		<a href="/plants" class="iconLink">
 		<div>
-			<a href="/plants"><h4>HOME</h4></a>
+			<i class="material-icons md-36">home</i>
 		</div>
-		<div><h4>/</h4>
+		</a>
+		<div>
+			<h4>></h4>
 		</div>
 		<div>
-			<h4>{{this.plantname}}</h4>
+			<h4 class="cookieCrumb">{{this.plantname}}</h4>
 		</div>
 	</div>
 	<div class="form-group">
@@ -17,22 +20,24 @@
 		<input type="text" id="plantname" name="plantname" class="form-control" required value="{{this.plantname}}"/>
 	</div>
 	<div class="form-group">
-		<label for="desc">Description</label>
-		<input type="text" id="desc" name="desc" class="form-control" required value="{{this.desc}}"/>
-	</div>
-
-	<div class="form-group">
 		<label for="specs">Specification</label>
 		<input type="text" id="specs" name="specs" class="form-control" required value="{{this.specs}}"/>
 	</div>
+	<div class="form-group">
+		<label for="desc">Description</label>
+		{{!-- <input type="text" id="desc" name="desc" class="form-control" required value="{{this.desc}}"/> --}}
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="13" id="desc" name="desc" required class="form-control">{{this.desc}}</textarea>
+	</div>
+
+
 
 	<div class="form-group">
-		<label for="dateplanted">Date planted</label>
-		<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{this.dateplanted}}"/>
+		<label for="dateplanted"><i class="material-icons md-36 editIcons">calendar_today</i>Date planted</label>
+		<input type="date" id="dateplanted" name="dateplanted" class="form-control" required value="{{this.dateplanted}}"/>
 	</div>
 
 	<div class="form-group">
-		<label for="imageurl">Image</label>
+		<label for="imageurl"><i class="material-icons md-36 editIcons">add_a_photo</i>Image</label>
 		<input type="file" id="imageurl" name="file" class="form-control" value="{{this.file}}"/>
 	</div>
 

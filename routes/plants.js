@@ -17,7 +17,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const conn = require('../conn');
-const picId = require('./picId');
+const admin = require('./admin');
 /* GET users listing. */
 const plants = express();
 
@@ -97,14 +97,13 @@ router.get('/:id/view', function(req, res, next){
 router.get('/', function(req, res, next) {
 
     if (!req.isAuthenticated()) {
-      return res.redirect('/');
+      return res.redirect('/admin');
     }
 
     Garden.find({}, function(err, gardens){
       var model = gardens.map(function (plant){
 
                return {
-                  title: 'List of Plants',
                   plantname: plant.plantname,
                   file: plant.file,
                   picId: plant.picId,
@@ -114,7 +113,7 @@ router.get('/', function(req, res, next) {
                   id: plant._id
                };
         });
-      res.render('plants/index', { "plantlist": model, "firstName": req.user.firstName });
+      res.render('plants/index', { "title": "Admin", "plantlist": model, "firstName": req.user.firstName });
     });
 });
 
@@ -127,7 +126,7 @@ router.get('/', function(req, res, next) {
 router.get('/create', function(req, res, next) {
 
   if (!req.isAuthenticated()) {
-    return res.redirect('/');
+    return res.redirect('/admin');
   }
   var vm = {
     title: 'Add plant to garden',
@@ -223,7 +222,7 @@ router.get('/image/:filename', (req, res) => {
 router.get('/:id/edit',function(req, res, next){
   
   if (!req.isAuthenticated()) {
-    return res.redirect('/');
+    return res.redirect('/admin');
   }
 
       Garden.findById(req.params.id, function(err, plant){
@@ -319,7 +318,7 @@ router.post('/files/:id', (req, res) => {
   console.log("deleted image called")
   if (req.query.method === "DELETE") {
     gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
-      res.redirect('/files/:id');
+      res.redirect('/plants');
     });
   };
 });

@@ -1,18 +1,27 @@
 <form class="col-xs-12 col-md-8" name="create-gallery-form" id="create-gallery-form" enctype="multipart/form-data" method="POST">
-	<h2 style='margin-bottom: 30px; padding-top: 15px;'>Add plant</h2>
+{{!-- 	<div class="addPlant">
+		<div><i class="material-icons md-36 addIcons">add_box</i></div>	
+		<div><h2 style='margin-bottom: 30px; padding-top: 15px;'>Add plant</h2></div>
+	</div> --}}
+	<div class="addy">
+		<a href="/plants" class="iconLink">
+		<div>
+			<i class="material-icons md-36">home</i>
+		</div>
+		</a>
+		<div>
+			<h4>></h4>
+		</div>
+
+		<div>
+			<h4 class="cookieCrumb">Add plant</h4>
+		</div>
+		<div><i class="material-icons md-36 addIcons">add_box</i></div>	
+	</div>
+
 	<div class="form-group">
 		<label for="plantname">Plant name</label>
 		<input type="text" id="plantname" name="plantname" class="form-control" required value="{{input.plantname}}"/>
-	</div>
-
-	<div class="form-group">
-		<label for="imageurl">Image</label>
-		<input type="file" id="imageurl" name="file" class="form-control" required value="{{input.file}}" />
-	</div>
-
-	<div class="form-group">
-		<label for="desc">Description</label>
-		<input type="text" id="desc" name="desc" class="form-control" required value="{{input.desc}}"/>
 	</div>
 
 	<div class="form-group">
@@ -21,10 +30,21 @@
 	</div>
 
 	<div class="form-group">
-		<label for="dateplanted">Date planted</label>
-		<input type="text" id="dateplanted" name="dateplanted" class="form-control" required value="{{input.dateplanted}}"/>
+		<label for="desc">Description</label>
+		{{!-- <input type="text" id="desc" name="desc" class="form-control" required value="{{input.desc}}"/> --}}
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="13" id="desc" name="desc" required class="form-control">{{input.desc}}</textarea>
 	</div>
 
+
+
+	<div class="form-group">
+		<label for="dateplanted"><i class="material-icons md-36 editIcons">calendar_today</i>Date planted</label>
+		<input type="date" id="dateplanted" name="dateplanted" class="form-control" required value="{{input.dateplanted}}"/>
+	</div>
+	<div class="form-group">
+		<label for="imageurl"><i class="material-icons md-36 editIcons">add_a_photo</i>Image</label>
+		<input type="file" id="imageurl" name="file" class="form-control" required value="{{input.file}}" />
+	</div>
 	<div class="form-submit">
 		<input type="submit" class="btn btn-lg btn-block spacer" value="Add plant to garden" />
 	</div>

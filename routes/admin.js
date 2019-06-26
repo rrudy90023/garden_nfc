@@ -3,14 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // if (req.user) {
-  //   return res.redirect('/plants');
-  // }
+  if (req.user) {
+    return res.redirect('/plants');
+  }
   var vm = {
-    title: 'Welcome to Sanctuary 3437',
+    title: 'Login',
     error: req.flash('error')
   };
-  res.render('index', vm);
+  res.render('admin', vm);
 });
 
 module.exports = router;

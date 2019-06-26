@@ -8,7 +8,6 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 
-console.log("picId route")
 
 router.delete('/files/:id', (req, res) => {
   console.log("deleted image called")

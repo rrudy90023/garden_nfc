@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var userService = require('../services/user-service');
 var config = require('../config');
+const admin = require('./admin');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -60,7 +61,7 @@ router.post('/login',
 router.get('/logout', function(req, res, next) {
   req.logout();
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/admin');
 });
 
 module.exports = router;

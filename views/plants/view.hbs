@@ -1,13 +1,28 @@
 {{!-- <div class="jumbotron-fluid" style='background-image: url(http://localhost:3000/plants/image/{{file}}); background-repeat: no-repeat; background-size:cover'> --}}
 <div class="jumbotron-fluid" style='background-image: url(https://sanctuary3437.herokuapp.com/plants/image/{{file}}); background-repeat: no-repeat; background-size:cover'>
 <div class="jumbotron-fluid">
-	{{!-- <img src="http://localhost:3000/plants/image/{{file}}"> --}}
-	<div class="plantlabel">
+
+	<div class="plantlabel" data-toggle="modal" data-target="#exampleModalCenteredScrollable">
 		<h1 class="display-4">{{plantname}}</h1>
-		{{!-- <h2>{{botname}}</h2> --}}
 		<hr class="my-4">
-		{{!-- <span class="lead">{{release}}</span> --}}
-		<span class="lead">{{desc}}</span>
-		{{!-- <span class="lead">{{rating}}</span> --}}
+		<span class="lead">{{specs}}</span>
+		<i class="material-icons md-36 launchIcon">info</i>
 	</div>
+</div>
+
+<div id="exampleModalCenteredScrollable" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredScrollableTitle" aria-modal="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" data-dismiss="modal">
+        <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Description</h5>
+			<i class="material-icons md-36 closeIcon">close</i>
+      </div>
+      <div class="modal-body">
+      	<div><b>Date planted: {{dateplanted}}</b></div>
+		{{desc}}
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
 </div>
