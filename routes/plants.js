@@ -113,6 +113,7 @@ router.get('/', function(req, res, next) {
                   id: plant._id
                };
         });
+      console.log(model)
       res.render('plants/index', { "title": "Admin", "plantlist": model, "firstName": req.user.firstName });
     });
 });
@@ -301,8 +302,9 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
 router.post('/:id', (req, res) => {
 
   if (req.query.method === "DELETE") {
-    gfs.remove({_id: picId, root: 'uploads'});
+    
     Garden.findById(req.params.id, function(err, plant){
+        gfs.remove({_id: plant.picId, root: 'uploads'});
         plant.remove(function(err){
 
           console.log("deleted all" + "  " + plant);
@@ -316,10 +318,12 @@ router.post('/:id', (req, res) => {
 
 router.post('/files/:id', (req, res) => {
   console.log("deleted image called")
+
   if (req.query.method === "DELETE") {
     gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
       res.redirect('/plants');
     });
+
   };
 });
 
