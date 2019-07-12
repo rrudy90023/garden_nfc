@@ -17,6 +17,25 @@ margin: 0;
 font-size: 36px; 
 }
 
+.headTop {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+text-align: center;
+margin: 0 auto;
+min-height: 200px;
+align-items: center;
+}
+
+.titleHead {
+font-size: 20vw;
+position: absolute;
+color: black;	
+}
+
+
 .editIcons {
 position: relative;
 top: 10px;
@@ -27,6 +46,11 @@ margin-right: 10px;
 position: relative;
 }	
 
+video {  
+width:100%; 
+max-width:100%; 
+height:auto; 
+}
 
 .deleteIcon {
 background: url('../fonts/baseline-delete-24px.svg') no-repeat;

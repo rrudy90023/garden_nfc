@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   //   return res.redirect('/plants');
   // }
   var vm = {
-    title: 'Welcome to Sanctuary 3437',
+    title: 'Welcome to Sanctuary 17',
     error: req.flash('error')
   };
   res.render('index', vm);

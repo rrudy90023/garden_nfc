@@ -10,7 +10,7 @@ const Grid = require('gridfs-stream');
 
 
 router.delete('/files/:id', (req, res) => {
-  console.log("deleted image called")
+  //console.log("deleted image called")
   gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
 
     
