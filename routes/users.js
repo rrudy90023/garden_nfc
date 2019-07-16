@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/create', function(req, res, next) {
   var vm = {
+    nav: true,
     title: 'Create an account'
   };
   res.render('users/create', vm);

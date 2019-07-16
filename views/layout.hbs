@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>SANCTUARY 17{{#if title}} - {{title}}{{/if}}</title>
+        <title>S17{{#if title}} - {{title}}{{/if}}</title>
         <meta name="description" content="" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/components/modal/">
@@ -11,12 +11,32 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+          //menu
+          //sticky header
+          window.onscroll = function() {myFunction()};
+          // Get the header
+          var header = document.getElementById("myHeader");
+          // Get the offset position of the navbar
+          var sticky = header.offsetTop;
+          // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+          function myFunction() {
+            if (window.pageYOffset > sticky) {
+              header.classList.add("sticky");
+            } else {
+              header.classList.remove("sticky");
+            }
+          }
+
+        });
+        </script>
     <body>
         <div id="page" class="container-fluid">
 
             {{#if firstName}}
             <div id="greeting" class="row head">
-            	<h3>SANCTUARY 17</h3><h1 class="rtSpacer">Hi, {{firstName}}!</h1>
+            	<h3>S17</h3><h1 class="rtSpacer">Hi, {{firstName}}!</h1>
             	<a href="/users/logout" class="btn btn-link linkcolor">Log out</a>
                 <a href="/plants/create" class="btn btn-link linkcolor">Add plant</a>
             </div>
@@ -28,7 +48,40 @@
 								
 	        <footer id="colophon" role="contentinfo">
 	        </footer>
-        </div> 
+        </div>
+        {{#if nav}}
+            <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="overlay-content">
+                <a href="#">Inhabitants</a>
+                <a href="#">Initiate</a>
+                <a href="#">Mission</a>
+              </div>
+            </div>
+            <div class="header nav" id="myHeader">
+                <ul>
+                  <li><a href="#" class="burger" id="trigger-overlay" onclick="openNav()">☰</a></li>
+                </ul>
+            </div>
+        {{/if}} 
+
+
+
+        <script type="text/javascript">
+          //menu
+          function openNav() {
+            console.log("openNav")
+            document.getElementById("myNav").style.display = "block";
+          }
+
+          function closeNav() {
+            console.log("closeNav")
+            document.getElementById("myNav").style.display = "none";
+          }
+
+        </script>
+
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>      

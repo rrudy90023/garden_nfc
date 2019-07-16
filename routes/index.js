@@ -7,9 +7,11 @@ router.get('/', function(req, res, next) {
   //   return res.redirect('/plants');
   // }
   var vm = {
-    title: 'Welcome to Sanctuary 17',
+  	nav: true,
+    title: 'Welcome to S17',
     error: req.flash('error')
   };
+  console.log(vm.nav)
   res.render('index', vm);
 });
 

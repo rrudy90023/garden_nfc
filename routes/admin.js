@@ -7,6 +7,7 @@ router.get('/', function(req, res, next) {
     return res.redirect('/plants');
   }
   var vm = {
+  	nav: false,
     title: 'Login',
     error: req.flash('error')
   };
