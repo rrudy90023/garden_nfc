@@ -4,7 +4,6 @@ var userService = require('../services/user-service');
 const Email = require('../models/email').Email;
 var config = require('../config');
 
-
 /* GET email listing. */
 router.get('/', function(req, res, next) {
   Email.find({}, function(err, emails){
@@ -16,9 +15,6 @@ router.get('/', function(req, res, next) {
   })
 });
 
-
-
-
 router.get('/join', function(req, res, next) {
   var vm = {
     title: 'Join s17'
@@ -26,10 +22,7 @@ router.get('/join', function(req, res, next) {
   res.render('emails/join', vm);
 });
 
-
-
 router.post('/join', function(req, res, next) {
-
   userService.addEmail(req.body, function(err) {
     if (err) {
       console.log(err);
@@ -37,13 +30,15 @@ router.post('/join', function(req, res, next) {
         input: req.body,
         error: err
       };
-
       return res.render('emails/join', vm);
     }
 
-    // req.login(req.body, function(err) {
-    //   res.redirect('/plants');
-    // });
+    req.login(req.body, function(err) {
+      var vm = {
+        input: req.body
+      }
+      res.render('emails/oneofus', vm);
+    });
   });
 });
 

@@ -12,9 +12,9 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
+
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
-          //menu
           //sticky header
           window.onscroll = function() {myFunction()};
           // Get the header
@@ -33,7 +33,8 @@
 
           AOS.init();
         });
-        </script>
+    </script>
+
     <body class="container-fluid">
         <div id="page">
 
@@ -57,57 +58,78 @@
                   <li><a href="javascript:void(0);" onclick="openNav()" class="burger">☰</a></li>
                 </ul>
             </div>
-        <!-- open/close -->
-        <!-- The overlay -->
-        <div id="myNav" class="overlay">
+            <!-- open/close -->
+            <!-- The overlay -->
+            <div id="myNav" class="overlay">
 
-          <!-- Button to close the overlay navigation -->
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <!-- Button to close the overlay navigation -->
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-          <!-- Overlay content -->
-          <div class="overlay-content">
-            <a href="javascript:void(0)"><h3>Inhabitants</h3></a>
-            <a href="javascript:void(0)"><h3>Initiate</h3></a>
-            <a href="javascript:void(0)"><h3>Contact</h3></a>
-          </div>
+              <!-- Overlay content -->
+              <div class="overlay-content">
+                <a href="javascript:void(0)"><h3>Inhabitants</h3></a>
+                <a href="javascript:void(0)"><h3>Initiate</h3></a>
+                <a href="javascript:void(0)"><h3>Contact</h3></a>
+              </div>
 
-        </div>
-
-        <div class="introCopy">
-            <div>
-                <h1>ECO-</h1>
             </div>
-            <div id="wordRotate">
-                <h1>INFORM</h1>
+
+            <div class="introCopy">
+                <div>
+                    <h1>ECO-</h1>
+                </div>
+                <div id="wordRotate">
+                    <h1>INFORM</h1>
+                </div>
             </div>
-        </div>
 
-        <script type="text/javascript">
-            var textSwap = document.getElementById("wordRotate");
-            var introCont = document.querySelector(".introCopy");
-            setTimeout(function(){
-                textSwap.querySelector("h1").innerHTML = "PROTECT";
-            },1000);
-            setTimeout(function(){
-                textSwap.querySelector("h1").innerHTML = "FIRST";
-            },2000);
-            setTimeout(function(){
-                introCont.classList.add("intro-scale");
-            },4000);
+            <script type="text/javascript">
 
-            /* Open */
-            function openNav() {
-              document.getElementById("myNav").style.display = "block";
-              console.log("open")
-            }
+                var textSwap = document.getElementById("wordRotate");
+                var introCont = document.querySelector(".introCopy");
 
-            /* Close */
-            function closeNav() {
-              document.getElementById("myNav").style.display = "none";
-              console.log("close")
-            }
+                setTimeout(function(){
+                    textSwap.querySelector("h1").innerHTML = "PROTECT";
+                },1000);
+                setTimeout(function(){
+                    textSwap.querySelector("h1").innerHTML = "FIRST";
+                },2000);
+                setTimeout(function(){
+                    introCont.classList.add("intro-scale");
+                },4000);
 
-        </script>
+                /* Open */
+                function openNav() {
+                  document.getElementById("myNav").style.display = "block";
+                  console.log("open");
+                }
+
+                /* Close */
+                function closeNav() {
+                  document.getElementById("myNav").style.display = "none";
+                  console.log("close");
+                }
+
+                var initBtn = document.getElementById("initiateBtn");
+                var ourInHabit = document.getElementById("inhabitBtn");
+
+                function handleInhabits(evt) {
+                  evt.preventDefault();
+                  window.open("/inhabitants", '_blank');
+                  console.log('our friends');
+                }
+                ourInHabit.addEventListener('touchstart', handleInhabits);
+                ourInHabit.addEventListener('click', handleInhabits);
+
+                function handleInit(evt) {
+                  evt.preventDefault();
+                  window.open("emails/join", '_blank');
+                  console.log('join us');
+                }
+                initBtn.addEventListener('touchstart', handleInit);
+                initBtn.addEventListener('click', handleInit);         
+
+            </script>
 
         {{/if}} 
 

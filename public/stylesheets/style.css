@@ -13,7 +13,9 @@ background-color: #ccc;
 margin: 0;
 }
 
-
+#initiateBtn, #inhabitBtn {
+cursor: pointer;
+}
 
 .material-icons.md-36 { 
 font-size: 36px; 
@@ -49,7 +51,7 @@ color: coral;
 }
 
 .storyCopy h3 {
-font-size: 7em;
+font-size: 8vw;
 overflow-wrap: break-word;
 color: black;
 }
@@ -75,6 +77,15 @@ font-size: 11vw!important;
 }
 
 
+@media only screen and (max-width: 420px) {
+
+.storyCopy h3, .copyCont h3, .ourCont h3 {
+font-size: 4em;
+}
+
+
+}
+
 .img-fluid {
 width: 100%;
 height: auto;
@@ -85,7 +96,9 @@ background-color: white;
 width: 30vw;
 min-height: 26vw;
 position: absolute;
-background: url("../images/stucco_2_1024.jpg") no-repeat;
+background: url("http://rudes.de/s17/stucco_2_1024.jpg") no-repeat;
+background-size: cover;
+
 }
 
 .pink {
@@ -101,15 +114,21 @@ background-color: #63687d;
 }
 
 .stuccoOne {
-background: url("../images/stucco_1_1024.jpg") repeat;
+background: url("http://rudes.de/s17/stucco_1_1024.jpg") repeat;
+background-size: contain;
+width: 100%;
 }
 
 .stuccoThree {
-background: url("../images/stucco_3_1024.jpg") no-repeat;
+background: url("http://rudes.de/s17/stucco_3_1024.jpg") no-repeat;
+background-size: cover;
+width: 100%;
 }
 
 .stuccoFour {
-background: url("../images/stucco_4_1024.jpg") no-repeat;
+background: url("http://rudes.de/s17/stucco_4_1024.jpg") no-repeat;
+background-size: cover;
+width: 100%;
 }
 
 .titleHead {
@@ -313,6 +332,20 @@ background: transparent;
 .btn, input {
 border-radius: 0px!important;
 }
+
+
+.oneOfus, .createUsers {
+max-width: 380px;
+padding: 15px;
+margin: auto;
+right: 0;
+left: 0;
+bottom: 0;
+top: 0;
+position: absolute;
+height: 580px;	
+}
+
 
 .form-signin {
 max-width: 330px;
