@@ -15,12 +15,15 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/join', function(req, res, next) {
+
+router.get('/join', function(req, res) {
   var vm = {
     title: 'Join s17'
   };
-  res.render('emails/join', vm);
+  res.render('/join', vm);
 });
+
+
 
 router.post('/join', function(req, res, next) {
   userService.addEmail(req.body, function(err) {
@@ -37,7 +40,7 @@ router.post('/join', function(req, res, next) {
       var vm = {
         input: req.body
       }
-      res.render('emails/oneofus', vm);
+      res.render('/oneofus', vm);
     });
   });
 });
