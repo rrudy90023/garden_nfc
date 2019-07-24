@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   // }
   var vm = {
   	nav: true,
-    title: 'Welcome to S17',
+    title: 'Welcome to s17',
     error: req.flash('error')
   };
   console.log(vm.nav)

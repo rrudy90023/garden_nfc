@@ -2,11 +2,20 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var userService = require('../services/user-service');
+const User = require('../models/user').User;
 var config = require('../config');
 const admin = require('./admin');
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  User.find({}, function(err, users){
+    var userMap = {};
+      for(var i = 0; i<users.length; i++){ 
+      userMap[i] = users;
+      };
+    res.json(users);
+  })
 });
 
 //

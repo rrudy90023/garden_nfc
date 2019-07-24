@@ -1,6 +1,7 @@
 var bcrypt = require('bcrypt');
 var User = require('../models/user').User;
 var Garden = require('../models/garden').Garden;
+var Email = require('../models/email').Email;
 
 
 exports.addUser = function(user, next) {
@@ -26,12 +27,6 @@ exports.addUser = function(user, next) {
 };
 
 
-// router.param("id", (req, res, id) => {
-//   Meeting.findById(id)
-//     .then(meeting => { meeting })
-//     .catch(err => res.status(404).send("Meeting not found"))
-// });
-
 
 exports.addPlant = function(plant, next) {
     var newPlant = new Garden({
@@ -48,6 +43,20 @@ exports.addPlant = function(plant, next) {
       next(null);
     });
 };
+
+
+exports.addEmail = function(email, next) {
+    var newEmail = new Email({
+      firstName: email.firstName,
+      lastName: email.lastName,
+      email: email.email.toLowerCase(),
+    });
+    
+    newEmail.save(function(err) {
+      next(null);
+    });
+};
+
 
 //
 

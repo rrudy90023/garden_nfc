@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>S17{{#if title}} - {{title}}{{/if}}</title>
+        <title>s17{{#if title}} - {{title}}{{/if}}</title>
         <meta name="description" content="" />
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,8 +11,6 @@
         <link rel='stylesheet' href='/stylesheets/style.css' type='text/css' media='all' /> 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-        <script src="../js/modernizr.custom.js"></script>
     </head>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
@@ -41,7 +39,7 @@
 
             {{#if firstName}}
             <div id="greeting" class="row head">
-            	<h3>S17</h3><h1 class="rtSpacer">Hi, {{firstName}}!</h1>
+            	<h3>s17</h3><h1 class="rtSpacer">Hi, {{firstName}}!</h1>
             	<a href="/users/logout" class="btn btn-link linkcolor">Log out</a>
                 <a href="/plants/create" class="btn btn-link linkcolor">Add plant</a>
             </div>
@@ -56,52 +54,66 @@
         {{#if nav}}
             <div class="header nav" id="myHeader">
                 <ul>
-                  <li><a href="javascript:void(0);" class="burger" id="trigger-overlay">☰</a></li>
+                  <li><a href="javascript:void(0);" onclick="openNav()" class="burger">☰</a></li>
                 </ul>
             </div>
         <!-- open/close -->
-            <div class="overlay overlay-scale">
-                <button type="button" class="overlay-close">Close</button>
-                <nav>
-                    <ul>
-                        <li><a href="#">Inhabitants</a></li>
-                        <li><a href="#">Initiate</a></li>
-                        <li><a href="#">Mission</a></li>
-                    </ul>
-                </nav>
+        <!-- The overlay -->
+        <div id="myNav" class="overlay">
+
+          <!-- Button to close the overlay navigation -->
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <a href="javascript:void(0)"><h3>Inhabitants</h3></a>
+            <a href="javascript:void(0)"><h3>Initiate</h3></a>
+            <a href="javascript:void(0)"><h3>Contact</h3></a>
+          </div>
+
+        </div>
+
+        <div class="introCopy">
+            <div>
+                <h1>ECO-</h1>
             </div>
-
-
-
-            <div class="introCopy">
-                <div>
-                    <h1>ECO-</h1>
-                </div>
-                <div id="wordRotate">
-                    <h1>INFORM</h1>
-                </div>
+            <div id="wordRotate">
+                <h1>INFORM</h1>
             </div>
-            <script type="text/javascript">
-                var textSwap = document.getElementById("wordRotate");
-                var introCont = document.querySelector(".introCopy");
-                setTimeout(function(){
-                    textSwap.querySelector("h1").innerHTML = "PROTECT";
-                },1000);
-                setTimeout(function(){
-                    textSwap.querySelector("h1").innerHTML = "FIRST";
-                },2000);
-                setTimeout(function(){
-                    introCont.classList.add("intro-scale");
-                },4000);
-            </script>
+        </div>
+
+        <script type="text/javascript">
+            var textSwap = document.getElementById("wordRotate");
+            var introCont = document.querySelector(".introCopy");
+            setTimeout(function(){
+                textSwap.querySelector("h1").innerHTML = "PROTECT";
+            },1000);
+            setTimeout(function(){
+                textSwap.querySelector("h1").innerHTML = "FIRST";
+            },2000);
+            setTimeout(function(){
+                introCont.classList.add("intro-scale");
+            },4000);
+
+            /* Open */
+            function openNav() {
+              document.getElementById("myNav").style.display = "block";
+              console.log("open")
+            }
+
+            /* Close */
+            function closeNav() {
+              document.getElementById("myNav").style.display = "none";
+              console.log("close")
+            }
+
+        </script>
 
         {{/if}} 
 
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="/js/classie.js"></script>
-        <script src="/js/demo1.js"></script>      
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
     </body>
 </html>
