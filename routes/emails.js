@@ -20,7 +20,7 @@ router.get('/join', function(req, res) {
   var vm = {
     title: 'Join s17'
   };
-  res.render('/join', vm);
+  res.render('join', vm);
 });
 
 
@@ -40,7 +40,7 @@ router.post('/join', function(req, res, next) {
       var vm = {
         input: req.body
       }
-      res.render('/oneofus', vm);
+      res.render('oneofus', vm);
     });
   });
 });
