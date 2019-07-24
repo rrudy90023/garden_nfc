@@ -115,7 +115,7 @@
 
                 function handleInhabits(evt) {
                   evt.preventDefault();
-                  window.open("/inhabitants", '_blank');
+                  window.open("/inhabitants", '_self');
                   console.log('our friends');
                 }
                 ourInHabit.addEventListener('touchstart', handleInhabits);
@@ -123,7 +123,7 @@
 
                 function handleInit(evt) {
                   evt.preventDefault();
-                  window.open("emails/join", '_blank');
+                  window.open("emails/join", '_self');
                   console.log('join us');
                 }
                 initBtn.addEventListener('touchstart', handleInit);
