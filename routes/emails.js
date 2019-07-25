@@ -7,13 +7,47 @@ var config = require('../config');
 /* GET email listing. */
 router.get('/', function(req, res, next) {
   Email.find({}, function(err, emails){
-    var emailMap = {};
-      for(var i = 0; i<emails.length; i++){ 
-      emailMap[i] = emails;
-      };
-    res.json(emails);
+
+    var model = emails.map(function (email){
+      //console.log(typeof email)
+      return {
+        firstName: email.firstName,
+        lastName: email.lastName,
+        email: email.email
+
+      }
+     
+
+    });
+      var emailList = Object.assign({emails});
+      console.log(typeof model)
+      res.json(emailList);
   })
+
+
 });
+
+
+
+    // Garden.find({}, function(err, gardens){
+    //   var model = gardens.map(function (plant){
+
+    //            return {
+    //               plantname: plant.plantname,
+    //               file: plant.file,
+    //               picId: plant.picId,
+    //               desc: plant.desc,
+    //               specs: plant.specs,
+    //               dateplanted: plant.dateplanted,
+    //               id: plant._id
+    //            };
+    //     });
+    //   //console.log(model)
+    //   res.render('plants/index', { "title": "Admin", "plantlist": model, "firstName": req.user.firstName });
+    // });
+
+
+
 
 
 router.get('/join', function(req, res) {
