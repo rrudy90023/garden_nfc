@@ -24,13 +24,18 @@
           // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
           function myFunction() {
             if (window.pageYOffset > sticky) {
-              header.classList.add("sticky");
+                header.classList.add("sticky");
             } else {
-              header.classList.remove("sticky");
+                header.classList.remove("sticky");
+            }
+            if(window.scrollY >= 700) { 
+                document.getElementById("insectOne").src="http://rudes.de/s17/ladybutterfly_1_1024.jpg";
+                document.getElementById("insectTwo").src="http://rudes.de/s17/hopper_2_1024.jpg";
+            } else {
+                document.getElementById("insectOne").src="http://rudes.de/s17/hopper_1_1024.jpg";
+                document.getElementById("insectTwo").src="http://rudes.de/s17/catepillar_1_1024.jpg";
             }
           }
-
-
           AOS.init();
         });
     </script>
@@ -67,19 +72,21 @@
 
               <!-- Overlay content -->
               <div class="overlay-content">
-                <a href="javascript:void(0)"><h3>Inhabitants</h3></a>
-                <a href="javascript:void(0)"><h3>Initiate</h3></a>
-                <a href="javascript:void(0)"><h3>Contact</h3></a>
+                <a href="/Inhabitants"><h3>Inhabitants</h3></a>
+                <a href="/emails/join"><h3>Initiate</h3></a>
+                <a href="mailto:rrudy90023@gmail.com"><h3>Contact</h3></a>
               </div>
 
             </div>
 
             <div class="introCopy">
-                <div>
-                    <h1>ECO-</h1>
-                </div>
-                <div id="wordRotate">
-                    <h1>INFORM</h1>
+                <div class="introParent">
+                    <div>
+                        <h1>ECO-</h1>
+                    </div>
+                    <div id="wordRotate">
+                        <h1>INFORM</h1>
+                    </div>
                 </div>
             </div>
 
@@ -128,6 +135,7 @@
                 }
                 initBtn.addEventListener('touchstart', handleInit);
                 initBtn.addEventListener('click', handleInit);         
+
 
             </script>
 

@@ -1,15 +1,46 @@
 {
 
 "inhabitants": [
-
+{
+"desc":"House Finch",
+"preview":"http://rudes.de/s17/birds_1_1024.jpg"
+},
 {
 "desc":"A catepillar",
 "preview":"http://rudes.de/s17/catepillar_1_1024.jpg"
 },
 {
 "desc":"A grasshopper",
+"preview":"http://rudes.de/s17/hopper_2_1024.jpg"
+},
+{
+"desc":"Another grasshopper",
 "preview":"http://rudes.de/s17/hopper_1_1024.jpg"
+},
+{
+"desc":"Ladybug",
+"preview":"http://rudes.de/s17/ladybug_1_1024.jpg"
+},
+{
+"desc":"Lady Butterfly",
+"preview":"http://rudes.de/s17/ladybutterfly_1_1024.jpg"
+},
+{
+"desc":"Snail shell",
+"preview":"http://rudes.de/s17/shell_1_1024.jpg"
+},
+{
+"desc":"Mushrooms",
+"preview":"http://rudes.de/s17/shrooms_1_1024.jpg"
+},
+{
+"desc":"Spider",
+"preview":"http://rudes.de/s17/spider_1_1024.jpg"
+},
+{
+"desc":"Home",
+"preview":"http://rudes.de/s17/pinksky_1_1024.jpg"
 }
-
 ]
+
 }

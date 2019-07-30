@@ -1,11 +1,19 @@
-	
-<h1>{{this.title}}</h1>
-
-
-
-<ul>
-	{{#each appdata.inhabitants}}
-		<li><img src="{{this.preview}}"><p>{{this.desc}}</p></li>
-	{{/each}}
-</ul>
+<div class="homeBtn">
+	<a href="/"><i class="material-icons md-48">home</i></a>
 </div>
+<div class="row imageGrid" style="background: url('http://rudes.de/s17/stucco_2_1024.jpg') repeat;">
+	<div class="col-2 col-md-4"></div>
+	<h1 class="col-8 col-md-4">{{this.title}}</h1>
+	<div class="col-2 col-md-4"></div>
+	{{#each appdata.inhabitants}}
+	<div class="col-1 col-md-3"></div>
+		<div class="col-10 col-md-6">
+			<img src="{{this.preview}}" data-aos="fade" class="img-fluid"><p>{{this.desc}}</p>
+		</div>
+	<div class="col-1 col-md-3"></div>
+	{{/each}}
+</div>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript">
+	AOS.init();
+</script>

@@ -24,5 +24,4 @@ router.get('/inhabitants', function(req, res) {
 	  	title: 'Our Inhabitants',
 	  	friends: myFriends
 	  });
-
 });

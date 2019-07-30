@@ -21,6 +21,11 @@ cursor: pointer;
 font-size: 36px; 
 }
 
+.material-icons.md-48 { 
+font-size: 48px; 
+}
+
+
 .padCopy {
 padding: 3%;	
 }
@@ -30,6 +35,9 @@ color: black;
 
 }
 
+.introParent {
+
+}
 
 .copyCont h3{
 font-size: 8em;
@@ -86,6 +94,13 @@ font-size: 4em;
 
 }
 
+.homeBtn {
+position: fixed;
+top: 1em;
+right: 1em;
+z-index: 99;
+}
+
 .img-fluid {
 width: 100%;
 height: auto;
@@ -97,8 +112,16 @@ width: 30vw;
 min-height: 26vw;
 position: absolute;
 background: url("http://rudes.de/s17/stucco_2_1024.jpg") no-repeat;
-background-size: cover;
 
+}
+
+.imageGrid h1{
+background-color: coral;
+text-align: center;
+}
+
+.imageGrid p {
+background-color: coral;	
 }
 
 .pink {
