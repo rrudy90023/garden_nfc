@@ -19,6 +19,10 @@
           window.onscroll = function() {myFunction()};
           // Get the header
           var header = document.getElementById("myHeader");
+          var spiderImg = document.getElementById("spiderImg");
+          var hopperImg = document.getElementById("hopperImg");
+          var ladyImg = document.getElementById("ladyImg");
+          var catImg = document.getElementById("catImg");
           // Get the offset position of the navbar
           var sticky = header.offsetTop;
           // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
@@ -29,14 +33,20 @@
                 header.classList.remove("sticky");
             }
             if(window.scrollY >= 700) { 
-                document.getElementById("insectOne").src="http://rudes.de/s17/ladybutterfly_1_1024.jpg";
-                document.getElementById("insectTwo").src="http://rudes.de/s17/hopper_2_1024.jpg";
+                hopperImg.style.display = "none";
+                catImg.style.display = "none";
+                spiderImg.style.display = "block";
+                ladyImg.style.display = "block";
+                
             } else {
-                document.getElementById("insectOne").src="http://rudes.de/s17/hopper_1_1024.jpg";
-                document.getElementById("insectTwo").src="http://rudes.de/s17/catepillar_1_1024.jpg";
+                spiderImg.style.display = "none"
+                catImg.style.display = "block";
+                hopperImg.style.display = "block";
+                ladyImg.style.display = "none";
+                
             }
           }
-          AOS.init();
+          
         });
     </script>
 
@@ -95,6 +105,10 @@
                 var textSwap = document.getElementById("wordRotate");
                 var introCont = document.querySelector(".introCopy");
 
+                function initAos() {
+                    AOS.init();
+                };
+
                 setTimeout(function(){
                     textSwap.querySelector("h1").innerHTML = "PROTECT";
                 },1000);
@@ -103,6 +117,7 @@
                 },2000);
                 setTimeout(function(){
                     introCont.classList.add("intro-scale");
+                    initAos();
                 },4000);
 
                 /* Open */
@@ -116,27 +131,79 @@
                   document.getElementById("myNav").style.display = "none";
                   console.log("close");
                 }
+                var subCopyId = document.getElementById("subCopyId");
+                var initCopyId = document.getElementById("initCopyId");
+
 
                 var initBtn = document.getElementById("initiateBtn");
-                var ourInHabit = document.getElementById("inhabitBtn");
+                var initBg = document.getElementById("initBg");
+
+                var inHabit = document.getElementById("inhabitBtn");
+                var inHabitH3 = document.getElementById("inHabitH3");
+                var ourH3 = document.getElementById("ourH3");
+                var ourBtn = document.getElementById("ourBtn")
+                // inhabitants EL
 
                 function handleInhabits(evt) {
-                  evt.preventDefault();
-                  window.open("/inhabitants", '_self');
-                  console.log('our friends');
+                    evt.preventDefault();
+                    window.open("/inhabitants", '_self');
+                    
                 }
-                ourInHabit.addEventListener('touchstart', handleInhabits);
-                ourInHabit.addEventListener('click', handleInhabits);
+
+                function overInhabits(evt) {
+                    evt.preventDefault();
+                    inHabitH3.style.color = "coral";
+                    inHabit.classList.add("stuccoTwo");
+                    ourH3.style.color = "white";
+                    ourBtn.classList.remove("stuccoFour");
+                    ourBtn.style.backgroundColor = "black";
+                }
+
+                function outInhabits(evt) {
+                    evt.preventDefault();
+                    inHabitH3.style.color = "white";
+                    inHabit.classList.remove("stuccoTwo");
+                    ourH3.style.color = "coral";
+                    ourBtn.classList.add("stuccoFour");
+                }
+
+
+                inHabit.addEventListener('touchstart', handleInhabits);
+                inHabit.addEventListener('click', handleInhabits);
+                inHabit.addEventListener('mouseover', overInhabits);
+                inHabit.addEventListener('mouseout', outInhabits);
+
+
 
                 function handleInit(evt) {
-                  evt.preventDefault();
-                  window.open("emails/join", '_self');
-                  console.log('join us');
+                    evt.preventDefault();
+                    window.open("emails/join", '_self');
+                    
                 }
+
+                function overInit(evt) {
+                    evt.preventDefault();
+                    initBtn.style.backgroundColor = "black";
+                    initBg.classList.add("stuccoThree");
+                    initBg2.style.backgroundColor = "#63687d";
+                    // initCopyId.style.display = "block";
+                    // subCopyId.style.display = "none";
+                }
+
+                function outInit(evt) {
+                    evt.preventDefault();
+                    initBtn.style.backgroundColor = "#63687d";
+                    initBg.classList.remove("stuccoThree");
+                    initBg2.style.backgroundColor = "black";
+                    // initCopyId.style.display = "none";
+                    // subCopyId.style.display = "block";
+
+                }
+
                 initBtn.addEventListener('touchstart', handleInit);
                 initBtn.addEventListener('click', handleInit);         
-
-
+                initBtn.addEventListener('mouseover', overInit);
+                initBtn.addEventListener('mouseout', outInit);
             </script>
 
         {{/if}} 

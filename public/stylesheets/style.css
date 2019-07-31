@@ -70,6 +70,18 @@ overflow-wrap: break-word;
 color: white;
 }
 
+.subCopy {
+font-size: 4vw!important	;
+overflow-wrap: break-word;
+color: white;
+
+}
+
+
+.initCopy {
+display: none;	
+}
+
 @media only screen and (max-width: 767px) {
 
 .habCont h3{
@@ -94,6 +106,11 @@ font-size: 4em;
 
 }
 
+
+.coral {
+color: coral;	
+}
+
 .homeBtn {
 position: fixed;
 top: 1em;
@@ -112,7 +129,7 @@ width: 30vw;
 min-height: 26vw;
 position: absolute;
 background: url("http://rudes.de/s17/stucco_2_1024.jpg") no-repeat;
-
+background-size: cover;
 }
 
 .imageGrid h1{
@@ -136,8 +153,18 @@ background-color: black;
 background-color: #63687d; 
 }
 
+#spiderImg, #ladyImg {
+display: none;
+}
+
 .stuccoOne {
 background: url("http://rudes.de/s17/stucco_1_1024.jpg") repeat;
+background-size: contain;
+width: 100%;
+}
+
+.stuccoTwo {
+background: url("http://rudes.de/s17/stucco_2_1024.jpg") repeat;
 background-size: contain;
 width: 100%;
 }
