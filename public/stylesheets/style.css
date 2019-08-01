@@ -71,16 +71,30 @@ color: white;
 }
 
 .subCopy {
-font-size: 4vw!important	;
+font-size: 9vw!important	;
 overflow-wrap: break-word;
 color: white;
 
 }
 
+/*.squadHouse2 {
+display: none;
+}*/
 
 .initCopy {
 display: none;	
 }
+
+/*@media only screen and (max-width: 1180px) {
+.squadHouse {
+display: none;	
+}
+
+.squadHouse2 {
+display: block;	
+}
+
+}*/
 
 @media only screen and (max-width: 767px) {
 
@@ -247,7 +261,7 @@ position: relative;
 }
 
 
-.row, .col, .col-md-3 {
+.row, .col, .col-md-3, .col-lg-3, .col-md-12, .col-xl-3, .col-xl-6, .col-md-6, .col-lg-6, .col-xl-4 {
 padding: 0;
 margin: 0;
 }
