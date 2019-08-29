@@ -31,7 +31,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/join', function(req, res) {
   var vm = {
-    title: 'Join s17'
+    title: 'Join s17',
+    nav: true,
   };
   res.render('emails/join', vm);
 });

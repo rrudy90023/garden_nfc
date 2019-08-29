@@ -32,19 +32,19 @@
             } else {
                 header.classList.remove("sticky");
             }
-            if(window.scrollY >= 700) { 
-                // hopperImg.style.display = "none";
-                // catImg.style.display = "none";
-                // spiderImg.style.display = "block";
-                // ladyImg.style.display = "block";
+            // if(window.scrollY >= 700) { 
+            //     // hopperImg.style.display = "none";
+            //     // catImg.style.display = "none";
+            //     // spiderImg.style.display = "block";
+            //     // ladyImg.style.display = "block";
                 
-            } else {
-                // spiderImg.style.display = "none"
-                // catImg.style.display = "block";
-                // hopperImg.style.display = "block";
-                // ladyImg.style.display = "none";
+            // } else {
+            //     // spiderImg.style.display = "none"
+            //     // catImg.style.display = "block";
+            //     // hopperImg.style.display = "block";
+            //     // ladyImg.style.display = "none";
                 
-            }
+            // }
           }
           
         });
@@ -69,6 +69,7 @@
         </div>
         {{#if nav}}
             <div class="header nav" id="myHeader">
+                <a href="/"><div class="fasLogo"></div></a>
                 <ul>
                   <li><a href="javascript:void(0);" onclick="openNav()" class="burger">☰</a></li>
                 </ul>
@@ -88,7 +89,23 @@
               </div>
 
             </div>
+            <script type="text/javascript">
+                function openNav() {
+                  document.getElementById("myNav").style.display = "block";
+                  console.log("open");
+                }
 
+                /* Close */
+                function closeNav() {
+                  document.getElementById("myNav").style.display = "none";
+                  console.log("close");
+                }
+            </script>
+
+
+        {{/if}}
+
+        {{#if intro}}
             <div class="introCopy">
                 <div class="introParent">
                     <div>
@@ -99,7 +116,6 @@
                     </div>
                 </div>
             </div>
-
             <script type="text/javascript">
 
                 var textSwap = document.getElementById("wordRotate");
@@ -121,16 +137,7 @@
                 },4000);
 
                 /* Open */
-                function openNav() {
-                  document.getElementById("myNav").style.display = "block";
-                  console.log("open");
-                }
 
-                /* Close */
-                function closeNav() {
-                  document.getElementById("myNav").style.display = "none";
-                  console.log("close");
-                }
                 var subCopyId = document.getElementById("subCopyId");
                 var initCopyId = document.getElementById("initCopyId");
 
@@ -207,7 +214,10 @@
                 initBtn.addEventListener('mouseout', outInit);
             </script>
 
-        {{/if}} 
+        {{/if}}
+
+
+         
 
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

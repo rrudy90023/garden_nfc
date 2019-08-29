@@ -25,6 +25,12 @@ font-size: 36px;
 font-size: 48px; 
 }
 
+.fasLogo {
+background: url("http://rudes.de/s17/fas.svg") no-repeat;
+width: 80px;
+height: 80px;
+
+}
 
 .padCopy {
 padding: 3%;	
@@ -59,7 +65,7 @@ color: coral;
 }
 
 .storyCopy h3 {
-font-size: 8vw;
+font-size: 11vw;
 overflow-wrap: break-word;
 color: black;
 }
@@ -77,24 +83,9 @@ color: white;
 
 }
 
-/*.squadHouse2 {
-display: none;
-}*/
-
 .initCopy {
 display: none;	
 }
-
-/*@media only screen and (max-width: 1180px) {
-.squadHouse {
-display: none;	
-}
-
-.squadHouse2 {
-display: block;	
-}
-
-}*/
 
 @media only screen and (max-width: 767px) {
 
@@ -107,19 +98,13 @@ position: relative;
 .overlay h3 {
 font-size: 11vw!important;
 }
-
 }
 
-
 @media only screen and (max-width: 420px) {
-
 .storyCopy h3, .copyCont h3, .ourCont h3 {
 font-size: 4em;
 }
-
-
 }
-
 
 .coral {
 color: coral;	
@@ -140,10 +125,15 @@ height: auto;
 .logoBack {
 background-color: white; 
 width: 30vw;
-min-height: 26vw;
-position: absolute;
+height: 26vw;
 background: url("http://rudes.de/s17/stucco_2_1024.jpg") no-repeat;
 background-size: cover;
+margin: auto;
+position: absolute;
+top: 0; 
+left: 0; 
+bottom: 0; 
+right: 0; 
 }
 
 .imageGrid h1{
@@ -212,11 +202,12 @@ text-align: center;
 margin: 0 auto;
 min-height: 200px;
 align-items: center;
-
 }
 
 .storyCont {
-position: relative;	
+position: relative;
+padding-top: 10vw!important;
+padding-bottom: 10vw!important;	
 }
 
 .editIcons {
@@ -245,7 +236,6 @@ background-position: 26px 8px;
 background-size: 36px 36px;
 }
 
-
 .addPlant div {
 display: inline-block;
 }
@@ -259,7 +249,6 @@ background-color: white;
 height: 200px;
 position: relative;
 }
-
 
 .row, .col, .col-md-3, .col-lg-3, .col-md-12, .col-xl-3, .col-xl-6, .col-md-6, .col-lg-6, .col-xl-4 {
 padding: 0;
@@ -276,7 +265,6 @@ font-family: 'Oswald', sans-serif;
 }
 
 h1, h2 {
-
 font-family: 'Oswald', sans-serif;	
 margin-right: 0;
 margin-left: 0!important;
@@ -499,9 +487,6 @@ font-size: 20px;
 font-weight: 400;
 }
 
-
-
-
 header {
 height: 100px;
 }
@@ -525,12 +510,10 @@ left: 0px;
 
 
 .nav {
-width: 100px;
+width: 100%;
 height: 100px;
 position: absolute;
-right: 10px;
-top: 10px;
-/*z-index: 99;*/
+top: 1px;
 }
 
 .nav > ul {
@@ -538,7 +521,7 @@ width: 54px;
 height: 74px;
 position: absolute;
 top: 3px;
-left: 23px;
+right: 23px;
 }
 
 .nav > ul li{
@@ -600,35 +583,6 @@ color: white;
 left: 20%;	
 position: relative;
 }
-
-
-/* Overlay style */
-/*.overlay {
-position: fixed;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-background: white;
-z-index: 9999;
-pointer-events: auto;
-}*/
-
-/* Overlay closing cross */
-/*.overlay .overlay-close {
-width: 80px;
-height: 80px;
-position: absolute;
-right: 20px;
-top: 20px;
-overflow: hidden;
-border: none;
-background: url(http://rudes.de/images/cross.png) no-repeat center center!important;
-text-indent: 200%;
-color: transparent;
-outline: none;
-z-index: 100;
-}*/
 
 /* Menu style */
 /* The Overlay (background) */

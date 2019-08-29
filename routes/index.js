@@ -5,10 +5,10 @@ var appdata = require('../data.json');
 router.get('/', function(req, res, next) {
   var vm = {
   	nav: true,
+  	intro: true,
     title: 'Welcome to s17',
     error: req.flash('error')
   };
-  console.log(vm.nav)
   res.render('index', vm);
 });
 
@@ -22,6 +22,7 @@ router.get('/inhabitants', function(req, res) {
 
 	  res.render('inhabitants', { 
 	  	title: 'Our Inhabitants',
-	  	friends: myFriends
+	  	friends: myFriends,
+	  	nav: true
 	  });
 });

@@ -40,9 +40,6 @@ router.get('/api', function(req, res, next) {
   })
 });
 
-//
-
-//const conn = mongoose.createConnection(config.mongoUri, { useNewUrlParser: true });
 // Init gfs
 let gfs;
 let connector = conn.connectorCreate;
@@ -75,7 +72,6 @@ const upload = multer({ storage });
 //
 
 router.get('/:id/view', function(req, res, next){
-
   Garden.findById(req.params.id, function(err, plant){
 
     var ebin = {
@@ -113,15 +109,10 @@ router.get('/', function(req, res, next) {
                   id: plant._id
                };
         });
-      //console.log(model)
+
       res.render('plants/index', { "title": "Admin", "plantlist": model, "firstName": req.user.firstName });
     });
 });
-
-
-
-
-
 //
 
 router.get('/create', function(req, res, next) {
@@ -149,11 +140,8 @@ router.post('/create', upload.single('file'), function(req, res, next) {
       console.log(req.file);
       model["file"] = req.file.filename;
       model["picId"] = req.file.id;
-      
 
       userService.addPlant(model, function(err) {
-          //console.log(model);
-          //res.json({ file: req.file });
           res.redirect('/plants');
       });
 });
