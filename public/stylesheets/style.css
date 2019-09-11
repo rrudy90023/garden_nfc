@@ -13,6 +13,13 @@ background-color: #ccc;
 margin: 0;
 }
 
+iframe {
+border-width: 0;
+border-style: inset;
+border-color: initial;
+border-image: initial;
+}
+
 #initiateBtn, #inhabitBtn {
 cursor: pointer;
 }
@@ -71,6 +78,7 @@ color: black;
 }
 
 .habCont h3{
+text-align: left!important;
 font-size: 7vw;
 overflow-wrap: break-word;
 color: white;
@@ -90,6 +98,7 @@ display: none;
 @media only screen and (max-width: 767px) {
 
 .habCont h3{
+text-align: left!important;
 font-size: 17vw;
 left: 3%;
 position: relative;
@@ -204,10 +213,15 @@ min-height: 200px;
 align-items: center;
 }
 
-.storyCont, .inHabCont {
+.storyCont {
 position: relative;
 padding-top: 10vw!important;
 padding-bottom: 10vw!important;	
+}
+
+.inHabCont {
+position: relative;
+padding-top: 10vw!important;
 }
 
 .editIcons {
@@ -250,7 +264,7 @@ height: 200px;
 position: relative;
 }
 
-.row, .col, .col-md-3, .col-lg-3, .col-md-12, .col-xl-3, .col-xl-6, .col-md-6, .col-lg-6, .col-xl-4 {
+.row, .col, .col-md-3, .col-lg-3, .col-md-12, .col-xl-3, .col-xl-6, .col-lg-6, .col-xl-4 {
 padding: 0;
 margin: 0;
 }
@@ -603,9 +617,10 @@ display: none;
 /* Position the content inside the overlay */
 .overlay-content {
 position: relative;
-top: 25%; /* 25% from the top */
-width: 100%; /* 100% width */
-text-align: center; /* Centered text/links */
+top: 5%; /* 25% from the top */
+left: 3%;
+width: 90%; /* 100% width */
+text-align: left; /* Centered text/links */
 margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 

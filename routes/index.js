@@ -21,7 +21,7 @@ router.get('/inhabitants', function(req, res) {
   	});
 
 	  res.render('inhabitants', { 
-	  	title: 'Our Inhabitants',
+	  	title: 'Inhabitants',
 	  	friends: myFriends,
 	  	nav: true
 	  });
