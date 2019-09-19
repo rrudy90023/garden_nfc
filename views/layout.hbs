@@ -11,6 +11,7 @@
         <link rel='stylesheet' href='/stylesheets/style.css' type='text/css' media='all' /> 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <script src="/js/aos.js"></script> 
     </head>
 
     <script type="text/javascript">
@@ -86,7 +87,7 @@
                 <a href="/Inhabitants"><h3>Story</h3></a>
                 <a href="/Inhabitants"><h3>Inhabitants</h3></a>
                 <a href="/Inhabitants"><h3>Formation</h3></a>
-                <a href="/emails/join"><h3>Advocacy</h3></a>
+                <a href="/emails/join"><h3>Interactive</h3></a>
                 {{!-- <a href="mailto:rrudy90023@gmail.com"><h3>Contact</h3></a> --}}
               </div>
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -119,101 +120,114 @@
                 </div>
             </div>
             <script type="text/javascript">
-
                 var textSwap = document.getElementById("wordRotate");
                 var introCont = document.querySelector(".introCopy");
+                //var cookieVar = document.cookie;
+                console.log(document.cookie);
 
                 function initAos() {
                     AOS.init();
                 };
-
-                setTimeout(function(){
-                    textSwap.querySelector("h1").innerHTML = "PROTECT";
-                },1000);
-                setTimeout(function(){
-                    textSwap.querySelector("h1").innerHTML = "FIRST";
-                },2000);
-                setTimeout(function(){
-                    introCont.classList.add("intro-scale");
+                // intro copy change
+                if ( document.cookie ){
+                    introCont.style.display = "none";
                     initAos();
-                },4000);
+                } else {
+                    setTimeout(function(){
+                        textSwap.querySelector("h1").innerHTML = "PROTECT";
+                    },1000);
+                    setTimeout(function(){
+                        textSwap.querySelector("h1").innerHTML = "FIRST";
+                    },2000);
+                    setTimeout(function(){
+                        introCont.classList.add("intro-scale");
+                        document.cookie = "visited=true";
+                    },4000);
+                    initAos();
+                }
 
-                /* Open */
+                //buttons on homepage
+                var subBtn = document.getElementById("subscribeBtn");
+                var inHabitBtn = document.getElementById("inHabitBtn");
+                var formBtn = document.getElementById("formBtn");
+                var interABtn = document.getElementById("interABtn");
 
-                var subCopyId = document.getElementById("subCopyId");
-                var initCopyId = document.getElementById("initCopyId");
-
-                var initBtn = document.getElementById("initiateBtn");
-                var initBg = document.getElementById("initBg");
-
-                var inHabit = document.getElementById("inhabitBtn");
-                var inHabitH3 = document.getElementById("inHabitH3");
-                var ourH3 = document.getElementById("ourH3");
-                var ourBtn = document.getElementById("ourBtn")
-
-                var sqaudHouse = document.getElementById("sqaudHouse");
-                // inhabitants EL
-
+                // inhabitants button mouse events
                 function handleInhabits(evt) {
                     evt.preventDefault();
                     window.open("/inhabitants", '_self');
-                    
                 }
 
                 function overInhabits(evt) {
                     evt.preventDefault();
-                    inHabitH3.style.color = "coral";
-                    inHabit.classList.add("stuccoTwo");
-                    ourH3.style.color = "white";
-                    ourBtn.classList.remove("stuccoFour");
-                    ourBtn.style.backgroundColor = "black";
                 }
 
                 function outInhabits(evt) {
                     evt.preventDefault();
-                    inHabitH3.style.color = "white";
-                    inHabit.classList.remove("stuccoTwo");
-                    ourH3.style.color = "coral";
-                    ourBtn.classList.add("stuccoFour");
                 }
 
+                inHabitBtn.addEventListener('touchstart', handleInhabits);
+                inHabitBtn.addEventListener('click', handleInhabits);
+                inHabitBtn.addEventListener('mouseover', overInhabits);
+                inHabitBtn.addEventListener('mouseout', outInhabits);
 
-                // inHabit.addEventListener('touchstart', handleInhabits);
-                // inHabit.addEventListener('click', handleInhabits);
-                // inHabit.addEventListener('mouseover', overInhabits);
-                // inHabit.addEventListener('mouseout', outInhabits);
+                // subscribe button mouse events
+                // function handleInit(evt) {
+                //     evt.preventDefault();
+                //     window.open("emails/join", '_self');
+                // }
 
+                // function overInit(evt) {
+                //     evt.preventDefault();
+                // }
 
+                // function outInit(evt) {
+                //     evt.preventDefault();
+                // }
 
-                function handleInit(evt) {
+                // subBtn.addEventListener('touchstart', handleInit);
+                // subBtn.addEventListener('click', handleInit);         
+                // subBtn.addEventListener('mouseover', overInit);
+                // subBtn.addEventListener('mouseout', outInit);
+
+                // formation button mouse events
+                function handleForm(evt) {
+                    console.log("hello")
                     evt.preventDefault();
-                    window.open("emails/join", '_self');
-                    
+                    window.open("/formation", '_self');
                 }
 
-                function overInit(evt) {
+                function overForm(evt) {
                     evt.preventDefault();
-                    initBtn.style.backgroundColor = "black";
-                    initBg.classList.add("stuccoThree");
-                    initBg2.style.backgroundColor = "#63687d";
-                    // initCopyId.style.display = "block";
-                    // subCopyId.style.display = "none";
                 }
 
-                function outInit(evt) {
+                function outForm(evt) {
                     evt.preventDefault();
-                    initBtn.style.backgroundColor = "#63687d";
-                    initBg.classList.remove("stuccoThree");
-                    initBg2.style.backgroundColor = "black";
-                    // initCopyId.style.display = "none";
-                    // subCopyId.style.display = "block";
-
                 }
 
-                initBtn.addEventListener('touchstart', handleInit);
-                initBtn.addEventListener('click', handleInit);         
-                initBtn.addEventListener('mouseover', overInit);
-                initBtn.addEventListener('mouseout', outInit);
+                formBtn.addEventListener('touchstart', handleForm);
+                formBtn.addEventListener('click', handleForm);         
+                formBtn.addEventListener('mouseover', overForm);
+                formBtn.addEventListener('mouseout', outForm);
+
+                //interactive button mouse events
+                function handleInterA(evt) {
+                    evt.preventDefault();
+                    window.open("/interactive", '_self');
+                }
+
+                function overInterA(evt) {
+                    evt.preventDefault();
+                }
+
+                function outInterA(evt) {
+                    evt.preventDefault();
+                }
+
+                interABtn.addEventListener('touchstart', handleInterA);
+                interABtn.addEventListener('click', handleInterA);         
+                interABtn.addEventListener('mouseover', overInterA);
+                interABtn.addEventListener('mouseout', outInterA);
             </script>
 
         {{/if}}
@@ -225,6 +239,6 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="/js/aos.js"></script>  
+         
     </body>
 </html>

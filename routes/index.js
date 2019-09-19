@@ -12,7 +12,6 @@ router.get('/', function(req, res, next) {
   res.render('index', vm);
 });
 
-module.exports = router;
 
 router.get('/inhabitants', function(req, res) {
 	var myFriends = [];
@@ -26,3 +25,19 @@ router.get('/inhabitants', function(req, res) {
 	  	nav: true
 	  });
 });
+
+router.get('/formation', function(req, res) {
+	  res.render('formation', { 
+	  	title: 'Formation',
+	  	nav: true
+	  });
+});
+
+router.get('/interactive', function(req, res) {
+	  res.render('interactive', { 
+	  	title: 'Interactive',
+	  	nav: true
+	  });
+});
+
+module.exports = router;
