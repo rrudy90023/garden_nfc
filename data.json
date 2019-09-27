@@ -2,10 +2,6 @@
 
 "inhabitants": [
 {
-"desc":"House Finch",
-"preview":"http://rudes.de/s17/birds_1_1024.jpg"
-},
-{
 "desc":"A catepillar",
 "preview":"http://rudes.de/s17/catepillar_1_1024.jpg"
 },
@@ -16,10 +12,6 @@
 {
 "desc":"Another grasshopper",
 "preview":"http://rudes.de/s17/hopper_1_1024.jpg"
-},
-{
-"desc":"Ladybug",
-"preview":"http://rudes.de/s17/ladybug_1_1024.jpg"
 },
 {
 "desc":"Lady Butterfly",

@@ -9,7 +9,7 @@ width: 100%;
 height: auto;
 font-family: 'Playfair+Display', serif;
 /*text-align: center;*/
-background-color: #ccc;
+background-color: #000;
 margin: 0;
 }
 
@@ -219,9 +219,13 @@ padding-top: 10vw!important;
 padding-bottom: 10vw!important;	
 }
 
-.inHabCont {
+.topSpace {
 position: relative;
 padding-top: 10vw!important;
+}
+
+.bottomSpace {
+	padding-bottom: 10vw!important;
 }
 
 .editIcons {
@@ -299,7 +303,7 @@ padding: 0;
 margin: 0;
 width: 100vw;
 min-height: 100%;
-background-color: #ccc;
+background-color: #000;
 }
 
 .adminContainer {
