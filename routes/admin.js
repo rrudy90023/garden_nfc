@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   }
   var vm = {
     title: 'Login',
+    footer: false,
     error: req.flash('error')
   };
   res.render('admin', vm);

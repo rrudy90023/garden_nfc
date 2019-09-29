@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   var vm = {
   	nav: true,
   	intro: true,
+  	footer: true,
     title: 'Welcome to s17',
     error: req.flash('error')
   };
@@ -22,21 +23,24 @@ router.get('/inhabitants', function(req, res) {
 	  res.render('inhabitants', { 
 	  	title: 'Inhabitants',
 	  	friends: myFriends,
-	  	nav: true
+	  	nav: true,
+	  	footer: true
 	  });
 });
 
 router.get('/formation', function(req, res) {
 	  res.render('formation', { 
 	  	title: 'Formation',
-	  	nav: true
+	  	nav: true,
+	  	footer: true
 	  });
 });
 
 router.get('/interactive', function(req, res) {
 	  res.render('interactive', { 
 	  	title: 'Interactive',
-	  	nav: true
+	  	nav: true,
+	  	footer: true
 	  });
 });
 

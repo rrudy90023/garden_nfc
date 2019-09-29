@@ -33,6 +33,7 @@ router.get('/join', function(req, res) {
   var vm = {
     title: 'Join s17',
     nav: true,
+    footer: false
   };
   res.render('emails/join', vm);
 });
