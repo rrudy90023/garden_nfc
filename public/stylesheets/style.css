@@ -1,17 +1,217 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Palanquin:400&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
 body {
 /*text-transform: uppercase;*/
 font-weight: 400;
-top: 0;
-left: 0;
+position: relative;
 width: 100%;
 height: auto;
-font-family: 'Playfair+Display', serif;
-/*text-align: center;*/
-background-color: coral!important;
 margin: 0;
+/*overflow: hidden;*/
+/*font-family: 'Playfair+Display', serif;*/
+/*text-align: center;*/
+background-color: black!important;
 }
+
+
+/* curtain.js texture*/
+
+@media screen {
+
+/*    html, body {
+        min-height: 100%;
+    }*/
+
+    body {
+        margin: 0;
+        font-size: 18px;
+        font-family: 'PT Sans', Verdana, sans-serif;
+        background: #ffffff;
+        line-height: 1.4;
+    }
+
+    /*** layout ***/
+
+    .flex-wrapper {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flexbox;
+        display: -moz-flex;
+        display: -o-flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .landscape-wrapper {
+        position: relative;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 66.6%;
+    }
+
+    .landscape-inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    #page-wrap {
+        position: relative;
+    }
+
+    /*** canvas ***/
+
+    /* our canvas will be a bit taller than our window to avoid "glitched" top and bottom edges */
+    #canvas {
+        position: fixed;
+        top: -10vh;
+        right: 0;
+        left: 0;
+        height: 120vh;
+        background-color: black;
+/*        z-index: 10;*/
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+
+    .planes-loaded #canvas {
+        opacity: 1;
+    }
+
+
+    /*** content ***/
+
+    #content {
+        position: relative;
+        z-index: 15;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+
+    #planes {
+        overflow: hidden;
+        opacity: 0;
+
+        transition: opacity 0.5s ease-in;
+    }
+
+    .planes-loaded #planes {
+        opacity: 1;
+    }
+
+    .plane-wrapper {
+        width: 100%;
+/*        float: left;
+        position: relative;*/
+    }
+
+    .plane-title {
+        background: #ee6557;
+        color: white;
+        position: absolute;
+        top: 0.25em;
+        left: 0;
+        font-size: 2em;
+        font-weight: bold;
+        display: inline-block;
+        padding: 0.125em 0.25em;
+    }
+
+    .plane-inner {
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .plane {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .plane img {
+        display: none;
+
+        /*display: block;
+        width: 100%;
+        height: auto;
+        opacity: 0.3;*/
+    }
+
+    /*** handling errors ***/
+
+    .no-curtains .plane-title {
+        z-index: 1;
+    }
+
+    .no-curtains .plane img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+
+
+/*@media screen and (max-width: 1320px) {
+
+    #content {
+        margin: 0 20px;
+    }
+
+    .plane-title {
+        top: 0;
+        font-size: 1.5em;
+    }
+
+    .plane-inner {
+        padding: 20px;
+    }
+
+}
+
+
+@media screen and (max-width: 720px) {
+
+    #content {
+        margin: 0 10px;
+    }
+
+    .plane-wrapper {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+
+    .plane-inner {
+        padding: 10px;
+    }
+
+}*/
+
+/* normal styles */
+
+form {
+position: relative;
+width: 100%;
+padding-right: 15px!important;
+padding-left: 15px!important;
+
+}
+
 
 
 #watermark {
@@ -284,6 +484,7 @@ white-space: pre-line;
 
 h3, h4, h5, label {
 font-family: 'Oswald', sans-serif;
+color: white;
 /*text-transform: capitalize;*/
 }
 
@@ -291,15 +492,16 @@ h1, h2 {
 font-family: 'Oswald', sans-serif;	
 margin-right: 0;
 margin-left: 0!important;
+color: white;
 }
 
 input {
-font-family: 'Playfair+Display', serif;
+font-family: 'Palanquin', sans-serif;
 border-color: transparent;
 }
 
 p, a, span {
-font-family: 'Playfair+Display', serif;
+font-family: 'Palanquin', sans-serif;
 font-size: 1.6rem;
 color: black;
 }
@@ -431,7 +633,7 @@ right: 0;
 left: 0;
 bottom: 0;
 top: 0;
-position: absolute;
+position: relative;
 height: 310px;
 }
 
@@ -513,6 +715,7 @@ font-weight: 400;
 
 header {
 height: 100px;
+
 }
 
 .burger {
@@ -569,6 +772,7 @@ width: 100px;
 .header {
 padding: 10px 16px;
 color: #f1f1f1;
+z-index: 9999;
 }
 
 /* Page content */

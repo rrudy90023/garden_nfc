@@ -11,7 +11,8 @@
         <link rel='stylesheet' href='/stylesheets/style.css' type='text/css' media='all' /> 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <script src="/js/aos.js"></script> 
+        <script src="/js/aos.js"></script>
+        
     </head>
 
     <script type="text/javascript">
@@ -19,12 +20,9 @@
           //sticky header
           window.onscroll = function() {myFunction()};
           // Get the header
-          var header = document.getElementById("myHeader");
-          var spiderImg = document.getElementById("spiderImg");
-          var hopperImg = document.getElementById("hopperImg");
-          var ladyImg = document.getElementById("ladyImg");
-          var catImg = document.getElementById("catImg");
           // Get the offset position of the navbar
+          var header = document.getElementById("myHeader");
+          var imgRot = document.getElementById("imgRot");
           var sticky = header.offsetTop;
           // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
           function myFunction() {
@@ -33,25 +31,27 @@
             } else {
                 header.classList.remove("sticky");
             }
-            // if(window.scrollY >= 700) { 
-            //     // hopperImg.style.display = "none";
-            //     // catImg.style.display = "none";
-            //     // spiderImg.style.display = "block";
-            //     // ladyImg.style.display = "block";
+            if(window.scrollY >= 500) { 
+                imgRot.src = "images/stucco_2_1024.jpg";
+                // catImg.style.display = "none";
+                // spiderImg.style.display = "block";
+                // ladyImg.style.display = "block";
                 
-            // } else {
-            //     // spiderImg.style.display = "none"
-            //     // catImg.style.display = "block";
-            //     // hopperImg.style.display = "block";
-            //     // ladyImg.style.display = "none";
+            } else {
+                imgRot.src = "images/stucco_3_1024.jpg";
+                // spiderImg.style.display = "none"
+                // catImg.style.display = "block";
+                // hopperImg.style.display = "block";
+                // ladyImg.style.display = "none";
                 
-            // }
+            }
           }
           
         });
     </script>
 
     <body class="container-fluid">
+        
         <div id="page">
 
             {{#if firstName}}
@@ -84,10 +84,11 @@
 
               <!-- Overlay content -->
               <div class="overlay-content">
-                <a href="#"><h3>Story</h3></a>
+ {{!--                <a href="#"><h3>Story</h3></a> --}}
                 <a href="/Inhabitants"><h3>Inhabitants</h3></a>
                 <a href="/formation"><h3>Formation</h3></a>
-                <a href="/emails/join"><h3>Interactive</h3></a>
+                <a href="/interactive"><h3>Interactive</h3></a>
+                <a href="/emails/join"><h3>Subscribe</h3></a>
                 {{!-- <a href="mailto:rrudy90023@gmail.com"><h3>Contact</h3></a> --}}
               </div>
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -233,7 +234,7 @@
         {{/if}}
 
         {{#if footer}}
-        <footer class="row topSpace stuccoTwo">
+        <footer class="row topSpace">
           <div class="col-12">
             <div class="footCopy">
               <h3 class="">s17 ©MMXIX</h3>
@@ -243,9 +244,12 @@
         </footer>
         {{/if}}
 
+
+        <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-         
+        <script src="/js/curtains.min.js"></script>
+        <script src="/js/post.processing.displacement.setup.js" ></script>
     </body>
 </html>
