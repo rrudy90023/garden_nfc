@@ -20,6 +20,8 @@ router.get('/inhabitants', function(req, res) {
       myFriends = myFriends.concat(item.namecase);
   	});
 
+	//console.log(appdata)
+
 	  res.render('inhabitants', { 
 	  	title: 'Inhabitants',
 	  	friends: myFriends,

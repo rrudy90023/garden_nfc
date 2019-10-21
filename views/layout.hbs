@@ -6,49 +6,14 @@
         <title>s17{{#if title}} - {{title}}{{/if}}</title>
         <meta name="description" content="" />
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/components/modal/">
         <link rel='stylesheet' href='/stylesheets/style.css' type='text/css' media='all' /> 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="/stylesheets/aos.css" />
         <script src="/js/aos.js"></script>
         
     </head>
-
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function() {
-          //sticky header
-          window.onscroll = function() {myFunction()};
-          // Get the header
-          // Get the offset position of the navbar
-          var header = document.getElementById("myHeader");
-          var imgRot = document.getElementById("imgRot");
-          var sticky = header.offsetTop;
-          // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-          function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
-            // if(window.scrollY >= 500) { 
-            //     imgRot.src = "images/stucco_2_1024.jpg";
-            //     // catImg.style.display = "none";
-            //     // spiderImg.style.display = "block";
-            //     // ladyImg.style.display = "block";
-                
-            // } else {
-            //     imgRot.src = "images/stucco_3_1024.jpg";
-            //     // spiderImg.style.display = "none"
-            //     // catImg.style.display = "block";
-            //     // hopperImg.style.display = "block";
-            //     // ladyImg.style.display = "none";
-                
-            // }
-          }
-          
-        });
-    </script>
 
     <body class="container-fluid">
         
@@ -94,6 +59,40 @@
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             </div>
             <script type="text/javascript">
+
+                document.addEventListener("DOMContentLoaded", function() {
+                  //sticky header
+                  window.onscroll = function() {myFunction()};
+                  // Get the header
+                  // Get the offset position of the navbar
+                  var header = document.getElementById("myHeader");
+                  var imgRot = document.getElementById("imgRot");
+                  var sticky = header.offsetTop;
+                  // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+                  function myFunction() {
+                    if (window.pageYOffset > sticky) {
+                        header.classList.add("sticky");
+                    } else {
+                        header.classList.remove("sticky");
+                    }
+                    // if(window.scrollY >= 500) { 
+                    //     imgRot.src = "images/stucco_2_1024.jpg";
+                    //     // catImg.style.display = "none";
+                    //     // spiderImg.style.display = "block";
+                    //     // ladyImg.style.display = "block";
+                        
+                    // } else {
+                    //     imgRot.src = "images/stucco_3_1024.jpg";
+                    //     // spiderImg.style.display = "none"
+                    //     // catImg.style.display = "block";
+                    //     // hopperImg.style.display = "block";
+                    //     // ladyImg.style.display = "none";
+                        
+                    // }
+                  }
+                  
+                });
+
                 function openNav() {
                   document.getElementById("myNav").style.display = "block";
                   console.log("open");
@@ -104,6 +103,7 @@
                   document.getElementById("myNav").style.display = "none";
                   console.log("close");
                 }
+
             </script>
 
 
@@ -146,89 +146,6 @@
                     },4000);
                     initAos();
                 }
-
-                //buttons on homepage
-                var subBtn = document.getElementById("subscribeBtn");
-                var inHabitBtn = document.getElementById("inHabitBtn");
-                var formBtn = document.getElementById("formBtn");
-                var interABtn = document.getElementById("interABtn");
-
-                // inhabitants button mouse events
-                function handleInhabits(evt) {
-                    evt.preventDefault();
-                    window.open("/inhabitants", '_self');
-                }
-
-                function overInhabits(evt) {
-                    evt.preventDefault();
-                }
-
-                function outInhabits(evt) {
-                    evt.preventDefault();
-                }
-
-                inHabitBtn.addEventListener('touchstart', handleInhabits);
-                inHabitBtn.addEventListener('click', handleInhabits);
-                inHabitBtn.addEventListener('mouseover', overInhabits);
-                inHabitBtn.addEventListener('mouseout', outInhabits);
-
-                // subscribe button mouse events
-                // function handleInit(evt) {
-                //     evt.preventDefault();
-                //     window.open("emails/join", '_self');
-                // }
-
-                // function overInit(evt) {
-                //     evt.preventDefault();
-                // }
-
-                // function outInit(evt) {
-                //     evt.preventDefault();
-                // }
-
-                // subBtn.addEventListener('touchstart', handleInit);
-                // subBtn.addEventListener('click', handleInit);         
-                // subBtn.addEventListener('mouseover', overInit);
-                // subBtn.addEventListener('mouseout', outInit);
-
-                // formation button mouse events
-                function handleForm(evt) {
-                    console.log("hello")
-                    evt.preventDefault();
-                    window.open("/formation", '_self');
-                }
-
-                function overForm(evt) {
-                    evt.preventDefault();
-                }
-
-                function outForm(evt) {
-                    evt.preventDefault();
-                }
-
-                formBtn.addEventListener('touchstart', handleForm);
-                formBtn.addEventListener('click', handleForm);         
-                formBtn.addEventListener('mouseover', overForm);
-                formBtn.addEventListener('mouseout', outForm);
-
-                //interactive button mouse events
-                function handleInterA(evt) {
-                    evt.preventDefault();
-                    window.open("/interactive", '_self');
-                }
-
-                function overInterA(evt) {
-                    evt.preventDefault();
-                }
-
-                function outInterA(evt) {
-                    evt.preventDefault();
-                }
-
-                interABtn.addEventListener('touchstart', handleInterA);
-                interABtn.addEventListener('click', handleInterA);         
-                interABtn.addEventListener('mouseover', overInterA);
-                interABtn.addEventListener('mouseout', outInterA);
             </script>
 
         {{/if}}
@@ -244,11 +161,9 @@
         </footer>
         {{/if}}
 
-
-        <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="/js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="/js/curtains.min.js"></script>
         <script src="/js/post.processing.displacement.setup.js" ></script>
     </body>

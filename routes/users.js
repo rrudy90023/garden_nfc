@@ -39,7 +39,7 @@ router.post('/create', function(req, res, next) {
         input: req.body,
         error: err
       };
-      delete vm.input.password;
+      delete vm.input.password; 
       return res.render('users/create', vm);
     }
 

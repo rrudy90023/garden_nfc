@@ -32,11 +32,11 @@
 <div class="topSpace gray row">
   <div class="col-md-2"></div>
   <div class="col-6 col-md-3 gray stuccoThree" id="hopperImg">
-    <img class="img-fluid" src="http://rudes.de/s17/hopper_1_1024.jpg" id="insectOne" class="float-left">
+    <img class="img-fluid" data-aos="fade" src="http://rudes.de/s17/hopper_1_1024.jpg" id="insectOne" class="float-left">
   </div>
   <div class="col col-md-1 pink"></div>
   <div class="col-6 col-md-3 gray stuccoFour" id="catImg">
-    <img class="img-fluid" src="http://rudes.de/s17/catepillar_1_1024.jpg" id="insectTwo" class="float-left" >
+    <img class="img-fluid" data-aos="fade" src="http://rudes.de/s17/catepillar_1_1024.jpg" id="insectTwo" class="float-left" >
   </div>
   <div class="col col-md-3"></div>
 </div>
@@ -96,8 +96,8 @@
   <div class="col col-md-3" >
   </div>
   <div class="col-12 col-md-6">
-    <div class="initCont">
-      <h3 class="subCopy" data-aos="fade">Interactive</h3>
+    <div class="habCont">
+      <h3 class="" style="color: black;" data-aos="fade">Interactive</h3>
     </div>
   </div>
   <div class="col col-md-3" >
@@ -115,4 +115,68 @@
   <div class="col col-md-3"></div>
 </div>
 
+<script type="text/javascript">
+  //buttons on homepage
+  var subBtn = document.getElementById("subscribeBtn");
+  var inHabitBtn = document.getElementById("inHabitBtn");
+  var formBtn = document.getElementById("formBtn");
+  var interABtn = document.getElementById("interABtn");
 
+  // inhabitants button mouse events
+  function handleInhabits(evt) {
+      evt.preventDefault();
+      window.open("/inhabitants", '_self');
+  }
+
+  function overInhabits(evt) {
+      evt.preventDefault();
+  }
+
+  function outInhabits(evt) {
+      evt.preventDefault();
+  }
+
+  inHabitBtn.addEventListener('touchstart', handleInhabits);
+  inHabitBtn.addEventListener('click', handleInhabits);
+  inHabitBtn.addEventListener('mouseover', overInhabits);
+  inHabitBtn.addEventListener('mouseout', outInhabits);
+
+  // formation button mouse events
+  function handleForm(evt) {
+      console.log("hello")
+      evt.preventDefault();
+      window.open("/formation", '_self');
+  }
+
+  function overForm(evt) {
+      evt.preventDefault();
+  }
+
+  function outForm(evt) {
+      evt.preventDefault();
+  }
+
+  formBtn.addEventListener('touchstart', handleForm);
+  formBtn.addEventListener('click', handleForm);         
+  formBtn.addEventListener('mouseover', overForm);
+  formBtn.addEventListener('mouseout', outForm);
+
+  //interactive button mouse events
+  function handleInterA(evt) {
+      evt.preventDefault();
+      window.open("/interactive", '_self');
+  }
+
+  function overInterA(evt) {
+      evt.preventDefault();
+  }
+
+  function outInterA(evt) {
+      evt.preventDefault();
+  }
+
+  interABtn.addEventListener('touchstart', handleInterA);
+  interABtn.addEventListener('click', handleInterA);         
+  interABtn.addEventListener('mouseover', overInterA);
+  interABtn.addEventListener('mouseout', outInterA);
+</script>

@@ -16,6 +16,7 @@ const users = require('./routes/users');
 const plants = require('./routes/plants');
 const admin = require('./routes/admin');
 const emails = require('./routes/emails');
+const dashboard = require('./routes/dashboard');
 const passportConfig = require('./auth/passport-config');
 const restrict = require('./auth/restrict');
 passportConfig();
@@ -53,6 +54,7 @@ app.use('/', routes);
 app.use('/admin', admin);
 app.use('/users', users);
 app.use('/emails', emails);
+app.use('/dashboard', dashboard);
 //app.use(restrict);
 app.use('/plants', plants);
 // catch 404 and forward to error handler
