@@ -75,20 +75,20 @@
                     } else {
                         header.classList.remove("sticky");
                     }
-                    // if(window.scrollY >= 500) { 
-                    //     imgRot.src = "images/stucco_2_1024.jpg";
-                    //     // catImg.style.display = "none";
-                    //     // spiderImg.style.display = "block";
-                    //     // ladyImg.style.display = "block";
+                    if(window.scrollY >= 500) { 
+                        imgRot.src = "images/pinksky_1_1024.jpg";
+                        // catImg.style.display = "none";
+                        // spiderImg.style.display = "block";
+                        // ladyImg.style.display = "block";
                         
-                    // } else {
-                    //     imgRot.src = "images/stucco_3_1024.jpg";
-                    //     // spiderImg.style.display = "none"
-                    //     // catImg.style.display = "block";
-                    //     // hopperImg.style.display = "block";
-                    //     // ladyImg.style.display = "none";
+                    } else {
+                        imgRot.src = "images/stucco_3_1024.jpg";
+                        // spiderImg.style.display = "none"
+                        // catImg.style.display = "block";
+                        // hopperImg.style.display = "block";
+                        // ladyImg.style.display = "none";
                         
-                    // }
+                    }
                   }
                   
                 });
@@ -106,6 +106,95 @@
 
             </script>
 
+            <script id="multiple-planes-vs" type="x-shader/x-vertex">
+                #ifdef GL_ES
+                precision mediump float;
+                #endif
+
+                // default mandatory variables
+                attribute vec3 aVertexPosition;
+                attribute vec2 aTextureCoord;
+
+                uniform mat4 uMVMatrix;
+                uniform mat4 uPMatrix;
+
+                uniform mat4 planeTextureMatrix;
+                varying vec2 vTextureMatrix;
+                // custom variables
+                varying vec3 vVertexPosition;
+                varying vec2 vTextureMatrixCoord;
+
+                uniform float uTime;
+
+                uniform float uPlaneDeformation;
+
+                void main() {
+
+                    vec3 vertexPosition = aVertexPosition;
+
+                    // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
+                    // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
+
+                    //cool effect on scroll
+                    //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
+
+                    gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+
+                    // varyings
+                    vVertexPosition = vertexPosition;
+                    vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
+                }
+
+            </script>
+            <script id="multiple-planes-fs" type="x-shader/x-fragment">
+                #ifdef GL_ES
+                precision mediump float;
+                #endif
+
+                varying vec3 vVertexPosition;
+                varying vec2 vTextureCoord;
+                varying vec2 vTextureMatrixCoord;
+                varying vec2 vTextureMatrix;
+
+                uniform sampler2D uSampler0;
+                uniform sampler2D planeTexture;
+                uniform float uPlaneDeformation;
+
+                void main( void ) {
+                    // slides transitions
+                    //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
+
+                    vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
+
+                    gl_FragColor = finalColor;
+                }
+            </script>
+
+
+            <script id="displacement-fs" type="x-shader/x-fragment">
+                #ifdef GL_ES
+                precision mediump float;
+                #endif
+
+                varying vec3 vVertexPosition;
+                varying vec2 vTextureCoord;
+
+                uniform sampler2D renderTexture;
+                uniform sampler2D displacementTexture;
+
+                uniform float uDisplacement;
+
+                void main( void ) {
+                    vec2 textureCoords = vTextureCoord;
+                    vec4 displacement = texture2D(displacementTexture, textureCoords);
+
+                    // displace along Y axis
+                    textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
+
+                    vec4 finalColor = texture2D(renderTexture, textureCoords);
+                    gl_FragColor = finalColor;
+                }
+            </script>
 
         {{/if}}
 

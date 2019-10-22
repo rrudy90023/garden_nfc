@@ -1,67 +1,77 @@
-<div class="row topSpace"></div>
-<div class="row topSpace">
-  <div class="col-md-2 gray"></div>
-  <div class="col-12 col-md-8 gray">
-    <div class="habCont">
-      <h3 id="" data-aos="fade">{{this.title}}</h3>
+<div class="row" id="canvas"></div>
+<div id="content">
+  <div id="planes">
+
+    <div class="row topSpace">
+      <div class="col-md-2 gray"></div>
+      <div class="col-12 col-md-7 gray">
+        <div class="habCont">
+          <h3 id="" data-aos="fade">{{this.title}}</h3>
+        </div>
+      </div>
+      <div class="col-md-3 gray"></div>
     </div>
+
+    <div class="row gray bottomSpace">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-7 pink">
+          <p data-aos="fade" style="color: black">In prehostoric times, this region slowly emerged from the sea as the San Gabriel mountains. Hundreds of millions later, coastal sage scrub was formed by its unique Mediterranean climate. </p>
+          <p data-aos="fade" style="color: black">This parcel lying on the outskirts of the Downtown Los Angeles, is where much of the basin's natural landscape was destoyed by urban sprawl.</p>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+
+    <!-- before -->
+
+{{!--     <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-7">
+          <p data-aos="fade" class="pink" style="color: black" id=""><strong>Before Regeneration</strong></p>
+          <p data-aos="fade" class="pink" style="color: black" id="">The parcel was created during post World War II to house the growing population in the basin. The surrounding homes where mostly cookie cutter single family homes. During that era it was common to have grass lawns in the front and back of the homes. This parcel had cemented outdoor with limited flora.</p>
+      </div>
+      <div class="col-md-3"></div>
+    </div> --}}
+
+    <div class="row bottomSpace">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-7">
+          <p data-aos="fade" class="pink" style="color: black" id=""><strong>Before Regeneration</strong></p>
+          <p data-aos="fade" class="pink" style="color: black" id="">The parcel was created during post World War II to house the growing population in the basin. The surrounding homes where mostly cookie cutter single family homes. During that era it was common to have grass lawns in the front and back of the homes. This parcel had cemented outdoor with limited flora.</p>  
+          <div class="landscape-wrapper" >
+              <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
+                <img id="imgRot" src="images/stucco_2_1024.jpg" data-sampler="planeTexture" />
+              </div>        
+          </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+
+{{!--     <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-7">
+          <p data-aos="fade" class="pink" style="color: black" id=""><strong>Present Regeneration</strong></p>
+          <p data-aos="fade" class="pink" style="color: black" id="">After three years of regenerating the native flora, much of the intended goal is still a work in progress.</p>
+      </div>
+      <div class="col-md-3"></div>
+    </div> --}}
+
+    <div class="row bottomSpace">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-7">  
+          <p data-aos="fade" class="pink" style="color: black" id=""><strong>Present Regeneration</strong></p>
+          <p data-aos="fade" class="pink" style="color: black" id="">After three years of regenerating the native flora, much of the intended goal is still a work in progress.</p> 
+          <div class="landscape-wrapper">
+              <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
+                <img id="imgRot" src="images/stucco_2_1024.jpg" data-sampler="planeTexture" />
+              </div>        
+          </div>
+    
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+
   </div>
-  <div class="col-md-2 gray"></div>
 </div>
-
-<div class="row gray bottomSpace">
-  <div class="col-md-2"></div>
-  <div class="col-12 col-md-7 pink">
-      <p data-aos="fade" style="color: black">In prehostoric times, this region slowly emerged from the sea as the San Gabriel mountains. Hundreds of millions later, coastal sage scrub was formed by its unique Mediterranean climate. </p>
-      <p data-aos="fade" style="color: black">This parcel lying on the outskirts of the Downtown Los Angeles, is where much of the basin's natural landscape was destoyed by urban sprawl.</p>
-  </div>
-  <div class="col-md-3"></div>
-</div>
-
-<!-- before -->
-
-<div class="row gray">
-  <div class="col-md-2 gray"></div>
-  <div class="col-12 col-md-7 gray">
-      <p data-aos="fade" class="pink" style="color: black" id=""><strong>Before Regeneration</strong></p>
-      <p data-aos="fade" style="color: white" id="">The parcel was created during post World War II to house the growing population in the basin. The surrounding homes where mostly cookie cutter single family homes. During that era it was common to have grass lawns in the front and back of the homes. This parcel had cemented outdoor with limited flora.</p>
-  </div>
-  <div class="col-md-3"></div>
-</div>
-
-<div class="row gray bottomSpace">
-  <div class="col col-md-2"></div>
-  <div class="col-6 col-md-4 stuccoOne" >
-    <img data-aos="fade" data-aos-delay="500" class="img-fluid" src="http://rudes.de/s17/pinksky_1_1024.jpg" >
-  </div>
-
-  <div class="col-6 col-md-4 stuccoThree" >
-    <img data-aos="fade" data-aos-delay="500" class="img-fluid" src="http://rudes.de/s17/spider_1_1024.jpg" >
-  </div>
-  <div class="col col-md-2 gray"></div>
-</div>
-
-<div class="row gray">
-  <div class="col-md-2 gray"></div>
-  <div class="col-12 col-md-7 gray">
-      <p data-aos="fade" class="pink" style="color: black" id=""><strong>Present Regeneration</strong></p>
-      <p data-aos="fade" style="color: white" id="">After three years of regenerating the native flora, much of the intended goal is still a work in progress.</p>
-  </div>
-  <div class="col-md-3"></div>
-</div>
-
-<div class="row gray bottomSpace">
-  <div class="col col-md-2"></div>
-  <div class="col-6 col-md-4 stuccoOne" >
-    <img data-aos="fade" data-aos-delay="500" class="img-fluid" src="http://rudes.de/s17/pinksky_1_1024.jpg" >
-  </div>
-
-  <div class="col-6 col-md-4 stuccoThree" >
-    <img data-aos="fade" data-aos-delay="500" class="img-fluid" src="http://rudes.de/s17/spider_1_1024.jpg" >
-  </div>
-  <div class="col col-md-2 gray"></div>
-</div>
-
 <script src="/js/aos.js"></script>
 <script type="text/javascript">
 	AOS.init();

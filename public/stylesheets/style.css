@@ -7,53 +7,18 @@ position: relative;
 width: 100%;
 height: auto;
 margin: 0;
-/*overflow: hidden;*/
-/*font-family: 'Playfair+Display', serif;*/
-/*text-align: center;*/
 background-color: black!important;
 }
-
 
 /* curtain.js texture*/
 
 @media screen {
 
-/*    html, body {
-        min-height: 100%;
-    }*/
-
-    body {
-        margin: 0;
-        font-size: 18px;
-        font-family: 'PT Sans', Verdana, sans-serif;
-        background: #ffffff;
-        line-height: 1.4;
-    }
-
-    /*** layout ***/
-
-    .flex-wrapper {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flexbox;
-        display: -moz-flex;
-        display: -o-flex;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: flex;
-        -moz-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        -o-flex-wrap: wrap;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-    }
-
     .landscape-wrapper {
-        position: relative;
+/*        position: relative;
         height: 0;
         width: 100%;
-        overflow: hidden;
+        overflow: hidden;*/
         padding-bottom: 66.6%;
     }
 
@@ -69,12 +34,9 @@ background-color: black!important;
         position: relative;
     }
 
-    /*** canvas ***/
-
-    /* our canvas will be a bit taller than our window to avoid "glitched" top and bottom edges */
     #canvas {
         position: fixed;
-        top: -10vh;
+        top: 0;
         right: 0;
         left: 0;
         height: 120vh;
@@ -88,7 +50,6 @@ background-color: black!important;
         opacity: 1;
     }
 
-
     /*** content ***/
 
     #content {
@@ -96,41 +57,16 @@ background-color: black!important;
         z-index: 15;
         max-width: 100%;
         margin: 0 auto;
-        padding: 40px 0;
     }
 
     #planes {
         overflow: hidden;
         opacity: 0;
-
         transition: opacity 0.5s ease-in;
     }
 
     .planes-loaded #planes {
         opacity: 1;
-    }
-
-    .plane-wrapper {
-        width: 100%;
-/*        float: left;
-        position: relative;*/
-    }
-
-    .plane-title {
-        background: #ee6557;
-        color: white;
-        position: absolute;
-        top: 0.25em;
-        left: 0;
-        font-size: 2em;
-        font-weight: bold;
-        display: inline-block;
-        padding: 0.125em 0.25em;
-    }
-
-    .plane-inner {
-        padding: 0;
-        box-sizing: border-box;
     }
 
     .plane {
@@ -143,14 +79,7 @@ background-color: black!important;
 
     .plane img {
         display: none;
-
-        /*display: block;
-        width: 100%;
-        height: auto;
-        opacity: 0.3;*/
     }
-
-    /*** handling errors ***/
 
     .no-curtains .plane-title {
         z-index: 1;
@@ -161,47 +90,20 @@ background-color: black!important;
         width: 100%;
         height: auto;
     }
-
 }
 
 
 
-/*@media screen and (max-width: 1320px) {
-
-    #content {
-        margin: 0 20px;
-    }
-
-    .plane-title {
-        top: 0;
-        font-size: 1.5em;
-    }
-
-    .plane-inner {
-        padding: 20px;
-    }
-
+@media screen and (max-width: 1320px) {
 }
 
 
 @media screen and (max-width: 720px) {
-
-    #content {
-        margin: 0 10px;
-    }
-
-    .plane-wrapper {
-        width: 100%;
-        float: none;
-        margin-bottom: 10px;
-    }
-
-    .plane-inner {
-        padding: 10px;
-    }
-
-}*/
-
+/*    .landscape-wrapper {
+        position: relative;
+        margin: 0 auto;
+    }*/
+}
 /* normal styles */
 
 form {
@@ -212,7 +114,10 @@ padding-left: 15px!important;
 
 }
 
-
+strong {
+padding-left: 7px!important;	
+padding-right: 7px!important;
+}
 
 #watermark {
 display: none!important;
@@ -497,8 +402,9 @@ border-color: transparent;
 
 p, a, span {
 font-family: 'Palanquin', sans-serif;
-font-size: 1.4rem;
+font-size: 1.2rem;
 color: black;
+
 }
 
 .jumbotron-fluid, .container-fluid {
@@ -620,7 +526,7 @@ left: 0;
 bottom: 0;
 top: 0;
 position: absolute;
-height: 580px;	
+height: auto;	
 }
 
 
@@ -713,10 +619,6 @@ font-size: 20px;
 font-weight: 400;
 }
 
-header {
-height: 100px;
-
-}
 
 .burger {
 font-size: 50px;
@@ -747,7 +649,6 @@ top: 1px;
 width: 54px;
 height: 74px;
 position: absolute;
-top: 3px;
 right: 23px;
 }
 
@@ -770,14 +671,15 @@ width: 100px;
 
 /* Style the sticky header */
 .header {
-padding: 10px 16px;
 color: #f1f1f1;
 z-index: 9999;
+height: 100px;
+position: fixed;
 }
 
 /* Page content */
 .content {
-padding: 16px;
+padding: 0;
 }
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
@@ -861,8 +763,8 @@ color: #f1f1f1;
 /* Position the close button (top right corner) */
 .overlay .closebtn {
 position: absolute;
-top: 20px;
-right: 45px;
+top: -40px;
+right: 10px;
 font-size: 80px;
 }
 
@@ -885,4 +787,6 @@ transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
 }
 
 
-
+#inHabitBtn, #interABtn, #formBtn {
+cursor: pointer;
+}
