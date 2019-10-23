@@ -151,6 +151,7 @@ window.addEventListener("load", function() {
     var image = new Image();
     // image.src = "../images/stucco_4_1024.jpg";
     image.src = "https://rudes.de/s17/stucco_4_1024.jpg"
+    image.crossOrigin = "anonymous";
     // set its data-sampler attribute to use in fragment shader
     image.setAttribute("data-sampler", "displacementTexture");
 
