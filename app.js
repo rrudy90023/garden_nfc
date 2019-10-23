@@ -50,6 +50,15 @@ app.use(expressSession(
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", '*');
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
+});
+
 app.use('/', routes);
 app.use('/admin', admin);
 app.use('/users', users);
@@ -57,16 +66,6 @@ app.use('/emails', emails);
 app.use('/dashboard', dashboard);
 //app.use(restrict);
 app.use('/plants', plants);
-
-console.log(config.corsURL);
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", config.corsURL);
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    next();
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

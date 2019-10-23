@@ -143,7 +143,7 @@ font-size: 48px;
 }
 
 .fasLogo {
-background: url("http://rudes.de/s17/fas2.svg") no-repeat;
+background: url("https://rudes.de/s17/fas2.svg") no-repeat;
 width: 80px;
 height: 80px;
 
@@ -240,7 +240,7 @@ height: auto;
 background-color: white; 
 width: 30vw;
 height: 26vw;
-background: url("http://rudes.de/s17/stucco_2_1024.jpg") no-repeat;
+background: url("https://rudes.de/s17/stucco_2_1024.jpg") no-repeat;
 background-size: cover;
 margin: auto;
 position: absolute;
@@ -276,13 +276,13 @@ display: none;
 }
 
 .stuccoOne {
-background: url("http://rudes.de/s17/stucco_1_1024.jpg") repeat;
+background: url("https://rudes.de/s17/stucco_1_1024.jpg") repeat;
 background-size: contain;
 width: 100%;
 }
 
 .stuccoTwo {
-background: url("http://rudes.de/s17/stucco_2_1024.jpg") repeat;
+background: url("https://rudes.de/s17/stucco_2_1024.jpg") repeat;
 background-size: contain;
 width: 100%;
 }
@@ -294,7 +294,7 @@ width: 100%;
 }
 
 .stuccoFour {
-background: url("http://rudes.de/s17/stucco_4_1024.jpg") no-repeat;
+background: url("https://rudes.de/s17/stucco_4_1024.jpg") no-repeat;
 background-size: cover;
 width: 100%;
 }
