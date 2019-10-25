@@ -4,16 +4,6 @@ var userService = require('../services/user-service');
 const Email = require('../models/email').Email;
 var config = require('../config');
 
-
-router.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", '*');
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    next();
-});
-
-
 /* GET email listing. */
 router.get('/', function(req, res, next) {
   Email.find({}, function(err, emails){

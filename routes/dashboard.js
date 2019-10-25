@@ -3,14 +3,6 @@ var router = express.Router();
 var request = require('request');
 var extend = require('xtend');
 
-router.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", '*');
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    next();
-});
-
 
 var requestSparkObj = request({
             uri: 'https://api.particle.io/v1/devices/3c002f000a47353235303037/events/?access_token=b0411c901db00e00b4f1510b8ce0bcbe6289f290',
