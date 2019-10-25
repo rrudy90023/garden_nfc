@@ -149,9 +149,9 @@ window.addEventListener("load", function() {
     var shaderPass = webGLCurtain.addShaderPass(shaderPassParams);
     // we will need to load a new image
     var image = new Image();
-    // image.src = "../images/stucco_4_1024.jpg";
+
     image.crossOrigin = "anonymous";
-    image.src = "https://a2plcpnl0011.prod.iad2.secureserver.net:2083/cpsess0189925883/viewer/home%2fuihx2xdnoigi%2fpublic_html%2fimages/stucco_4_1024.jpg"
+    image.src = "../images/stucco_4_1024.jpg"
     
     // set its data-sampler attribute to use in fragment shader
     image.setAttribute("data-sampler", "displacementTexture");
