@@ -1,4 +1,6 @@
 node_modules/
 /data
 docs.html
-
+# public/images
+.env
+public/images/.DS_Store

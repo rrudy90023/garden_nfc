@@ -9,8 +9,8 @@ var gardenSchema = new Schema({
   specs: { type: String, required: 'Please enter specs'},
   dateplanted: { type: String, required: 'Please enter date planted'},
   created: { type: Date, default: Date.now },
-  file: { type: String, required: 'Please upload an image' },
-  picId: { type: String }
+  file: { type: String, required: 'Please upload an image' }
+  //picId: { type: String }
 });
 
 var Garden = mongoose.model('Garden', gardenSchema);

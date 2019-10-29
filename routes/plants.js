@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config()
 const userService = require('../services/user-service');
 const config = require('../config');
 const request = require('request');
@@ -9,21 +10,48 @@ const fs      = require('fs');
 const Garden = require('../models/garden').Garden;
 
 //file upload
+const aws = require('aws-sdk');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const crypto = require('crypto');
 const multer = require('multer');
+const multerS3 = require('multer-s3')
+const s3 = new aws.S3({})
+
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
+
 const conn = require('../conn');
 const admin = require('./admin');
 /* GET users listing. */
 const plants = express();
+const S3_BUCKET = process.env.S3_BUCKET;
+aws.config.region = 'eu-west-1';
 
 plants.use(bodyParser.json());
 plants.use(methodOverride('_method'));
 //console.log("plants.js", conn.connectorCreate)
+
+/// Multer S3
+
+var upload = multer({
+  //const S3_BUCKET = process.env.S3_BUCKET;
+  storage: multerS3({
+    s3: s3,
+    bucket: S3_BUCKET,
+    acl: 'public-read',
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    metadata: function (req, file, cb) {
+      cb(null, {fieldName: file.fieldname});
+    },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString(), req.params.id + ".jpg")
+    }
+  })
+})
+
+// API call
 
 router.get('/api', function(req, res, next) {
   //res.send('respond with a resource');
@@ -40,36 +68,6 @@ router.get('/api', function(req, res, next) {
   })
 });
 
-// Init gfs
-let gfs;
-let connector = conn.connectorCreate;
-connector.once('open', () => {
-  // Init stream
-  gfs = Grid(connector.db, mongoose.mongo);
-  gfs.collection('uploads');
-});
-// Create storage engine
-const storage = new GridFsStorage({
-  url: config.mongoUri,
-  file: (req, file) => {
-    return new Promise((resolve, reject) => {
-      crypto.randomBytes(16, (err, buf) => {
-        if (err) {
-          return reject(err);
-        }
-        const filename = buf.toString('hex') + path.extname(file.originalname);
-        const fileInfo = {
-          filename: filename,
-          bucketName: 'uploads'
-        };
-        resolve(fileInfo);
-      });
-    });
-  }
-});
-
-const upload = multer({ storage });
-//
 
 router.get('/:id/view', function(req, res, next){
   Garden.findById(req.params.id, function(err, plant){
@@ -113,18 +111,21 @@ router.get('/', function(req, res, next) {
       res.render('plants/index', { "title": "Admin", "plantlist": model, "firstName": req.user.firstName });
     });
 });
-//
+
+
+///
 
 router.get('/create', function(req, res, next) {
-
   if (!req.isAuthenticated()) {
     return res.redirect('/admin');
   }
+  // show object if valid user
   var vm = {
     title: 'Add plant to garden',
     firstName: req.user.firstName
   };
   res.render('plants/create', vm);
+
 });
 
 //
@@ -137,9 +138,8 @@ router.post('/create', upload.single('file'), function(req, res, next) {
         input: req.body,
       };
       var model = vm.input;
-      console.log(req.file);
-      model["file"] = req.file.filename;
-      model["picId"] = req.file.id;
+      console.log(req.file.location);
+      model["file"] = req.file.location;
 
       userService.addPlant(model, function(err) {
           res.redirect('/plants');
@@ -148,66 +148,6 @@ router.post('/create', upload.single('file'), function(req, res, next) {
 
 //
 
-// @route GET /files
-// @desc  Display all files in JSON
-router.get('/files', (req, res) => {
-  gfs.files.find().toArray((err, files) => {
-    // Check if files
-    if (!files || files.length === 0) {
-      return res.status(404).json({
-        err: 'No files exist'
-      });
-    }
-
-    // Files exist
-    return res.json(files);
-  });
-});
-
-
-// @route GET /files/:filename
-// @desc  Display single file object
-router.get('/files/:filename', (req, res) => {
-  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-    // Check if file
-    if (!file || file.length === 0) {
-      return res.status(404).json({
-        err: 'No file exists'
-      });
-    }
-    // File exists
-    return res.json(file);
-  });
-});
-
-
-// @route GET /image/:filename
-// @desc Display Image
-router.get('/image/:filename', (req, res) => {
-  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-    // Check if file
-    if (!file || file.length === 0) {
-      return res.status(404).json({
-        err: 'No file exists'
-      });
-    }
-
-    // Check if image
-    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-      // Read output to browser
-      const readstream = gfs.createReadStream(file.filename);
-      readstream.pipe(res);
-    } else {
-      res.status(404).json({
-        err: 'Not an image'
-      });
-    }
-  });
-});
-
-//
-
-
 router.get('/:id/edit',function(req, res, next){
   
   if (!req.isAuthenticated()) {
@@ -215,19 +155,16 @@ router.get('/:id/edit',function(req, res, next){
   }
 
       Garden.findById(req.params.id, function(err, plant){
-        
         var ebin = {
             title: 'Edit '+ plant.plantname,
             plantname: plant.plantname,
             file: plant.file,
-            picId: plant.picId,
             desc: plant.desc,
             specs: plant.specs,
             dateplanted: plant.dateplanted,
             id: plant._id,
             firstName: req.user.firstName
         };
-
         // const bucket = Object.assign(ebin, files);
         //console.log(ebin);
         res.render('plants/edit', ebin);
@@ -264,11 +201,11 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
 
   if(req.file){
     var plantname = req.body.plantname;
-    var file = req.file.filename;
+    var file = req.file;
     var desc = req.body.desc;
     var specs = req.body.specs;
     var dateplanted = req.body.dateplanted;
-    var picId = req.file.id
+    //var picId = req.file.id
 
     Garden.findById(req.params.id, function(err, plant){
       plant.plantname = plantname;
@@ -276,7 +213,6 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
       plant.desc = desc;
       plant.specs = specs;
       plant.dateplanted = dateplanted;
-      plant.picId = picId
 
       plant.save(function(err){
         //console.log("edited with new image");
@@ -288,33 +224,33 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
 
 
 router.post('/:id', (req, res) => {
-
   if (req.query.method === "DELETE") {
-    
     Garden.findById(req.params.id, function(err, plant){
+        plant.remove(function(err){
 
-      //console.log(plant.picId, "THIS IS POST Garden")
-        // gfs.remove({_id: plant.picId, root: 'uploads'});
-        // plant.remove(function(err){
-
-        //   console.log("deleted all" + "  " + plant);
-        //   res.redirect('/plants');
-        // });
+          console.log("deleted all" + "  " + plant);
+          res.redirect('/plants');
+        });
     });
   }
 })
 
-//router.use('/files/picId', picId);
-
-router.post('/files/:id', (req, res) => {
-  //console.log("deleted image called")
-
+// removes the specific image object for AWS S3
+router.post('/:id/edit', (req, res) => {
+  console.log(req.file.key)
+  
   if (req.query.method === "DELETE") {
-    gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
-      res.redirect('/plants');
-    });
+    var params = {  
+      Bucket: S3_BUCKET, 
+      Key: req.file.key 
+    };
 
+    s3.deleteObjects(params, function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else     console.log(data);           // successful response
+    });
   };
+  
 });
 
 

@@ -53,7 +53,7 @@
 	<span style="color:red">{{error}}</span>
 </form>			
 
-<form class="col-xs-12 col-md-8" method="POST" action="../files/{{this.picId}}?method=DELETE">
-	<img src="/plants/image/{{this.file}}" class="img-thumbnail">
+<form class="col-xs-12 col-md-8" method="POST" action="{{this.file}}?method=DELETE">
+	<img src="{{this.file}}" class="img-thumbnail">
 	<input class="btn btn-lg btn-danger btn-block mt-4" type="submit" value="Delete Image" />
 </form>
