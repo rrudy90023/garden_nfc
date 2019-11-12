@@ -31,7 +31,6 @@ aws.config.region = 'eu-west-1';
 
 plants.use(bodyParser.json());
 plants.use(methodOverride('_method'));
-//console.log("plants.js", conn.connectorCreate)
 
 /// Multer S3
 
@@ -138,7 +137,6 @@ router.post('/create', upload.single('file'), function(req, res, next) {
         input: req.body,
       };
       var model = vm.input;
-      console.log(req.file.location);
       model["file"] = req.file.location;
 
       userService.addPlant(model, function(err) {
@@ -166,7 +164,6 @@ router.get('/:id/edit',function(req, res, next){
             firstName: req.user.firstName
         };
         // const bucket = Object.assign(ebin, files);
-        //console.log(ebin);
         res.render('plants/edit', ebin);
       });
 });
@@ -178,21 +175,48 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
 
   if(!req.file){
 
-    console.log(req.file)
-
     var plantname = req.body.plantname;
     var desc = req.body.desc;
     var specs = req.body.specs;
     var dateplanted = req.body.dateplanted;
 
     Garden.findById(req.params.id, function(err, plant){
+
+      if (req.query.method === "DELETE") {
+        var clearFile = true;
+          Garden.findById(req.params.id, function(err, plant){
+            const str = plant.file;
+            const txt = str.substr(-13);
+
+          const params = {  
+            Bucket: S3_BUCKET, 
+            Key: txt 
+          };
+
+          s3.deleteObject(params, function(err, data) {
+            if (err) {
+              console.log(err, err.stack);
+            } else {    
+              // Garden.findById(req.params.id, function(err, plant){
+                
+              //   Garden.update({ 
+              //     $unset: { file: "" } 
+              //   });
+              //   console.log(plant.file)
+              // });
+              console.log(params);
+            }
+          });
+        });
+      }
+
       plant.plantname = plantname;
       plant.desc = desc;
       plant.specs = specs;
       plant.dateplanted = dateplanted;
 
       plant.save(function(err){
-        //console.log("edited with new image");
+        console.log("edited with new copy or image");
         res.redirect('/plants');
       });
     });
@@ -201,21 +225,21 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
 
   if(req.file){
     var plantname = req.body.plantname;
-    var file = req.file;
+    var file = req.file.location;
     var desc = req.body.desc;
     var specs = req.body.specs;
     var dateplanted = req.body.dateplanted;
     //var picId = req.file.id
-
+    console.log(req.file.location)
     Garden.findById(req.params.id, function(err, plant){
       plant.plantname = plantname;
-      plant.file = file;
+      plant.file = req.file.location;
       plant.desc = desc;
       plant.specs = specs;
       plant.dateplanted = dateplanted;
 
       plant.save(function(err){
-        //console.log("edited with new image");
+        console.log("edited with new image");
         res.redirect('/plants');
       });
     });
@@ -236,22 +260,51 @@ router.post('/:id', (req, res) => {
 })
 
 // removes the specific image object for AWS S3
-router.post('/:id/edit', (req, res) => {
-  console.log(req.file.key)
+// router.post('/:id/edit', (req, res) => {
   
-  if (req.query.method === "DELETE") {
-    var params = {  
-      Bucket: S3_BUCKET, 
-      Key: req.file.key 
-    };
+//   if (req.query.method === "DELETE") {
+//       Garden.findById(req.params.id, function(err, plant){
+        
+//         const str = plant.file;
+//         const txt = str.replace("https://s17.s3.amazonaws.com/","");
+//         console.log(txt);
 
-    s3.deleteObjects(params, function(err, data) {
-      if (err) console.log(err, err.stack); // an error occurred
-      else     console.log(data);           // successful response
-    });
-  };
-  
-});
+//       const params = {  
+//         Bucket: S3_BUCKET, 
+//         Key: txt 
+//       };
+
+//       s3.deleteObject(params, function(err, data) {
+//         if (err) {
+//           console.log(err, err.stack); // an error occurred
+//         } else {    
+//           console.log(data);           // successful response
+//           console.log(params);
+//           res.redirect('/:id/edit');
+//         }
+//       });
+        
+//     });
+
+
+//   }
+  // if (req.query.method === "DELETE") {
+  //   const params = {  
+  //     Bucket: S3_BUCKET, 
+  //     Key: req.file.key 
+  //   };
+
+  //   s3.deleteObject(params, function(err, data) {
+  //     if (err) {
+  //       console.log(err, err.stack); // an error occurred
+  //     } else {    
+  //       console.log(data);           // successful response
+  //       console.log(params);
+  //     }
+  //   });
+  // };
+
+//});
 
 
 

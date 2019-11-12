@@ -53,7 +53,12 @@
 	<span style="color:red">{{error}}</span>
 </form>			
 
-<form class="col-xs-12 col-md-8" method="POST" action="{{this.file}}?method=DELETE">
-	<img src="{{this.file}}" class="img-thumbnail">
-	<input class="btn btn-lg btn-danger btn-block mt-4" type="submit" value="Delete Image" />
+<form class="col-xs-12 col-md-8" method="POST" action="?method=DELETE">
+	{{#if this.file}}
+		<img src="{{this.file}}" class="img-thumbnail">
+		<input class="btn btn-lg btn-danger btn-block mt-4" type="submit" value="Delete Image" />
+	{{else}}
+		<h3>Upload an image</h3>
+	{{/if}}
+	
 </form>
