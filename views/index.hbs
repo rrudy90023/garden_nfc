@@ -186,7 +186,6 @@
   var totalImages = images.length;
   var i = 0;
   var pageHeight = document.body.clientHeight - window.innerHeight;
-
   var scrollInterval = Math.floor(pageHeight / totalImages);
 
   window.onload = function()
@@ -195,12 +194,12 @@
      {
         //if(window.pageYOffset % 2 == 0 ) {
           
-          i++;
-          if(i > 8){
-            i = 0;
-          }
+          // i++;
+          // if(i > 8){
+          //   i = 0;
+          // }
           
-          //var i = Math.floor(window.pageYOffset / scrollInterval)
+          var i = Math.floor(window.pageYOffset / scrollInterval)
           imgIndexOne.src = "../images/" + images[i];
           console.log(i);
         // }
