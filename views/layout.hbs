@@ -60,42 +60,22 @@
             </div>
             <script type="text/javascript">
 
-                document.addEventListener("DOMContentLoaded", function() {
+                //document.addEventListener("DOMContentLoaded", function() {
                   //sticky header
-                  window.onscroll = function() {myFunction()};
+                  //window.onscroll = function() {myFunction()};
                   // Get the header
                   // Get the offset position of the navbar
-                  var header = document.getElementById("myHeader");
-                  var imgRot = document.getElementById("imgRot");
-                  var sticky = header.offsetTop;
+                  //var header = document.getElementById("myHeader");
+                  //var sticky = header.offsetTop;
                   // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-                  function myFunction() {
-                    if (window.pageYOffset > sticky) {
-                        header.classList.add("sticky");
-                    } else {
-                        header.classList.remove("sticky");
-                    }
-                    if(window.scrollY >= 500) { 
-                        imgRot.crossOrigin = "anonymous";
-                        //imgRot.src = "../images/pinksky_1_1024.jpg";
-                        
-                        // catImg.style.display = "none";
-                        // spiderImg.style.display = "block";
-                        // ladyImg.style.display = "block";
-                        
-                    } else {
-                        imgRot.crossOrigin = "anonymous";
-                        //imgRot.src = "../images/stucco_3_1024.jpg";
-                        
-                        // spiderImg.style.display = "none"
-                        // catImg.style.display = "block";
-                        // hopperImg.style.display = "block";
-                        // ladyImg.style.display = "none";
-                        
-                    }
-                  }
-                  
-                });
+                  // function myFunction() {
+                  //   if (window.pageYOffset > sticky) {
+                  //       header.classList.add("sticky");
+                  //   } else {
+                  //       header.classList.remove("sticky");
+                  //   }
+                  // } 
+                //});
 
                 function openNav() {
                   document.getElementById("myNav").style.display = "block";

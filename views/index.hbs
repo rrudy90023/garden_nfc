@@ -34,13 +34,13 @@
       <div class="col-md-2"></div>
     </div>
 
-    <div class="topSpace row">
+    <div class="topSpace row" id="heightDiv">
       <div class="col-md-2"></div>
 
       <div class="col-12 col-md-7">  
           <div class="landscape-wrapper" >
               <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
-                <img id="imgRot" crossorigin="anonymous" src="../images/ladybug_1_1024.jpg" data-sampler="planeTexture" />
+                <img id="imgIndexOne" crossorigin="anonymous" src="../images/stucco_2_1024.jpg" data-sampler="planeTexture" />
               </div>        
           </div>
       </div>
@@ -134,6 +134,85 @@
   var inHabitBtn = document.getElementById("inHabitBtn");
   var formBtn = document.getElementById("formBtn");
   var interABtn = document.getElementById("interABtn");
+  var header = document.getElementById("myHeader");
+  var imgIndexOne = document.getElementById("imgIndexOne");
+  var heightDiv = document.getElementById("heightDiv");
+  //var imgIndexOneY = imgIndexOne.pageYOffset;
+  //
+ // document.addEventListener("DOMContentLoaded", function() {
+    //window.onscroll = function(){
+      //console.log(imgIndexOneY);
+      // function myFunction() {
+      //   console.log("hello")
+      // }
+      //if(window.scrollY >= 200) { 
+          
+          //imgRot.crossOrigin = "anonymous";
+          //imgIndexOne.src = "../images/catepillar_2_1024.jpg";
+          
+      //} else {
+          //imgRot.crossOrigin = "anonymous";
+          //imgIndexOne.src = "../images/stucco_2_1024.jpg";
+
+      //}
+    //}
+  //})
+
+// Array of images to swap between
+//var images = [];
+
+// Add 200 items to array
+// for (i = 0; i < 200; i++) {
+//     images.push('http://placekitten.com/' + (100 + i) + '/' + (100 + i));
+// }
+
+// var totalImages = images.length;
+
+// var pageHeight = $(document).height() - $(window).height();
+
+// // Work out how often we should change image (i.e. how far we scroll between changes)
+// var scrollInterval = Math.floor(pageHeight / totalImages);
+
+// $(document).scroll(function () {
+//     // Which one should we show at this scroll point?
+//     i = Math.floor($(this).scrollTop() / scrollInterval);
+//     // Show the corresponding image from the array
+//     $('img').attr('src', images[i]);
+//     $('b').text('Frame: ' + i);
+// });
+
+  var images = ['sage_1_1024.jpg', 'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'catepillar_1_1024.jpg', 'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg'];
+
+  var totalImages = images.length;
+  var i = 0;
+  var pageHeight = document.body.clientHeight - window.innerHeight;
+
+  var scrollInterval = Math.floor(pageHeight / totalImages);
+
+  window.onload = function()
+  {
+     window.onscroll = function()
+     {
+        //if(window.pageYOffset % 2 == 0 ) {
+          
+          i++;
+          if(i > 8){
+            i = 0;
+          }
+          
+          //var i = Math.floor(window.pageYOffset / scrollInterval)
+          imgIndexOne.src = "../images/" + images[i];
+          console.log(i);
+        // }
+
+        // if(window.pageYOffset % 3 == 0 ) {
+        //   imgIndexOne.src = "../images/sage_1_1024.jpg";
+        //   console.log(window.pageYOffset);
+        // }
+     }
+  }
+
+
 
   // inhabitants button mouse events
   function handleInhabits(evt) {
