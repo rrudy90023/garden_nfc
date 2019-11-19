@@ -73,96 +73,6 @@
 
             </script>
 
-            <script id="multiple-planes-vs" type="x-shader/x-vertex">
-                #ifdef GL_ES
-                precision mediump float;
-                #endif
-
-                // default mandatory variables
-                attribute vec3 aVertexPosition;
-                attribute vec2 aTextureCoord;
-
-                uniform mat4 uMVMatrix;
-                uniform mat4 uPMatrix;
-
-                uniform mat4 planeTextureMatrix;
-                varying vec2 vTextureMatrix;
-                // custom variables
-                varying vec3 vVertexPosition;
-                varying vec2 vTextureMatrixCoord;
-
-                uniform float uTime;
-
-                uniform float uPlaneDeformation;
-
-                void main() {
-
-                    vec3 vertexPosition = aVertexPosition;
-
-                    // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
-                    // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
-
-                    //cool effect on scroll
-                    //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
-
-                    gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
-
-                    // varyings
-                    vVertexPosition = vertexPosition;
-                    vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
-                }
-
-            </script>
-            <script id="multiple-planes-fs" type="x-shader/x-fragment">
-                #ifdef GL_ES
-                precision mediump float;
-                #endif
-
-                varying vec3 vVertexPosition;
-                varying vec2 vTextureCoord;
-                varying vec2 vTextureMatrixCoord;
-                varying vec2 vTextureMatrix;
-
-                uniform sampler2D uSampler0;
-                uniform sampler2D planeTexture;
-                uniform float uPlaneDeformation;
-
-                void main( void ) {
-                    // slides transitions
-                    //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
-
-                    vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
-
-                    gl_FragColor = finalColor;
-                }
-            </script>
-
-
-            <script id="displacement-fs" type="x-shader/x-fragment">
-                #ifdef GL_ES
-                precision mediump float;
-                #endif
-
-                varying vec3 vVertexPosition;
-                varying vec2 vTextureCoord;
-
-                uniform sampler2D renderTexture;
-                uniform sampler2D displacementTexture;
-
-                uniform float uDisplacement;
-
-                void main( void ) {
-                    vec2 textureCoords = vTextureCoord;
-                    vec4 displacement = texture2D(displacementTexture, textureCoords);
-
-                    // displace along Y axis
-                    textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
-
-                    vec4 finalColor = texture2D(renderTexture, textureCoords);
-                    gl_FragColor = finalColor;
-                }
-            </script>
-
         {{/if}}
 
         {{#if intro}}
@@ -207,11 +117,12 @@
         {{/if}}
 
         {{#if footer}}
-        <footer class="row topSpace">
+        <footer class="row">
           <div class="col-12">
             <div class="footCopy">
               <h3 class="">s17 ©MMXIX</h3>
-              <h3 class=""></h3>
+              <h3 class="" id="instaBtn">Instagram: @s17.la</h3>
+              <h3 class="" id="subscribeBtn">Subscribe</h3>
             </div>
           </div>
         </footer>
@@ -220,6 +131,6 @@
         <script src="/js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+        <script src="/js/layout.js"></script>
     </body>
 </html>

@@ -1,4 +1,3 @@
-  var subBtn = document.getElementById("subscribeBtn");
   var inHabitBtn = document.getElementById("inHabitBtn");
   var formBtn = document.getElementById("formBtn");
   var interABtn = document.getElementById("interABtn");
@@ -22,10 +21,10 @@
      window.onscroll = function()
      {
           var i = Math.floor(window.pageYOffset / scrollInterval);
-          if (i === 24){
-            i = 0;
-          }
-          console.log(i);
+          // if (i === 23){
+          //   i = 0;
+          // }
+          //console.log(i);
           imgIndexOne.src = "../images/" + images[i];
           imgIndexTwo.src = "../images/" + imagesForm[i];    
      }

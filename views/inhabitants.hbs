@@ -22,11 +22,23 @@
       <div class="col-md-3"></div>
     </div>
 
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-5">
+        
+        <h1 data-aos="fade-up" class="pink hOnePublic" style="color: black" id="">Plants</h1>
+        
+        <p data-aos="fade-up" class="gray" style="color: white" id="">Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the regions climate and exposure to the sun, soil drainage and other factors.</p> 
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+
     <div class="row bottomSpace" id="heightDiv">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-7">
-        <p data-aos="fade-up" class="pink" style="color: black" id=""><strong>Plants</strong></p>
-        <p data-aos="fade-up" class="gray" style="color: white" id="">Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the regions climate and exposure to the sun, soil drainage and other factors.</p>  
+ 
           <div class="landscape-wrapper" >
               <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
                 <img id="imgHabOne" crossorigin="anonymous" src="../images/stucco_2_1024.jpg" data-sampler="planeTexture" />
@@ -37,12 +49,19 @@
     </div>
 
     <!--insects-->
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-5">
+          <h1 data-aos="fade-up" class="pink hOnePublic" style="color: black" id="">Insects</h1>
+          <p data-aos="fade-up" class="gray" style="color: white" id="">Unexpected types of insects arrived to the sanctuary. Large cicadas, moths, spiders, butterflies are present throughout. Some in the day and some at night.</p> 
+      </div>
+      <div class="col-md-5"></div>
+    </div>
 
     <div class="row bottomSpace">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-7">
-          <p data-aos="fade-up" class="pink" style="color: black" id=""><strong>Insects</strong></p>
-          <p data-aos="fade-up" class="gray" style="color: white" id="">Unexpected types of insects arrived to the sanctuary. Large cicadas, moths, spiders, butterflies are present throughout. Some in the day and some at night.</p>  
+
           <div class="landscape-wrapper" >
               <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
                 <img id="imgHabTwo" crossorigin="anonymous" src="../images/stucco_2_1024.jpg" data-sampler="planeTexture" />
@@ -54,7 +73,7 @@
 
     <!-- birds-->
 
-    <div class="row bottomSpace">
+{{!--     <div class="row bottomSpace">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-7">
           <p data-aos="fade-up" class="pink" style="color: black" id=""><strong>Birds</strong></p>
@@ -66,11 +85,103 @@
           </div>
       </div>
       <div class="col-md-3"></div>
-    </div>
+    </div> --}}
 
 
   </div>
 </div>
+
+<script id="multiple-planes-vs" type="x-shader/x-vertex">
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+
+    // default mandatory variables
+    attribute vec3 aVertexPosition;
+    attribute vec2 aTextureCoord;
+
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    uniform mat4 planeTextureMatrix;
+    varying vec2 vTextureMatrix;
+    // custom variables
+    varying vec3 vVertexPosition;
+    varying vec2 vTextureMatrixCoord;
+
+    uniform float uTime;
+
+    uniform float uPlaneDeformation;
+
+    void main() {
+
+        vec3 vertexPosition = aVertexPosition;
+
+        // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
+        // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
+
+        //cool effect on scroll
+        //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
+
+        gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+
+        // varyings
+        vVertexPosition = vertexPosition;
+        vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
+    }
+
+</script>
+<script id="multiple-planes-fs" type="x-shader/x-fragment">
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+
+    varying vec3 vVertexPosition;
+    varying vec2 vTextureCoord;
+    varying vec2 vTextureMatrixCoord;
+    varying vec2 vTextureMatrix;
+
+    uniform sampler2D uSampler0;
+    uniform sampler2D planeTexture;
+    uniform float uPlaneDeformation;
+
+    void main( void ) {
+        // slides transitions
+        //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
+
+        vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
+
+        gl_FragColor = finalColor;
+    }
+</script>
+
+
+<script id="displacement-fs" type="x-shader/x-fragment">
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+
+    varying vec3 vVertexPosition;
+    varying vec2 vTextureCoord;
+
+    uniform sampler2D renderTexture;
+    uniform sampler2D displacementTexture;
+
+    uniform float uDisplacement;
+
+    void main( void ) {
+        vec2 textureCoords = vTextureCoord;
+        vec4 displacement = texture2D(displacementTexture, textureCoords);
+
+        // displace along Y axis
+        textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
+
+        vec4 finalColor = texture2D(renderTexture, textureCoords);
+        gl_FragColor = finalColor;
+    }
+</script>
+
+
 <script src="/js/curtains.min.js"></script>
 <script src="/js/post.processing.displacement.setup.js" ></script>
 <script src="/js/inhabitants.js"></script>

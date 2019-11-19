@@ -1,21 +1,15 @@
-  var imgHabOne = document.getElementById("imgHabOne");
-  var imgHabTwo = document.getElementById("imgHabTwo");
+  var imgFormOne = document.getElementById("imgFormOne");
+  var imgFormTwo = document.getElementById("imgFormTwo");
   var heightDiv = document.getElementById("heightDiv");
   //var imgIndexOneY = imgIndexOne.pageYOffset;
 
-  var imagesPlants = ['sage_1_1024.jpg', 'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'stucco_2_1024.jpg', 
-  'catepillar_1_1024.jpg', 'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'stucco_4_1024.jpg', 
-  'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg','sage_1_1024.jpg', 'stucco_3_1024.jpg', 
-  'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'stucco_2_1024.jpg','catepillar_1_1024.jpg', 'stucco_4_1024.jpg', 
-  'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg'];
+  var imagesBefore = ['front_1_1024.jpg', 'stucco_2_1024.jpg', 'front_2_1024.jpg', 'stucco_3_1024.jpg','front_1_1024.jpg', 
+    'stucco_2_1024.jpg', 'front_2_1024.jpg', 'stucco_3_1024.jpg'];
 
-  var imagesInsects = ['sage_1_1024.jpg', 'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'stucco_2_1024.jpg', 
-  'catepillar_1_1024.jpg', 'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'stucco_4_1024.jpg', 
-  'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg','sage_1_1024.jpg', 'stucco_3_1024.jpg', 
-  'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'stucco_2_1024.jpg','catepillar_1_1024.jpg', 'stucco_4_1024.jpg', 
-  'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg']
+  var imagesAfter = ['front_3_1024.jpg' , 'stucco_2_1024.jpg', 'front_4_1024.jpg', 'stucco_3_1024.jpg', 'front_3_1024.jpg',
+   'stucco_2_1024.jpg', 'front_4_1024.jpg', 'stucco_3_1024.jpg'];
 
-  var totalImages = imagesPlants.length;
+  var totalImages = imagesBefore.length;
   var i = 0;
   var pageHeight = document.body.clientHeight - window.innerHeight;
   var scrollInterval = Math.floor(pageHeight / totalImages);
@@ -25,11 +19,9 @@
      window.onscroll = function()
      {
           var i = Math.floor(window.pageYOffset / scrollInterval);
-          if (i === 24){
-            i = 0;
-          }
+
           console.log(i);
-          imgHabOne.src = "../images/" + imagesPlants[i];
-          imgHabTwo.src = "../images/" + imagesInsects[i];    
+          imgFormOne.src = "../images/" + imagesBefore[i];
+          imgFormTwo.src = "../images/" + imagesAfter[i];    
      }
   }

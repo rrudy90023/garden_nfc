@@ -161,9 +161,9 @@ window.addEventListener("load", function() {
         // load our displacement image
         shaderPass.loadImage(image);
         shaderPass.onLoading(function() {
-            console.log("shader pass image loaded");
+            //console.log("shader pass image loaded");
         }).onReady(function() {
-            console.log("shader pass is ready");
+            //console.log("shader pass is ready");
         }).onRender(function() {
             // update the uniforms
             shaderPass.uniforms.timer.value++;
