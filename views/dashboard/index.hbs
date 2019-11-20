@@ -1,4 +1,4 @@
-<div class="row topSpace"></div>
+
 <div data-aos="fade" class="row topSpace">
   <div class="col-md-2 gray"></div>
   <div class="col-12 col-md-7 gray">
@@ -12,12 +12,17 @@
 <div data-aos="fade" class="row bottomSpace">
   <div class="col-md-2"></div>
   <div class="col-12 col-md-7 pink">
-      <h3 style="color: black">Zone 1 humidity level:</h3>
-      <p data-aos="fade" style="color: black">{{this.sensor_1}}%</p>
+      <h3 style="color: black">Zone 1 humidity level: {{this.sensor_1}}%</h3>
+      
+      <svg class="lineGraph" height="180">
+        <polyline class="path" points="0,20 100,10 200,60 300,80 400,100 500,120 600,20"
+        style="fill:none;stroke:black;stroke-width:4" />
+      </svg>
   </div>
   <div class="col-md-3">
   </div>
 </div>
+
 
 <script type="text/javascript">
   AOS.init();

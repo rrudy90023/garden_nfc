@@ -366,6 +366,30 @@ margin-top: 20px;
 
 }
 
+.lineGraph {
+max-width: 100%;
+position: relative;
+}
+
+
+/* Line Animation */
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s ease-in forwards;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/**/
+
 .footCopy h3 {
 cursor: pointer;
 }

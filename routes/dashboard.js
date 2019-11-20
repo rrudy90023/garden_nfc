@@ -108,12 +108,12 @@ particle.getEventStream({ name: 'sensor_1', auth: token}).then(function(stream) 
 
 
 router.get('/', function(req, res) {
-    var zoneOneLevels = hdata.data;
+    //var zoneOneLevels = hdata.data;
 
-    console.log(hdata.data, "ready for client side");
+    //console.log(hdata.data, "ready for client side");
     res.render('dashboard', { 
         title: 'Dashboard',
-        sensor_1: zoneOneLevels,
+        sensor_1: '56',
         nav: true,
         footer: true
     });

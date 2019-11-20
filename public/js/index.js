@@ -7,26 +7,34 @@
   var heightDiv = document.getElementById("heightDiv");
   //var imgIndexOneY = imgIndexOne.pageYOffset;
 
-  var images = ['sage_1_1024.jpg', 'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'stucco_2_1024.jpg', 'catepillar_1_1024.jpg', 'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'stucco_4_1024.jpg', 'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg','sage_1_1024.jpg', 'stucco_3_1024.jpg', 'hopper_3_1024.jpg', 'cleves_1_1024.jpg', 'stucco_2_1024.jpg','catepillar_1_1024.jpg', 'stucco_4_1024.jpg', 'ladybug_1_1024.jpg', 'ladybutterfly_2_1024.jpg', 'mallow_1_1024.jpg', 'shrooms_2_1024.jpg', 'poppy_1_1024.jpg'];
+  document.addEventListener('aos:in:indexPicOne', ({ detail }) => {
+    imgIndexOne.src = "../images/poppy_1_1024.jpg";
+ 
+  });
 
-  var imagesForm = ['stucco_2_1024.jpg', 'front_1_1024.jpg', 'front_2_1024.jpg', 'front_3_1024.jpg', 'front_4_1024.jpg', 'stucco_3_1024.jpg', 'front_1_1024.jpg', 'front_2_1024.jpg', 'front_3_1024.jpg', 'front_4_1024.jpg', 'stucco_4_1024.jpg','front_1_1024.jpg', 'front_2_1024.jpg', 'front_3_1024.jpg', 'front_4_1024.jpg', 'stucco_2_1024.jpg','front_1_1024.jpg', 'front_2_1024.jpg', 'front_3_1024.jpg', 'front_4_1024.jpg', 'stucco_3_1024.jpg', 'front_1_1024.jpg', 'front_2_1024.jpg']
+  document.addEventListener('aos:in:indexPicTwo', ({ detail }) => {
+    imgIndexTwo.src = "../images/front_4_1024.jpg";
+ 
+  });
 
-  var totalImages = images.length;
-  var i = 0;
-  var pageHeight = document.body.clientHeight - window.innerHeight;
-  var scrollInterval = Math.floor(pageHeight / totalImages);
+
 
   window.onload = function()
   {
      window.onscroll = function()
      {
-          var i = Math.floor(window.pageYOffset / scrollInterval);
+          // var scrollTop = window.pageYOffset;
+          // var docHeight = document.body.clientHeight;
+          // var winHeight = window.innerHeight;
+          // var scrollPercent = (scrollTop) / (docHeight - winHeight);
+          // var scrollPercentRounded = Math.round(scrollPercent*100);
+          //var i = Math.floor(window.pageYOffset / scrollInterval);
           // if (i === 23){
           //   i = 0;
           // }
           //console.log(i);
-          imgIndexOne.src = "../images/" + images[i];
-          imgIndexTwo.src = "../images/" + imagesForm[i];    
+          //imgIndexOne.src = "../images/" + images[i];
+          //imgIndexTwo.src = "../images/" + imagesForm[i];    
      }
   }
 
@@ -51,7 +59,6 @@
 
   // formation button mouse events
   function handleForm(evt) {
-      console.log("hello")
       evt.preventDefault();
       window.open("/formation", '_self');
   }
