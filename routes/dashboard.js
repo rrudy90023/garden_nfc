@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var userService = require('../services/user-service');
+const SensorOne = require('../models/sensorOne').SensorOne;
+var config = require('../config');
 // var request = require('request');
 // var extend = require('xtend');
-
-
 
 var Particle = require('particle-api-js');
 var particle = new Particle();
 var token = "b0411c901db00e00b4f1510b8ce0bcbe6289f290";
-var hdata = null;
 
 particle.login({username: 'rrudy90023@gmail.com', password: 'kuDvI3#HYo'}).then(
   function(data) {
@@ -35,89 +35,59 @@ devicesPr.then(
 
 particle.getEventStream({ name: 'sensor_1', auth: token}).then(function(stream) {
   stream.on('event', function(data) {
-    //console.log("Event: ", data);
 
-    hdata = data;
+    // userService.addSensorOne(data, function(err) {
+      
+    // });
+
   });
 });
 
-// var requestSparkObj = request({
-//             uri: 'https://api.particle.io/v1/devices/3c002f000a47353235303037/events/sensor_1?access_token=b0411c901db00e00b4f1510b8ce0bcbe6289f290',
-//             method: "GET"
-// });
-
-
-// var chunks = [];
 
 
 
+router.get('/', function(req, res, next) {
 
-// var appendToQueue = function(arr) {
+    SensorOne.find({}, function(err, humidity){
 
-//     for(var i=0;i<arr.length;i++) {
-//         var line = (arr[i] || "").trim();
-//         if (line == "") {
-//             continue;
-//         }
-//         console.log(chunks.push(line))
-//         // if (line.indexOf("data:") == 0) {
-//         //     processItem(chunks);
-//         //     chunks = [];
-//         // }
-//     }
-// };
+        var oneSensorModel = humidity.map(function(sensor){
 
+            return {     
+                data: sensor.data,
+                ttl: sensor.ttl,
+                published_at: sensor.published_at,
+                coreid: sensor.coreid,
+                name: sensor.name,
+                id: sensor._id
+            };
+        })
+        var cordX = 0;
+        
+        for(var i = 0; i < 9; i++){
+            if(i>=1){
+                cordX+=100;
+            }
+            oneSensorModel[i].data = cordX+","+oneSensorModel[i].data;
+            //humidArray.push(oneSensorModel[i].data);
+        }
 
+        console.log(oneSensorModel.slice(-4).join(' '));
 
-
-
-
-// var processItem = function(arr) {
-//     var obj = {};
-//     for(var i=0;i<arr.length;i++) {
-//         var line = arr[i];
-
-//         if (line.indexOf("event:") == 0) {
-//             obj.name = line.replace("event:", "").trim();
-//         }
-//         else if (line.indexOf("data:") == 0) {
-//             line = line.replace("data:", "");
-//             obj = extend(obj, JSON.parse(line));
-//         }
-//     }
-
-//     console.log(JSON.stringify(obj));
-// };
+        res.render('dashboard', { 
+            "title": 'Dashboard',
+            "sensor_1": oneSensorModel,
+            nav: true,
+            footer: true
+        });
 
 
-
-
-
-// var onData = function(event) {
-
-//         var humid = event.toString().replace(/(\r\n|\n|\r)/gm, "").replace(/\s/g, '').slice(28, 30);
-//         chunks.push(humid)    
-//         console.log(chunks[]);
-//             //appendToQueue(chunk.split("n"));
-// };
-
-
-
-
-//requestSparkObj.on('data', onData);
-
-
-router.get('/', function(req, res) {
-    //var zoneOneLevels = hdata.data;
-
-    //console.log(hdata.data, "ready for client side");
-    res.render('dashboard', { 
-        title: 'Dashboard',
-        sensor_1: '56',
-        nav: true,
-        footer: true
     });
+
+
+
 });
+
+
 
 
 module.exports = router;

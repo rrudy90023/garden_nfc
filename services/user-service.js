@@ -2,6 +2,7 @@ var bcrypt = require('bcrypt');
 var User = require('../models/user').User;
 var Garden = require('../models/garden').Garden;
 var Email = require('../models/email').Email;
+var SensorOne = require('../models/sensorOne').SensorOne;
 
 
 exports.addUser = function(user, next) {
@@ -53,6 +54,21 @@ exports.addEmail = function(email, next) {
     });
     
     newEmail.save(function(err) {
+      next(null);
+    });
+};
+
+
+exports.addSensorOne = function(humidity, next) {
+    var newSensorOne = new SensorOne({
+      data: humidity.data,
+      ttl: humidity.ttl,
+      published_at: humidity.published_at,
+      coreid: humidity.coreid,
+      name: humidity.name
+    });
+    
+    newSensorOne.save(function(err) {
       next(null);
     });
 };
