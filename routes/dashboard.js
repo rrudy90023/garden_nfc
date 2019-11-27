@@ -36,6 +36,7 @@ devicesPr.then(
 particle.getEventStream({ name: 'sensor_1', auth: token}).then(function(stream) {
   stream.on('event', function(data) {
 
+    // console.log(data)
     // userService.addSensorOne(data, function(err) {
       
     // });
@@ -62,6 +63,8 @@ router.get('/', function(req, res, next) {
             };
         })
         var cordX = 0;
+        oneSensorModel.reverse();
+        var currentLevel = oneSensorModel[0].data;
         
         for(var i = 0; i < 9; i++){
             if(i>=1){
@@ -70,12 +73,14 @@ router.get('/', function(req, res, next) {
             oneSensorModel[i].data = cordX+","+oneSensorModel[i].data;
             //humidArray.push(oneSensorModel[i].data);
         }
+        oneSensorModel.length = 9;
 
-        console.log(oneSensorModel.slice(-4).join(' '));
+        //oneSensorModel.slice(-4).join(' ');
 
         res.render('dashboard', { 
             "title": 'Dashboard',
             "sensor_1": oneSensorModel,
+            "current": currentLevel,
             nav: true,
             footer: true
         });

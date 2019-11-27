@@ -93,7 +93,9 @@
                 //console.log(document.cookie);
 
                 function initAos() {
-                    AOS.init();
+                    AOS.init({
+                        once: true 
+                    });
                 };
                 // intro copy change
                 if ( document.cookie ){

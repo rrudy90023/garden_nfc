@@ -5,16 +5,57 @@
   var imgIndexOne = document.getElementById("imgIndexOne");
   var imgIndexTwo = document.getElementById("imgIndexTwo");
   var heightDiv = document.getElementById("heightDiv");
+  var indexCopyOne = document.getElementById("indexCopyOne");
+  var indexCopyTwo = document.getElementById("indexCopyTwo");
   //var imgIndexOneY = imgIndexOne.pageYOffset;
 
+  var i = 0;
+  var f = 0;
+  var g = 0;
+  var textOne = "A diverse array of species includes plants, insects, raptors, and felines. All species co-exist to preserve a delicate balance of a diminishing eco-system.";
+  var textTwo = "From purchase of the parcel to the current status of the reclaimation. The formation of the sanctuary was strenous but rewarding.";
+  var textThree = "A variety of tech and inovation is used to better understand the details of the garden, history and present state.";
+
+  var speed = 20;
+
+  function typeWriterOne() {
+    if (i < textOne.length) {
+      document.getElementById("indexCopyOne").innerHTML += textOne.charAt(i);
+      i++;
+      setTimeout(typeWriterOne, speed);
+    }
+  }
+
+  function typeWriterTwo() {
+    if (f < textTwo.length) {
+      document.getElementById("indexCopyTwo").innerHTML += textTwo.charAt(f);
+      f++;
+      setTimeout(typeWriterTwo, speed);
+    }
+  }
+
+  function typeWriterThree() {
+    if (g < textThree.length) {
+      document.getElementById("indexCopyThree").innerHTML += textThree.charAt(g);
+      g++;
+      setTimeout(typeWriterThree, speed);
+    }
+  }
+
   document.addEventListener('aos:in:indexPicOne', ({ detail }) => {
-    imgIndexOne.src = "../images/poppy_1_1024.jpg";
- 
+    imgIndexOne.src = "../images/mallow_1_1024.jpg";
+    typeWriterOne();
   });
 
   document.addEventListener('aos:in:indexPicTwo', ({ detail }) => {
-    imgIndexTwo.src = "../images/front_4_1024.jpg";
- 
+    imgIndexTwo.src = "../images/pinksky_2_1024.jpg";
+    typeWriterTwo();
+  });
+
+
+  document.addEventListener('aos:in:indexThree', ({ detail }) => {
+    
+    typeWriterThree();
   });
 
 
@@ -23,18 +64,19 @@
   {
      window.onscroll = function()
      {
+          //fast flip of images setup
+          // var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg"]
           // var scrollTop = window.pageYOffset;
           // var docHeight = document.body.clientHeight;
           // var winHeight = window.innerHeight;
-          // var scrollPercent = (scrollTop) / (docHeight - winHeight);
-          // var scrollPercentRounded = Math.round(scrollPercent*100);
-          //var i = Math.floor(window.pageYOffset / scrollInterval);
-          // if (i === 23){
-          //   i = 0;
-          // }
-          //console.log(i);
-          //imgIndexOne.src = "../images/" + images[i];
-          //imgIndexTwo.src = "../images/" + imagesForm[i];    
+          // var scrollInterval = Math.floor(document.body.clientHeight / totalImages.length);
+          // var i = Math.floor(window.pageYOffset / scrollInterval);
+
+          //flip of images by percentages set up
+          //var scrollPercent = (scrollTop) / (docHeight - winHeight);
+          //var scrollPercentRounded = Math.round(scrollPercent*100);
+          // imgIndexOne.src = "../images/" + totalImages[i];
+          // imgIndexTwo.src = "../images/" + totalImages[i];    
      }
   }
 
