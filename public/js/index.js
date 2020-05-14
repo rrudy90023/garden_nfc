@@ -65,18 +65,21 @@
      window.onscroll = function()
      {
           //fast flip of images setup
-          // var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg"]
-          // var scrollTop = window.pageYOffset;
-          // var docHeight = document.body.clientHeight;
-          // var winHeight = window.innerHeight;
-          // var scrollInterval = Math.floor(document.body.clientHeight / totalImages.length);
-          // var i = Math.floor(window.pageYOffset / scrollInterval);
+          var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "stucco_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg", "stucco_3_1024.jpg","catepillar_2_1024.jpg", "cleves_1_1024.jpg", "stucco_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg", "stucco_3_1024.jpg"]
+          var totalImagesTwo = [ "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "stucco_4_1024.jpg","poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "stucco_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "stucco_4_1024.jpg","poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "stucco_2_1024.jpg"]
+          var scrollTop = window.pageYOffset;
+          var docHeight = document.body.clientHeight;
+          var scrollTop = window.pageYOffset;
+          var docHeight = document.body.clientHeight;
+          var winHeight = window.innerHeight;
+          var scrollInterval = Math.floor(document.body.clientHeight / totalImages.length);
+          var i = Math.floor(window.pageYOffset / scrollInterval);
 
           //flip of images by percentages set up
-          //var scrollPercent = (scrollTop) / (docHeight - winHeight);
-          //var scrollPercentRounded = Math.round(scrollPercent*100);
-          // imgIndexOne.src = "../images/" + totalImages[i];
-          // imgIndexTwo.src = "../images/" + totalImages[i];    
+          var scrollPercent = (scrollTop) / (docHeight - winHeight);
+          var scrollPercentRounded = Math.round(scrollPercent*100);
+          imgIndexOne.src = "../images/" + totalImages[i];
+          imgIndexTwo.src = "../images/" + totalImagesTwo[i];    
      }
   }
 

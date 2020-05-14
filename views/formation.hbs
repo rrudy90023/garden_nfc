@@ -12,15 +12,25 @@
       <div class="col-md-3 gray"></div>
     </div>
 
-    <div class="row gray" data-aos="fade" data-aos-id="formPicOne">
+    <div class="row gray bottomSpace" data-aos="fade" data-aos-id="formPicOne">
       <div class="col-md-2"></div>
-      <div class="col-12 col-md-7 pink">
+      <div class="col-12 col-md-8 pink">
           <p data-aos="fade" style="color: black" id="formCopyOne"></p>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-2"></div>
     </div>
 
     <!-- before -->
+
+    <div class="row" data-aos="fade-up" data-aos-id="formPicTwo">
+      <div class="col-md-2"></div>
+      <div class="col-12 col-md-7">
+          <h1 data-aos="fade-up" class="gray hOnePublic" style="color: coral">Before Regeneration</h1>
+          <p data-aos="fade-up" class="gray" style="color: white" id="formCopyTwo"></p> 
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
 
     <div class="row">
       <div class="col-md-2"></div>
@@ -35,14 +45,7 @@
     </div>
 
 
-    <div class="row" data-aos="fade" data-aos-id="formPicTwo">
-      <div class="col-md-2"></div>
-      <div class="col-12 col-md-7">
-          <h1 data-aos="fade-up" class="pink hOnePublic" style="color: black">Before Regeneration</h1>
-          <p data-aos="fade-up" class="gray" style="color: white" id="formCopyTwo"></p> 
-      </div>
-      <div class="col-md-2"></div>
-    </div>
+
 
 {{!--     <div class="row">
       <div class="col-md-2"></div>
@@ -52,6 +55,16 @@
       </div>
       <div class="col-md-3"></div>
     </div> --}}
+
+    <div class="row bottomSpace" data-aos="fade-up" data-aos-id="formPicThree">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-6">
+          <h1 data-aos="fade-up" class="gray hOnePublic" style="color: coral" id="">Present Regeneration</h1>
+          <p data-aos="fade-up" class="gray" style="color: white" id="formCopyThree"></p> 
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
 
     <div class="row">
       <div class="col-md-2"></div>
@@ -65,14 +78,7 @@
       <div class="col-md-3"></div>
     </div>
 
-    <div class="row bottomSpace" data-aos="fade" data-aos-id="formPicThree">
-      <div class="col-md-3"></div>
-      <div class="col-12 col-md-6">
-          <h1 data-aos="fade-up" class="pink hOnePublic" style="color: black" id="">Present Regeneration</h1>
-          <p data-aos="fade-up" class="gray" style="color: white" id="formCopyThree"></p> 
-      </div>
-      <div class="col-md-4"></div>
-    </div>
+
 
 
   </div>
@@ -171,5 +177,7 @@
 <script src="/js/formation.js"></script>
 <script src="/js/aos.js"></script>
 <script type="text/javascript">
-  AOS.init();
+  AOS.init({
+    once: true
+  });
 </script>

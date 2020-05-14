@@ -81,6 +81,18 @@ background-color: black!important;
         display: none;
     }
 
+    .plane-title {
+/*        background: #ee6557;
+        color: white;*/
+        position: absolute;
+        top: 0.25em;
+        left: 0;
+        font-size: 2em;
+        font-weight: bold;
+        display: inline-block;
+        padding: 0.125em 0.25em;
+    }
+
     .no-curtains .plane-title {
         z-index: 1;
     }
@@ -118,7 +130,7 @@ border-color: initial;
 border-image: initial;
 }
 
-#initiateBtn, #inhabitBtn {
+#initiateBtn, #inhabitBtn, #formBtn, #interABtn, #liveBtn, #virtualBtn, #levelsBtn {
 cursor: pointer;
 }
 
@@ -430,6 +442,7 @@ font-family: 'Palanquin', sans-serif;
 font-size: 1.2rem;
 color: black;
 padding-left: 5px;
+padding-right: 5px;
 }
 
 .jumbotron-fluid, .container-fluid {
