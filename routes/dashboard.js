@@ -35,11 +35,11 @@ devicesPr.then(
 
 particle.getEventStream({ name: 'sensor_1', auth: token}).then(function(stream) {
   stream.on('event', function(data) {
-
-    // console.log(data)
-    // userService.addSensorOne(data, function(err) {
+    //post humidity data every day
+    console.log(data)
+    userService.addSensorOne(data, function(err) {
       
-    // });
+    });
 
   });
 });
