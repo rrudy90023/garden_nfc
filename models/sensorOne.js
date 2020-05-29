@@ -7,8 +7,9 @@ var sensorOneSchema = new Schema({
   ttl: {type: Number},
   published_at: {type: String},
   coreid: {type: String},
-  name: {type: String}
-});
+  name: {type: String},
+
+},{ capped : { size : 4000, max: 9 } });
 
 
 var SensorOne = mongoose.model('SensorOne', sensorOneSchema);

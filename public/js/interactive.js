@@ -1,5 +1,4 @@
-  var imgIntOne = document.getElementById("imgIntOne");
-  var heightDiv = document.getElementById("heightDiv");
+
 
   var liveBtn = document.getElementById("liveBtn");
   var virtualBtn = document.getElementById("virtualBtn");
@@ -81,7 +80,7 @@
   // live button mouse events
   function handleLive(evt) {
       evt.preventDefault();
-      window.open("/emails/join", '_blank');
+      window.open("/emails/join", '_self');
   }
 
   function overLive(evt) {
@@ -101,7 +100,7 @@
   // outVirtual button mouse events
   function handleVirtual(evt) {
       evt.preventDefault();
-      window.open("/virtual", '_blank');
+      window.open("/virtual", '_self');
   }
 
   function overVirtual(evt) {
@@ -121,7 +120,7 @@
   // levels/dashboard button mouse events
   function handleLevels(evt) {
       evt.preventDefault();
-      window.open("/dashboard", '_blank');
+      window.open("/dashboard", '_self');
   }
 
   function overLevels(evt) {

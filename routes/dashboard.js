@@ -51,6 +51,10 @@ router.get('/', function(req, res, next) {
 
     SensorOne.find({}, function(err, humidity){
 
+
+        //trim here
+
+
         var oneSensorModel = humidity.map(function(sensor){
 
             return {     
@@ -74,7 +78,7 @@ router.get('/', function(req, res, next) {
             //humidArray.push(oneSensorModel[i].data);
         }
         oneSensorModel.length = 9;
-
+        //oneSensorModel.reverse();
         //oneSensorModel.slice(-4).join(' ');
 
         res.render('dashboard', { 

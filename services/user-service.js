@@ -69,8 +69,13 @@ exports.addSensorOne = function(humidity, next) {
     });
     
     newSensorOne.save(function(err) {
-      next(null);
+      //next(null);
     });
+
+    // newSensorOne.remove({_id: 1},function(err) {
+    //   console.log("deleted the first doc")
+    //   next(null);
+    // });
 };
 
 

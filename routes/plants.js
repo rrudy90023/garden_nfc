@@ -250,6 +250,7 @@ router.post('/:id/edit', upload.single('file'), function(req, res){
 router.post('/:id', (req, res) => {
   if (req.query.method === "DELETE") {
     Garden.findById(req.params.id, function(err, plant){
+        // deleteOne()
         plant.remove(function(err){
 
           console.log("deleted all" + "  " + plant);
