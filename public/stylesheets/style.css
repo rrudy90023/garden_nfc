@@ -144,9 +144,10 @@ font-size: 48px;
 
 .fasLogo {
 background: url("http://rudes.de/s17/fas2.svg") no-repeat;
-width: 80px;
-height: 80px;
-
+width: 70px;
+height: 70px;
+margin-top: 15%;
+margin-left: 15%;
 }
 
 .padCopy {
@@ -158,8 +159,12 @@ color: black;
 
 }
 
-.introParent {
 
+.introParent {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
 }
 
 .copyCont h3{
@@ -237,11 +242,12 @@ height: auto;
 }
 
 .logoBack {
-background-color: white; 
+background-color: coral; 
 width: 30vw;
 height: 26vw;
-background: url("../images/stucco_4_1024.jpg") no-repeat;
-background-size: auto;
+/*background: url("../images/stucco_4_1024.jpg") no-repeat;*/
+
+background-size: cover;
 margin: auto;
 position: absolute;
 top: 0; 
@@ -743,13 +749,19 @@ left: 0!important;
 background: black!important;
 z-index: 9999!important;
 pointer-events: auto!important;
+
+
+display: flex;
+justify-content: center;
+align-items: center;
+
 }
 
 .introCopy h1 {
 font-size: 20vw;
 color: white;
 left: 20%;	
-position: relative;
+/*position: relative;*/
 }
 
 /* Menu style */

@@ -57,4 +57,13 @@ router.get('/interactive', function(req, res) {
 	  });
 });
 
+
+router.get('/about', function(req, res) {
+	  res.render('about', { 
+	  	title: 'About',
+	  	nav: true,
+	  	footer: true
+	  });
+});
+
 module.exports = router;

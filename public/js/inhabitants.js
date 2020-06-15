@@ -8,9 +8,9 @@
   var f = 0;
   var g = 0;
 
-  var textOne = "There were a limited array of plants and species before reclaimation. As predicted, many types of native california plants such mallows, sages, grasses, attracted birds and insects.";
-  var textTwo = "Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the regions climate and exposure to the sun, soil drainage and other factors.";
-  var textThree = "Unexpected types of insects arrived to the sanctuary. Large cicadas, moths, spiders, butterflies are present throughout. Some in the day and some at night.";
+  var textOne = "There were a limited plants and species before reclaimation. As predicted, many types of native california plants such mallows, sages, grasses, attracted birds, insects, and reptiles.";
+  var textTwo = "Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the region's climate and exposure to the sun, soil drainage and other factors.";
+  var textThree = "Unexpected types of insects arrived to the sanctuary. Large cicadas, moths, spiders, and butterflies are present throughout. Some in the day and some at night.";
   var speed = 20;
 
   function typeWriterOne() {
