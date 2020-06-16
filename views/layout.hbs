@@ -2,6 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NJZVG3L');</script>
+        <!-- End Google Tag Manager -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>S17{{#if title}} - {{title}}{{/if}}</title>
         <meta name="description" content="" />
@@ -16,7 +23,10 @@
     </head>
 
     <body class="container-fluid">
-        
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJZVG3L"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
         <div id="page">
 
             {{#if firstName}}
@@ -35,9 +45,9 @@
         </div>
         {{#if nav}}
             <div class="header nav" id="myHeader">
-                <a href="/"><div class="fasLogo"></div></a>
+                <a title="Home Button" href="/"><div class="fasLogo"></div></a>
                 <ul>
-                  <li><a href="javascript:void(0);" onclick="openNav()" class="burger">☰</a></li>
+                  <li><a href="javascript:void(0);" title="Open Nav" onclick="openNav()" class="burger">☰</a></li>
                 </ul>
             </div>
             <!-- open/close -->
@@ -50,14 +60,14 @@
               <!-- Overlay content -->
               <div class="overlay-content">
  {{!--                <a href="#"><h3>Story</h3></a> --}}
-                <a href="/Inhabitants"><h3>Inhabitants</h3></a>
-                <a href="/formation"><h3>Formation</h3></a>
-                <a href="/interactive"><h3>Interactive</h3></a>
-                <a href="/about"><h3>About</h3></a>
-                <a href="/emails/join"><h3>Subscribe</h3></a>
-                {{!-- <a href="mailto:rrudy90023@gmail.com"><h3>Contact</h3></a> --}}
+                <a title="Nav Inhabitants" href="/Inhabitants"><h3>Inhabitants</h3></a>
+                <a title="Nav Formation" href="/formation"><h3>Formation</h3></a>
+                <a title="Nav Interactive" href="/interactive"><h3>Interactive</h3></a>
+                <a title="Nav About" href="/about"><h3>About</h3></a>
+                <a title="Nav Subscribe" href="/emails/join"><h3>Subscribe</h3></a>
+                
               </div>
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="javascript:void(0);" class="closebtn" title="Close Nav" onclick="closeNav()">&times;</a>
             </div>
             <script type="text/javascript">
 
@@ -127,9 +137,9 @@
           <div class="col-12">
             <div class="footCopy">
               <h3 class="">S17 ©MMXIX</h3>
-              <h3 class="" id="instaBtn">Instagram: @s17.la</h3>
-              <h3 id="youTubeCh">YouTube Channel</h3>
-              <h3 class="" id="subscribeBtn">Subscribe</h3>
+              <a title="Instagram Footer Link" href="https://www.instagram.com/s17.la" target="_self"><h3 class="" id="instaBtn">Instagram: @s17.la</h3></a>
+              <a title="YouTube Footer Link" href="https://www.youtube.com/channel/UCtH5_srP2X3BuR0nt79jXrA" target="_self"><h3 id="youTubeCh">YouTube Channel</h3></a>
+              <a title="Subscribe Footer Link" href="/emails/join" target="_self"><h3 class="" id="subscribeBtn">Subscribe</h3></a>
             </div>
           </div>
         </footer>

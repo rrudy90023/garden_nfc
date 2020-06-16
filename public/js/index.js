@@ -12,9 +12,9 @@
   var i = 0;
   var f = 0;
   var g = 0;
-  var textOne = "In this sacntuary, a diverse array of species includes plants, insects, reptiles, and raptors. All species co-exist to preserve a delicate balance of a diminishing eco-system in this geographical location.";
-  var textTwo = "From purchase of the parcel to the current status of the reclaimation. The formation of the sanctuary was strenous and well researched specific to the local landscape.";
-  var textThree = "A variety of tech and inovation is used to better understand the details of the sanctuary, history and present state.";
+  var textOne = "In this sanctuary, a diverse array of species includes plants, insects, reptiles, and raptors. All species co-exist to preserve a delicate balance of a diminishing eco-system in this geographical location.";
+  var textTwo = "From the acquisition of the parcel to the current status of the reclamation. The formation of the sanctuary was strenuous and well researched specific to the local landscape.";
+  var textThree = "A variety of tech and innovation is used to better understand the inhabitants from its present and past state.";
 
   var speed = 20;
 

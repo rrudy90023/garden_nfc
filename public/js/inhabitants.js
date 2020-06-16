@@ -8,9 +8,9 @@
   var f = 0;
   var g = 0;
 
-  var textOne = "There were a limited plants and species before reclaimation. As predicted, many types of native california plants such mallows, sages, grasses, attracted birds, insects, and reptiles.";
-  var textTwo = "Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the region's climate and exposure to the sun, soil drainage and other factors.";
-  var textThree = "Unexpected types of insects arrived to the sanctuary. Large cicadas, moths, spiders, and butterflies are present throughout. Some in the day and some at night.";
+  var textOne = "There were limited plants and species before reclamation. As predicted, many types of native California plants such as mallows, sages, grasses, attracted birds, insects, and reptiles.";
+  var textTwo = "Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the region's climate and exposure to the sun, soil drainage, and other factors.";
+  var textThree = "Unexpected types of insects arrived at the sanctuary. Large cicadas, moths, spiders, and butterflies make the s17 their home. Migratory birds use the sanctuary for food replenishment due to the abundance of insects. Reptiles have multiplied and provide food for predatory birds such as the red-tailed hawk.";
   var speed = 20;
 
   function typeWriterOne() {

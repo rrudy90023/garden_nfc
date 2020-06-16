@@ -12,9 +12,9 @@
   var h = 0;
   var k = 0;
 
-  var textOne = "A variety of tech and innovation is used to better understand the details of the garden, history and present state.";
-  var textTwo = "Multiple zones are monitored daily and real-time for humidity levels. Data is published to a database and transmits text messages for warnings of low moisture levels.";
-  var textThree = "Each plant is logged into database and tracked with valuable information. Once inputed, each plant is given a Near Field Communication tag. This proximity technology lets the public access the information stored in the database.";
+  var textOne = "A variety of tech and innovation is used to better understand the details of the garden, history, and present state.";
+  var textTwo = "Multiple zones are monitored daily and in real-time for humidity levels. Data is published to a database and transmits text messages for warnings of low moisture levels.";
+  var textThree = "Each plant is logged into a database and tracked with valuable information. Once inputted, each plant is given a Near Field Communication tag (NFC). This proximity technology lets the public access the information by scanning with a smartphone.";
   var textFour = "Users can experience 360° virtual tours and 360° live streams.";
 
 
@@ -78,71 +78,71 @@
 
 
   // live button mouse events
-  function handleLive(evt) {
-      evt.preventDefault();
-      window.open("/emails/join", '_self');
-  }
+  // function handleLive(evt) {
+  //     evt.preventDefault();
+  //     window.open("/emails/join", '_self');
+  // }
 
-  function overLive(evt) {
-      evt.preventDefault();
-  }
+  // function overLive(evt) {
+  //     evt.preventDefault();
+  // }
 
-  function outLive(evt) {
-      evt.preventDefault();
-  }
+  // function outLive(evt) {
+  //     evt.preventDefault();
+  // }
 
-  liveBtn.addEventListener('touchstart', handleLive);
-  liveBtn.addEventListener('click', handleLive);
-  liveBtn.addEventListener('mouseover', overLive);
-  liveBtn.addEventListener('mouseout', outLive);
-
-
-  // outVirtual button mouse events
-  function handleVirtual(evt) {
-      evt.preventDefault();
-      window.open("/virtualtour", '_self');
-  }
-
-  function overVirtual(evt) {
-      evt.preventDefault();
-  }
-
-  function outVirtual(evt) {
-      evt.preventDefault();
-  }
-
-  virtualBtn.addEventListener('touchstart', handleVirtual);
-  virtualBtn.addEventListener('click', handleVirtual);
-  virtualBtn.addEventListener('mouseover', overVirtual);
-  virtualBtn.addEventListener('mouseout', outVirtual);
+  // liveBtn.addEventListener('touchstart', handleLive);
+  // liveBtn.addEventListener('click', handleLive);
+  // liveBtn.addEventListener('mouseover', overLive);
+  // liveBtn.addEventListener('mouseout', outLive);
 
 
-  // levels/dashboard button mouse events
-  function handleLevels(evt) {
-      evt.preventDefault();
-      window.open("/dashboard", '_self');
-  }
+  // // outVirtual button mouse events
+  // function handleVirtual(evt) {
+  //     evt.preventDefault();
+  //     window.open("/virtualtour", '_self');
+  // }
 
-  function overLevels(evt) {
-      evt.preventDefault();
-  }
+  // function overVirtual(evt) {
+  //     evt.preventDefault();
+  // }
 
-  function outLevels(evt) {
-      evt.preventDefault();
-  }
+  // function outVirtual(evt) {
+  //     evt.preventDefault();
+  // }
 
-  levelsBtn.addEventListener('touchstart', handleLevels);
-  levelsBtn.addEventListener('click', handleLevels);
-  levelsBtn.addEventListener('mouseover', overLevels);
-  levelsBtn.addEventListener('mouseout', outLevels);
+  // virtualBtn.addEventListener('touchstart', handleVirtual);
+  // virtualBtn.addEventListener('click', handleVirtual);
+  // virtualBtn.addEventListener('mouseover', overVirtual);
+  // virtualBtn.addEventListener('mouseout', outVirtual);
+
+
+  // // levels/dashboard button mouse events
+  // function handleLevels(evt) {
+  //     evt.preventDefault();
+  //     window.open("/dashboard", '_self');
+  // }
+
+  // function overLevels(evt) {
+  //     evt.preventDefault();
+  // }
+
+  // function outLevels(evt) {
+  //     evt.preventDefault();
+  // }
+
+  // levelsBtn.addEventListener('touchstart', handleLevels);
+  // levelsBtn.addEventListener('click', handleLevels);
+  // levelsBtn.addEventListener('mouseover', overLevels);
+  // levelsBtn.addEventListener('mouseout', outLevels);
 
 
 
-  window.onload = function()
-  {
+  // window.onload = function()
+  // {
 
-     window.onscroll = function()
-     {
+  //    window.onscroll = function()
+  //    {
   
-     }
-  }
+  //    }
+  // }
