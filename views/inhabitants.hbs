@@ -14,10 +14,10 @@
 
     <!-- plants -->
 
-    <div class="row bottomSpace">
+    <div class="row bottomSpace" data-aos="fade-up" data-aos-id="habPicOne">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-8 pink">
-          <p data-aos="fade" style="color: black" data-aos-id="habPicOne" id="inHabCopyOne"></p>
+          <p style="color: black" id="inHabCopyOne"></p>
       </div>
       <div class="col-md-2"></div>
     </div>
@@ -26,8 +26,8 @@
     <div class="row" data-aos="fade-up" data-aos-id="habPicTwo">
       <div class="col-md-3"></div>
       <div class="col-12 col-md-5">
-        <h1 data-aos="fade-up" class="gray hOnePublic" style="color: white" id="">Plants</h1>
-        <p data-aos="fade-up" class="gray" style="color: white" id="inHabCopyTwo"></p> 
+        <h1 class="gray hOnePublic" style="color: white" id="">Plants</h1>
+        <p class="gray" style="color: white" id="inHabCopyTwo"></p> 
       </div>
       <div class="col-md-4"></div>
     </div>
@@ -54,8 +54,8 @@
     <div class="row bottomSpace" data-aos="fade-up" data-aos-id="habPicThree">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-5">
-          <h1 data-aos="fade-up" class="gray hOnePublic" style="color: white" id="">Insects</h1>
-          <p data-aos="fade-up" class="gray" style="color: white" id="inHabCopyThree"></p> 
+          <h1 class="gray hOnePublic" style="color: white" id="">Insects</h1>
+          <p class="gray" style="color: white" id="inHabCopyThree"></p> 
       </div>
       <div class="col-md-5"></div>
     </div>
@@ -195,6 +195,9 @@
 <script src="/js/aos.js"></script>
 <script type="text/javascript">
   AOS.init({
-      once: true 
+    duration: 1000,
+    easing: 'ease-in-out-quad', 
+    once: false,
+    mirror: true
   });
 </script>

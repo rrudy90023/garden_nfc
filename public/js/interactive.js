@@ -60,7 +60,7 @@
   });
 
   document.addEventListener('aos:in:intPicTwo', ({ detail }) => {
-    imgIntOne.src = "../images/pinksky_2_1024.jpg";
+    //imgIntOne.src = "../images/pinksky_2_1024.jpg";
     typeWriterTwo()
   });
 
@@ -100,7 +100,7 @@
   // outVirtual button mouse events
   function handleVirtual(evt) {
       evt.preventDefault();
-      window.open("/virtual", '_self');
+      window.open("/virtualtour", '_self');
   }
 
   function overVirtual(evt) {

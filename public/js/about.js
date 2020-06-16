@@ -1,16 +1,18 @@
-var imgAboutOne = document.getElementById('imgAboutOne');
-
+var aboutCopyOne = document.getElementById('aboutCopyOne');
+var aboutCopyTwo = document.getElementById('aboutCopyTwo');
+var aboutCopyThree = document.getElementById('aboutCopyThree');
+var aboutCopyFour = document.getElementById('aboutCopyFour');
 
   var i = 0;
-  // var f = 0;
-  // var g = 0;
-  // var h = 0;
-  // var k = 0;
+  var f = 0;
+  var g = 0;
+  var h = 0;
+  var k = 0;
 
-  var textOne = "A parcel which serves mainly as a sanctuary for wild life and native plants also has deep symbolic meaning because of its geographic location and its ecological stewards. After generations of systemic neglect in an area largely known as the Ellis Island of Los Angeles. The neighborhood of Boyle Heights has been and still is an area where residents endure ecological hardship. During the modernization of Los Angeles, government let industrial polluters operate near migrant neighborhoods such Boyle Heights. The birth of four freeways in this area were designed to segregate migrant communities even more from the rest of Los Angeles. This caused residents to be deprived access to resources and access to state and local parks. Generations later, residents to this day are fighting for clean air, water, and access to green space. Regardless of government acknowledging the data of high cancer rates, low infant mortality, low graduation rates, and youth asthma, no meaningful action has been initiated. ";
-  // var textTwo = "Multiple zones are monitored daily and real-time for humidity levels. Data is published to a database and transmits text messages for warnings of low moisture levels.";
-  // var textThree = "Each plant is logged into database and tracked with valuable information. Once inputed, each plant is given a Near Field Communication tag. This proximity technology lets the public access the information stored in the database.";
-  // var textFour = "Users can experience 360° virtual tours and 360° live streams.";
+  var textOne = "A parcel which serves mainly as a sanctuary for wild life and native plants also has deep symbolic meaning because of its geographic location and its ecological stewards. After generations of systemic neglect in an area largely known as the Ellis Island of Los Angeles. The neighborhood of Boyle Heights has been and still is an area where residents endure ecological hardship. According federal and state data, the area is considered one of the most environmentally hazardous in the state.";
+  var textTwo = "During the modernization of Los Angeles, government allowed industrial polluters operate near this migrant neighborhood. The birth of four freeways in the area were designed to segregate migrant communities even more from the rest of Los Angeles. This caused residents to be deprived access to city resources(Redlining), access to state or local parks, and years of the worst air pollution in the country. Generations later, residents to this day are fighting for clean air, water, and access to green space. Regardless of government acknowledging the data of high cancer rates, low infant mortality, low graduation rates, and asthma, no meaningful action has been initiated.";
+  var textThree = "S17 is symbolic to the ever growing resistance to government neglect on its residents. Increased community involvement has made positive strides in establishing neighborhood gardens, environmental activism, ground-truthing, and ecological restoration. Growing numbers in youth has been instrumental in raising awareness in state, federal and local level. ";
+  var textFour = "The sanctuary is an incubator for the pushback against local polluters and corrupt county supervisors and city councilmen who have oppressed generations of residents in Boyle Heights. Sí Se Puede!";
 
 
   var speed = 20;
@@ -20,32 +22,38 @@ var imgAboutOne = document.getElementById('imgAboutOne');
       document.getElementById("aboutCopyOne").innerHTML += textOne.charAt(i);
       i++;
       setTimeout(typeWriterOne, speed);
+    } else if (textOne.length === i){
+        typeWriterTwo();
     }
   }
 
-  // function typeWriterTwo() {
-  //   if (f < textTwo.length) {
-  //     document.getElementById("intCopyTwo").innerHTML += textTwo.charAt(f);
-  //     f++;
-  //     setTimeout(typeWriterTwo, speed);
-  //   }
-  // }
+  function typeWriterTwo() {
+    if (f < textTwo.length) {
+      document.getElementById("aboutCopyTwo").innerHTML += textTwo.charAt(f);
+      f++;
+      setTimeout(typeWriterTwo, speed);
+    } else if (textTwo.length === f){
+        typeWriterThree();
+    }
+  }
 
-  // function typeWriterThree() {
-  //   if (g < textThree.length) {
-  //     document.getElementById("intCopyThree").innerHTML += textThree.charAt(g);
-  //     g++;
-  //     setTimeout(typeWriterThree, speed);
-  //   }
-  // }
+  function typeWriterThree() {
+    if (g < textThree.length) {
+      document.getElementById("aboutCopyThree").innerHTML += textThree.charAt(g);
+      g++;
+      setTimeout(typeWriterThree, speed);
+    } else if (textThree.length === g) {
+        typeWriterFour();
+    }
+  }
 
-  // function typeWriterFour() {
-  //   if (h < textFour.length) {
-  //     document.getElementById("intCopyFour").innerHTML += textFour.charAt(h);
-  //     h++;
-  //     setTimeout(typeWriterFour, speed);
-  //   }
-  // }
+  function typeWriterFour() {
+    if (h < textFour.length) {
+      document.getElementById("aboutCopyFour").innerHTML += textFour.charAt(h);
+      h++;
+      setTimeout(typeWriterFour, speed);
+    }
+  }
 
 
 
@@ -57,20 +65,22 @@ var imgAboutOne = document.getElementById('imgAboutOne');
 
   document.addEventListener('aos:in:aboutPicTwo', ({ detail }) => {
     console.log("trig 2")
-    imgAboutOne.src = "../images/pinksky_2_1024.jpg";
-    //typeWriterTwo()
+    //imgAboutOne.src = "../images/pinksky_2_1024.jpg";
+    typeWriterTwo()
   });
 
 
-  // document.addEventListener('aos:in:intPicThree', ({ detail }) => {
-  //   typeWriterThree()
+  document.addEventListener('aos:in:aboutPicThree', ({ detail }) => {
+    console.log("trig 3")
+    typeWriterThree()
   
-  // });
+  });
 
-  // document.addEventListener('aos:in:intPicFour', ({ detail }) => {
-  //   typeWriterFour()
+  document.addEventListener('aos:in:aboutPicFour', ({ detail }) => {
+    console.log("trig 4")
+    typeWriterFour()
   
-  // });
+  });
 
 
 

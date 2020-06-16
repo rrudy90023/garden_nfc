@@ -1,4 +1,4 @@
-<div class="row" id="canvas"></div>
+<div class="row" id=""></div>
 <div id="content">
   <div id="planes">
 
@@ -12,7 +12,7 @@
         <div class="col-md-3"></div>
       </div>
 
-      <div class="row">
+      <div class="row bottomSpace">
         <div class="col-md-2"></div>
         <div class="col-12 col-md-8 pink">
             <p data-aos="fade-up" style="color: black" data-aos-id="intPicOne" id="intCopyOne"></p>
@@ -21,38 +21,40 @@
       </div>
 
 
-{{!--       <div class="row gray">
+      <div class="row gray"  data-aos="fade-up" data-aos-id="intPicFour">
         <div class="col-md-2 gray" ></div>
         <div class="col-12 col-md-7 gray">
-            <h1 data-aos="fade-up" class="hOnePublic pink" style="color: black" id="">360 Virtual Tour</h1>
-            <p data-aos="fade-up" class="gray" style="color: white" data-aos-id="intPicFour" id="intCopyFour"></p>
-        </div>
-        <div class="col-md-3"></div>
-      </div>
-
-      <div class="row gray" data-aos="fade-up" id="liveBtn">
-        <div class="col-md-2"></div>
-        <div class="col-12 col-md-7">
-            <span style="color: white" class="bluGray">Subscribe for Live Events&#8594;</span>
+            <h1 class="hOnePublic pink" style="color: black" id="">360 Virtual Tour</h1>
+            <p class="gray" style="color: white" id="intCopyFour"></p>
         </div>
         <div class="col-md-3"></div>
       </div>
 
 
-      <div class="row gray" data-aos="fade-up" id="virtualBtn">
-        <div class="col-md-2"></div>
-        <div class="col-12 col-md-7">
-            <span style="color: white" class="bluGray">Enter Virtual Tour&#8594;</span>
+        <div  data-aos="fade-up">
+          <div class="row gray" id="liveBtn">
+            <div class="col-md-2"></div>
+            <div class="col-12 col-md-7">
+                <span style="color: white" class="bluGray">Subscribe for Live Events&#8594;</span>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+
+
+          <div class="row gray bottomSpace" id="virtualBtn">
+            <div class="col-md-2"></div>
+            <div class="col-12 col-md-7">
+                <span style="color: white" class="bluGray">Enter Virtual Tour&#8594;</span>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
         </div>
-        <div class="col-md-3"></div>
-      </div> --}}
-
-
+{{!-- 
       <div class="row bottomSpace">
         <div class="col-md-2"></div>
         <div class="col-12 col-md-7">  
           
-            <div class="landscape-wrapper" data-aos="fade-up">
+            <div class="landscape-wrapper">
                 <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
                   <img id="imgIntOne" crossorigin="anonymous" src="../images/stucco_2_1024.jpg" data-sampler="planeTexture" />
                 </div>        
@@ -60,120 +62,32 @@
       
         </div>
         <div class="col-md-3"></div>
-      </div>
+      </div> --}}
 
 
-      <div class="row bottomSpace">
+      <div class="row bottomSpace" data-aos="fade-up" data-aos-id="intPicTwo">
         <div class="col-md-2"></div>
         <div class="col-12 col-md-5" >
-            <h1 data-aos="fade-up" class="pink hOnePublic" style="color: black" id="">Humidity sensors</h1>
-            <p data-aos="fade-up" class="gray" style="color: white" data-aos-id="intPicTwo" id="intCopyTwo"></p>
-            <span data-aos="fade-up" style="color: white" id="levelsBtn" class="bluGray">View Current Levels&#8594;</span>
+            <h1 class="pink hOnePublic" style="color: black" id="">Humidity sensors</h1>
+            <p class="gray" style="color: white" id="intCopyTwo"></p>
+            <span style="color: white" id="levelsBtn" class="bluGray">View Current Levels&#8594;</span>
         </div>
         <div class="col-md-5"></div>
       </div>
 
 
-      <div class="row gray bottomSpace">
+      <div class="row gray bottomSpace" data-aos="fade-up" data-aos-id="intPicThree">
         <div class="col-md-2 gray" ></div>
         <div class="col-12 col-md-5 gray">
-            <h1 data-aos="fade-up" class="pink hOnePublic" style="color: black" id="">NFC Plant Indentifiers</h1>
-            <p data-aos="fade-up" class="gray" style="color: white" data-aos-id="intPicThree" id="intCopyThree"></p>
+            <h1 class="pink hOnePublic" style="color: black" id="">NFC Plant Indentifiers</h1>
+            <p class="gray" style="color: white" id="intCopyThree"></p>
         </div>
         <div class="col-md-5"></div>
       </div>
 
   </div>
 </div>
-<script id="multiple-planes-vs" type="x-shader/x-vertex">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
 
-    // default mandatory variables
-    attribute vec3 aVertexPosition;
-    attribute vec2 aTextureCoord;
-
-    uniform mat4 uMVMatrix;
-    uniform mat4 uPMatrix;
-
-    uniform mat4 planeTextureMatrix;
-    varying vec2 vTextureMatrix;
-    // custom variables
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureMatrixCoord;
-
-    uniform float uTime;
-
-    uniform float uPlaneDeformation;
-
-    void main() {
-
-        vec3 vertexPosition = aVertexPosition;
-
-        // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
-        // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
-
-        //cool effect on scroll
-        //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
-
-        gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
-
-        // varyings
-        vVertexPosition = vertexPosition;
-        vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
-    }
-
-</script>
-<script id="multiple-planes-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
-
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureCoord;
-    varying vec2 vTextureMatrixCoord;
-    varying vec2 vTextureMatrix;
-
-    uniform sampler2D uSampler0;
-    uniform sampler2D planeTexture;
-    uniform float uPlaneDeformation;
-
-    void main( void ) {
-        // slides transitions
-        //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
-
-        vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
-
-        gl_FragColor = finalColor;
-    }
-</script>
-
-
-<script id="displacement-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
-
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureCoord;
-
-    uniform sampler2D renderTexture;
-    uniform sampler2D displacementTexture;
-
-    uniform float uDisplacement;
-
-    void main( void ) {
-        vec2 textureCoords = vTextureCoord;
-        vec4 displacement = texture2D(displacementTexture, textureCoords);
-
-        // displace along Y axis
-        textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
-
-        vec4 finalColor = texture2D(renderTexture, textureCoords);
-        gl_FragColor = finalColor;
-    }
-</script>
 
 <script src="/js/curtains.min.js"></script>
 <script src="/js/post.processing.displacement.setup.js" ></script>
@@ -181,7 +95,10 @@
 <script src="/js/aos.js"></script>
 <script type="text/javascript">
   AOS.init({
-    once:true
+    duration: 1000,
+    easing: 'ease-in-out-quad', 
+    once: true,
+    mirror: false
   });
 </script>
 

@@ -95,7 +95,10 @@
 
                 function initAos() {
                     AOS.init({
-                        once: true 
+                            duration: 1000,
+                            easing: 'ease-in-out-quad', 
+                            once: false,
+                            mirror: true
                     });
                 };
                 // intro copy change

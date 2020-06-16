@@ -7,7 +7,7 @@
   var i = 0;
   var f = 0;
   var g = 0;
-  var textOne = "In prehostoric times, this region slowly emerged from the sea as the San Gabriel mountains. Hundreds of millions later, coastal sage scrub was formed by its unique Mediterranean climate. This parcel lying on the outskirts of the Downtown Los Angeles, is where much of the basin's natural landscape was destoyed by urban sprawl.";
+  var textOne = "In prehostoric times, this region slowly emerged from the sea as the San Gabriel mountains. Hundreds of millions later, coastal sage scrub was formed by its unique Mediterranean climate. Currently, the parcel lying on Tongva land sits on the outskirts of Downtown Los Angeles. Much of the basin's natural landscape and species were destroyed by urban sprawl and industrialization.";
   var textTwo = "The parcel was created during post World War II to house the growing population in the basin. The surrounding homes where mostly cookie cutter single family homes. During that era it was common to have grass lawns in the front and back of the homes. This parcel had cemented outdoor with no flora";
   var textThree = "After three years of regenerating the native flora, much of the intended goal is still a work in progress.";
 

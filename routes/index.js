@@ -66,4 +66,13 @@ router.get('/about', function(req, res) {
 	  });
 });
 
+
+router.get('/virtualtour', function(req, res) {
+	  res.render('virtualtour', { 
+	  	title: 'Virtual Tour',
+	  	nav: true,
+	  	footer: true
+	  });
+});
+
 module.exports = router;
