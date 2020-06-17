@@ -65,8 +65,8 @@
      window.onscroll = function()
      {
           //fast flip of images setup
-          var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "stucco_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg", "stucco_3_1024.jpg","catepillar_2_1024.jpg", "cleves_1_1024.jpg", "stucco_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg", "stucco_3_1024.jpg"]
-          var totalImagesTwo = [ "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "stucco_4_1024.jpg","poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "stucco_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "stucco_4_1024.jpg","poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "stucco_2_1024.jpg"]
+          var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg","catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg"]
+          var totalImagesTwo = [ "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg"]
           var scrollTop = window.pageYOffset;
           var docHeight = document.body.clientHeight;
           var scrollTop = window.pageYOffset;
@@ -84,58 +84,58 @@
   }
 
   // inhabitants button mouse events
-  function handleInhabits(evt) {
-      evt.preventDefault();
-      window.open("/inhabitants", '_self');
-  }
+  // function handleInhabits(evt) {
+  //     evt.preventDefault();
+  //     window.open("/inhabitants", '_self');
+  // }
 
-  function overInhabits(evt) {
-      evt.preventDefault();
-  }
+  // function overInhabits(evt) {
+  //     evt.preventDefault();
+  // }
 
-  function outInhabits(evt) {
-      evt.preventDefault();
-  }
+  // function outInhabits(evt) {
+  //     evt.preventDefault();
+  // }
 
-  inHabitBtn.addEventListener('touchstart', handleInhabits);
-  inHabitBtn.addEventListener('click', handleInhabits);
-  inHabitBtn.addEventListener('mouseover', overInhabits);
-  inHabitBtn.addEventListener('mouseout', outInhabits);
+  // inHabitBtn.addEventListener('touchstart', handleInhabits);
+  // inHabitBtn.addEventListener('click', handleInhabits);
+  // inHabitBtn.addEventListener('mouseover', overInhabits);
+  // inHabitBtn.addEventListener('mouseout', outInhabits);
 
-  // formation button mouse events
-  function handleForm(evt) {
-      evt.preventDefault();
-      window.open("/formation", '_self');
-  }
+  // // formation button mouse events
+  // function handleForm(evt) {
+  //     evt.preventDefault();
+  //     window.open("/formation", '_self');
+  // }
 
-  function overForm(evt) {
-      evt.preventDefault();
-  }
+  // function overForm(evt) {
+  //     evt.preventDefault();
+  // }
 
-  function outForm(evt) {
-      evt.preventDefault();
-  }
+  // function outForm(evt) {
+  //     evt.preventDefault();
+  // }
 
-  formBtn.addEventListener('touchstart', handleForm);
-  formBtn.addEventListener('click', handleForm);         
-  formBtn.addEventListener('mouseover', overForm);
-  formBtn.addEventListener('mouseout', outForm);
+  // formBtn.addEventListener('touchstart', handleForm);
+  // formBtn.addEventListener('click', handleForm);         
+  // formBtn.addEventListener('mouseover', overForm);
+  // formBtn.addEventListener('mouseout', outForm);
 
-  //interactive button mouse events
-  function handleInterA(evt) {
-      evt.preventDefault();
-      window.open("/interactive", '_self');
-  }
+  // //interactive button mouse events
+  // function handleInterA(evt) {
+  //     evt.preventDefault();
+  //     window.open("/interactive", '_self');
+  // }
 
-  function overInterA(evt) {
-      evt.preventDefault();
-  }
+  // function overInterA(evt) {
+  //     evt.preventDefault();
+  // }
 
-  function outInterA(evt) {
-      evt.preventDefault();
-  }
+  // function outInterA(evt) {
+  //     evt.preventDefault();
+  // }
 
-  interABtn.addEventListener('touchstart', handleInterA);
-  interABtn.addEventListener('click', handleInterA);         
-  interABtn.addEventListener('mouseover', overInterA);
-  interABtn.addEventListener('mouseout', outInterA);
+  // interABtn.addEventListener('touchstart', handleInterA);
+  // interABtn.addEventListener('click', handleInterA);         
+  // interABtn.addEventListener('mouseover', overInterA);
+  // interABtn.addEventListener('mouseout', outInterA);

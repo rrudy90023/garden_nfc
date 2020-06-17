@@ -444,6 +444,12 @@ font-family: 'Palanquin', sans-serif;
 border-color: transparent;
 }
 
+a {
+text-decoration: none!important;
+font-family: 'Palanquin', sans-serif;
+font-size: 1.2rem;    
+}
+
 p, span {
 font-family: 'Palanquin', sans-serif;
 font-size: 1.2rem;
