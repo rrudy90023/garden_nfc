@@ -200,6 +200,15 @@ overflow-wrap: break-word;
 color: white;
 }
 
+.subText {
+font-size: 7vw;   
+text-align: center;
+}
+
+.joinCont {
+position: relative;
+padding-top: 10vw!important;    
+}
 
 
 .initCopy {
@@ -215,16 +224,39 @@ font-size: 12vw;
 position: relative;
 }
 
+.subText {
+font-size: 12vw;   
+}
+
 .overlay h3 {
 font-size: 11vw!important;
 }
+
+.joinCont {
+padding-top: 20vw!important;    
+}
+
+.topSpace {
+position: relative;
+padding-top: 20vw!important;
+}
+
+
 }
 
 @media only screen and (max-width: 420px) {
 .storyCopy h3, .copyCont h3, .ourCont h3 {
 font-size: 4em;
 }
+
+
+.topSpace {
+padding-top:34vw!important
 }
+
+}
+
+
 
 .coral {
 color: coral;	
@@ -331,10 +363,7 @@ padding-top: 10vw!important;
 padding-bottom: 10vw!important;	
 }
 
-.topSpace {
-position: relative;
-padding-top: 20vw!important;
-}
+
 
 .bottomSpace {
 	padding-bottom: 10vw!important;

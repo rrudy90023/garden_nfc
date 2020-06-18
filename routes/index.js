@@ -34,7 +34,7 @@ router.get('/inhabitants', function(req, res) {
 	//console.log(appdata)
 
 	  res.render('inhabitants', { 
-	  	title: 'Inhabitants',
+	  	title: 'INHABITANTS',
 	  	friends: myFriends,
 	  	nav: true,
 	  	footer: true
@@ -43,7 +43,7 @@ router.get('/inhabitants', function(req, res) {
 
 router.get('/formation', function(req, res) {
 	  res.render('formation', { 
-	  	title: 'Formation',
+	  	title: 'FORMATION',
 	  	nav: true,
 	  	footer: true
 	  });
@@ -51,7 +51,7 @@ router.get('/formation', function(req, res) {
 
 router.get('/interactive', function(req, res) {
 	  res.render('interactive', { 
-	  	title: 'Interactive',
+	  	title: 'INTERACTIVE',
 	  	nav: true,
 	  	footer: true
 	  });
@@ -60,16 +60,37 @@ router.get('/interactive', function(req, res) {
 
 router.get('/about', function(req, res) {
 	  res.render('about', { 
-	  	title: 'About',
+	  	title: 'ABOUT',
 	  	nav: true,
 	  	footer: true
 	  });
 });
 
 
+router.get('/404', function(req, res, next) {
+
+
+
+
+
+  res.status(404);
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('/404', { 
+    	title: '404',
+	  	nav: true,
+	  	footer: true,
+        url: req.url 
+    });
+    return;
+  }
+
+});
+
+
 router.get('/virtualtour', function(req, res) {
 	  res.render('virtualtour', { 
-	  	title: 'Virtual Tour',
+	  	title: 'VIRTUAL TOUR',
 	  	nav: true,
 	  	footer: true
 	  });
