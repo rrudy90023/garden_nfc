@@ -1,4 +1,4 @@
-<div class="row" id="canvas"></div>
+<div class="row" id=""></div>
 <div id="content">
   <div id="planes">
 
@@ -23,7 +23,7 @@
     </div>
 
 
-    <div class="row" data-aos="fade-up" data-aos-id="habPicTwo">
+    <div class="row" data-aos="fade-up">
       <div class="col-md-3"></div>
       <div class="col-12 col-md-5">
         <h1 class="gray hOnePublic" style="color: white" id="">PLANTS</h1>
@@ -46,12 +46,12 @@
     </div>
 
 
-
+    <div data-aos="fade-up" data-aos-id="habPicTwo"></div>
 
 
     <!--insects-->
 
-    <div class="row bottomSpace" data-aos="fade-up" data-aos-id="habPicThree">
+    <div class="row bottomSpace" data-aos="fade-up">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-5">
           <h1 class="gray hOnePublic" style="color: white" id="">INSECTS</h1>
@@ -66,7 +66,7 @@
       <div class="col-12 col-md-7">
           <div class="landscape-wrapper" >
               <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
-                <img id="imgHabTwo" crossorigin="anonymous" src="../images/stucco_3_1024.jpg" data-sampler="planeTexture" />
+                <img id="imgHabTwo" crossorigin="anonymous" src="../images/stucco_2_1024.jpg" data-sampler="planeTexture" />
               </div>        
           </div>
       </div>
@@ -74,118 +74,140 @@
     </div>
 
 
+    <div  data-aos="fade-up" data-aos-id="habPicThree"></div>
 
 
 
 
     <!-- birds-->
 
-<!--     <div class="row bottomSpace">
+    <div class="row bottomSpace" data-aos="fade-up">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-4">
+          <h1 class="gray hOnePublic" style="color: white" id="">BIRDS</h1>
+          <p class="gray" style="color: white" id="inHabCopyFour"></p> 
+      </div>
+      <div class="col-md-5"></div>
+    </div>
+
+
+    <div class="row bottomSpace">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-7">
-          <p data-aos="fade-up" class="pink" style="color: black" id=""><strong>Birds</strong></p>
-          <p data-aos="fade-up" class="gray" style="color: white" id="">Migrating birds come to the sanctuary for food or breeding. Species such as the Goldfinch, California Scrubs, Humming birds, and Common Sparrows are typcical throughout the seasons. </p>  
           <div class="landscape-wrapper" >
               <div class="plane" data-vs-id="multiple-planes-vs" data-fs-id="multiple-planes-fs">
-                <img id="" crossorigin="anonymous" src="../images/birds_1_1024.jpg" data-sampler="planeTexture" />
+                <img id="imgHabFour" crossorigin="anonymous" src="../images/stucco_2_1024.jpg" data-sampler="planeTexture" />
               </div>        
           </div>
       </div>
       <div class="col-md-3"></div>
-    </div> -->
+    </div>
+
+
+    <div data-aos="fade-up" data-aos-id="habPicFour"></div>
+
+
+    <div class="row gray bottomSpace" data-aos="fade-up">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-6 gray">
+
+          <a title="Inhab Next Formation Button" href="/formation"><h2 style="color: black" class="pink">FORMATION &#8594;</h2></a>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
 
 
   </div>
 </div>
 
 <script id="multiple-planes-vs" type="x-shader/x-vertex">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+    // #ifdef GL_ES
+    // precision mediump float;
+    // #endif
 
-    // default mandatory variables
-    attribute vec3 aVertexPosition;
-    attribute vec2 aTextureCoord;
+    // // default mandatory variables
+    // attribute vec3 aVertexPosition;
+    // attribute vec2 aTextureCoord;
 
-    uniform mat4 uMVMatrix;
-    uniform mat4 uPMatrix;
+    // uniform mat4 uMVMatrix;
+    // uniform mat4 uPMatrix;
 
-    uniform mat4 planeTextureMatrix;
-    varying vec2 vTextureMatrix;
-    // custom variables
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureMatrixCoord;
+    // uniform mat4 planeTextureMatrix;
+    // varying vec2 vTextureMatrix;
+    // // custom variables
+    // varying vec3 vVertexPosition;
+    // varying vec2 vTextureMatrixCoord;
 
-    uniform float uTime;
+    // uniform float uTime;
 
-    uniform float uPlaneDeformation;
+    // uniform float uPlaneDeformation;
 
-    void main() {
+    // void main() {
 
-        vec3 vertexPosition = aVertexPosition;
+    //     vec3 vertexPosition = aVertexPosition;
 
-        // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
-        // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
+    //     // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
+    //     // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
 
-        //cool effect on scroll
-        //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
+    //     //cool effect on scroll
+    //     //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
 
-        gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+    //     gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
 
-        // varyings
-        vVertexPosition = vertexPosition;
-        vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
-    }
+    //     // varyings
+    //     vVertexPosition = vertexPosition;
+    //     vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
+    // }
 
 </script>
 <script id="multiple-planes-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+    // #ifdef GL_ES
+    // precision mediump float;
+    // #endif
 
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureCoord;
-    varying vec2 vTextureMatrixCoord;
-    varying vec2 vTextureMatrix;
+    // varying vec3 vVertexPosition;
+    // varying vec2 vTextureCoord;
+    // varying vec2 vTextureMatrixCoord;
+    // varying vec2 vTextureMatrix;
 
-    uniform sampler2D uSampler0;
-    uniform sampler2D planeTexture;
-    uniform float uPlaneDeformation;
+    // uniform sampler2D uSampler0;
+    // uniform sampler2D planeTexture;
+    // uniform float uPlaneDeformation;
 
-    void main( void ) {
-        // slides transitions
-        //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
+    // void main( void ) {
+    //     // slides transitions
+    //     //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
 
-        vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
+    //     vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
 
-        gl_FragColor = finalColor;
-    }
+    //     gl_FragColor = finalColor;
+    // }
 </script>
 
 
 <script id="displacement-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+    // #ifdef GL_ES
+    // precision mediump float;
+    // #endif
 
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureCoord;
+    // varying vec3 vVertexPosition;
+    // varying vec2 vTextureCoord;
 
-    uniform sampler2D renderTexture;
-    uniform sampler2D displacementTexture;
+    // uniform sampler2D renderTexture;
+    // uniform sampler2D displacementTexture;
 
-    uniform float uDisplacement;
+    // uniform float uDisplacement;
 
-    void main( void ) {
-        vec2 textureCoords = vTextureCoord;
-        vec4 displacement = texture2D(displacementTexture, textureCoords);
+    // void main( void ) {
+    //     vec2 textureCoords = vTextureCoord;
+    //     vec4 displacement = texture2D(displacementTexture, textureCoords);
 
-        // displace along Y axis
-        textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
+    //     // displace along Y axis
+    //     textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
 
-        vec4 finalColor = texture2D(renderTexture, textureCoords);
-        gl_FragColor = finalColor;
-    }
+    //     vec4 finalColor = texture2D(renderTexture, textureCoords);
+    //     gl_FragColor = finalColor;
+    // }
 </script>
 
 

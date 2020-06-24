@@ -1,5 +1,25 @@
-<div class="oneOfus topSpace">
-	<h1>You are now one of us, {{input.firstName}}.<h1>
-	<p style="color:white">You will be notified on future events.</p>
-	<span style="color:red">{{error}}</span>
+<div class="row" id="canvas"></div>
+<div class="joinCont topSpace bottomSpace">
+	<div class="content">
+		<div class="row">
+			<div class="col-md-2"></div>
+				<div class="col-12 col-md-8" >
+					<h1 data-aos="fade" class="subText" >You are now one of us, {{input.firstName}}.</h1>
+				</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-12 col-md-10">
+				<p style="text-align: center; color: white; margin-top: 30px!important; margin-bottom: 30px!important; margin: auto;" >You will be notified on future events.</p>
+				<span style="color:red">{{error}}</span>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+
 </div>
+<script type="text/javascript">
+	AOS.init();
+
+</script>

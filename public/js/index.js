@@ -14,7 +14,7 @@
   var g = 0;
   var textOne = "In this sanctuary, a diverse array of species includes plants, insects, reptiles, and raptors. All species co-exist to preserve a delicate balance of a diminishing eco-system in this geographical location.";
   var textTwo = "From the acquisition of the parcel to the current status of the reclamation. The formation of the sanctuary was strenuous and well researched specific to the local landscape.";
-  var textThree = "A variety of tech and innovation is used to better understand the inhabitants from its present and past state.";
+  var textThree = "A variety of tech are used to better understand the sanctuary. Realtime IoT sensors, 360° virtual tours, and NFC proximity communication, make this parcel's data highly accesible.";
 
   var speed = 20;
 
@@ -65,21 +65,21 @@
      window.onscroll = function()
      {
           //fast flip of images setup
-          var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg","catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg"]
-          var totalImagesTwo = [ "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg"]
-          var scrollTop = window.pageYOffset;
-          var docHeight = document.body.clientHeight;
-          var scrollTop = window.pageYOffset;
-          var docHeight = document.body.clientHeight;
-          var winHeight = window.innerHeight;
-          var scrollInterval = Math.floor(document.body.clientHeight / totalImages.length);
-          var i = Math.floor(window.pageYOffset / scrollInterval);
+          // var totalImages = ["catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg","catepillar_2_1024.jpg", "cleves_1_1024.jpg", "hopper_3_1024.jpg", "ladybug_1_1024.jpg", "ladybutterfly_2_1024.jpg"]
+          // var totalImagesTwo = [ "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg", "mallow_1_1024.jpg", "pinksky_2_1024.jpg", "poppy_1_1024.jpg", "sage_1_1024.jpg", "shrooms_2_1024.jpg"]
+          // var scrollTop = window.pageYOffset;
+          // var docHeight = document.body.clientHeight;
+          // var scrollTop = window.pageYOffset;
+          // var docHeight = document.body.clientHeight;
+          // var winHeight = window.innerHeight;
+          // var scrollInterval = Math.floor(document.body.clientHeight / totalImages.length);
+          // var i = Math.floor(window.pageYOffset / scrollInterval);
 
-          //flip of images by percentages set up
-          var scrollPercent = (scrollTop) / (docHeight - winHeight);
-          var scrollPercentRounded = Math.round(scrollPercent*100);
-          imgIndexOne.src = "../images/" + totalImages[i];
-          imgIndexTwo.src = "../images/" + totalImagesTwo[i];    
+          // //flip of images by percentages set up
+          // var scrollPercent = (scrollTop) / (docHeight - winHeight);
+          // var scrollPercentRounded = Math.round(scrollPercent*100);
+          // imgIndexOne.src = "../images/" + totalImages[i];
+          // imgIndexTwo.src = "../images/" + totalImagesTwo[i];    
      }
   }
 

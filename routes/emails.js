@@ -33,7 +33,7 @@ router.get('/join', function(req, res) {
   var vm = {
     title: 'Join s17',
     nav: true,
-    footer: false
+    footer: true
   };
   res.render('emails/join', vm);
 });
@@ -53,7 +53,10 @@ router.post('/join', function(req, res, next) {
 
     req.login(req.body, function(err) {
       var vm = {
-        input: req.body
+        input: req.body,
+        title: 'One of us',
+        nav: true,
+        footer: true
       }
       res.render('emails/oneofus', vm);
     });

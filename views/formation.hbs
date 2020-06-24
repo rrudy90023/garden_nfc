@@ -1,4 +1,4 @@
-<div class="row" id="canvas"></div>
+<div class="row" id=""></div>
 <div id="content">
   <div id="planes">
 
@@ -22,7 +22,7 @@
 
     <!-- before -->
 
-    <div class="row bottomSpace" data-aos="fade-up" data-aos-id="formPicTwo">
+    <div class="row bottomSpace" data-aos="fade-up">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-7">
           <h1 class="gray hOnePublic" style="color: white">BEFORE REGENERATION</h1>
@@ -44,7 +44,7 @@
       <div class="col-md-3"></div>
     </div>
 
-
+    <div data-aos="fade-up" data-aos-id="formPicTwo"></div>
 
 
 {{!--     <div class="row">
@@ -56,7 +56,7 @@
       <div class="col-md-3"></div>
     </div> --}}
 
-    <div class="row bottomSpace" data-aos="fade-up" data-aos-id="formPicThree">
+    <div class="row bottomSpace" data-aos="fade-up">
       <div class="col-md-3"></div>
       <div class="col-12 col-md-6">
           <h1 class="gray hOnePublic" style="color: white" id="">PRESENT REGENERATION</h1>
@@ -66,7 +66,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="row bottomSpace">
       <div class="col-md-2"></div>
       <div class="col-12 col-md-7">  
           <div class="landscape-wrapper">
@@ -78,99 +78,109 @@
       <div class="col-md-3"></div>
     </div>
 
+    <div data-aos="fade-up" data-aos-id="formPicThree"></div>
 
+
+    <div class="row gray bottomSpace" data-aos="fade-up">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-6 gray">
+
+          <a title="Form Next Interactive Button" href="/interactive"><h2 style="color: black" class="pink">INTERACTIVE &#8594;</h2></a>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
 
 
   </div>
 </div>
 <script id="multiple-planes-vs" type="x-shader/x-vertex">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+    // #ifdef GL_ES
+    // precision mediump float;
+    // #endif
 
-    // default mandatory variables
-    attribute vec3 aVertexPosition;
-    attribute vec2 aTextureCoord;
+    // // default mandatory variables
+    // attribute vec3 aVertexPosition;
+    // attribute vec2 aTextureCoord;
 
-    uniform mat4 uMVMatrix;
-    uniform mat4 uPMatrix;
+    // uniform mat4 uMVMatrix;
+    // uniform mat4 uPMatrix;
 
-    uniform mat4 planeTextureMatrix;
-    varying vec2 vTextureMatrix;
-    // custom variables
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureMatrixCoord;
+    // uniform mat4 planeTextureMatrix;
+    // varying vec2 vTextureMatrix;
+    // // custom variables
+    // varying vec3 vVertexPosition;
+    // varying vec2 vTextureMatrixCoord;
 
-    uniform float uTime;
+    // uniform float uTime;
 
-    uniform float uPlaneDeformation;
+    // uniform float uPlaneDeformation;
 
-    void main() {
+    // void main() {
 
-        vec3 vertexPosition = aVertexPosition;
+    //     vec3 vertexPosition = aVertexPosition;
 
-        // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
-        // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
+    //     // float distanceFromCenter = distance(vec2(vertexPosition.x, vertexPosition.y), vec2(0.5, vertexPosition.x));
+    //     // vertexPosition.z += 1.5 * cos(5.0 * (distanceFromCenter - (uTime / 100.0)));
 
-        //cool effect on scroll
-        //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
+    //     //cool effect on scroll
+    //     //vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 90.0));
 
-        gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+    //     gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
 
-        // varyings
-        vVertexPosition = vertexPosition;
-        vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
-    }
+    //     // varyings
+    //     vVertexPosition = vertexPosition;
+    //     vTextureMatrixCoord = (planeTextureMatrix * vec4(aTextureCoord, 1.0, 1.0)).xy;
+    // }
 
 </script>
 <script id="multiple-planes-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+    // #ifdef GL_ES
+    // precision mediump float;
+    // #endif
 
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureCoord;
-    varying vec2 vTextureMatrixCoord;
-    varying vec2 vTextureMatrix;
+    // varying vec3 vVertexPosition;
+    // varying vec2 vTextureCoord;
+    // varying vec2 vTextureMatrixCoord;
+    // varying vec2 vTextureMatrix;
 
-    uniform sampler2D uSampler0;
-    uniform sampler2D planeTexture;
-    uniform float uPlaneDeformation;
+    // uniform sampler2D uSampler0;
+    // uniform sampler2D planeTexture;
+    // uniform float uPlaneDeformation;
 
-    void main( void ) {
-        // slides transitions
-        //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
+    // void main( void ) {
+    //     // slides transitions
+    //     //vec4 finalColor = texture2D( uSampler0, vTextureMatrix);
 
-        vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
+    //     vec4 finalColor = texture2D(planeTexture, vTextureMatrixCoord);
 
-        gl_FragColor = finalColor;
-    }
+    //     gl_FragColor = finalColor;
+    // }
 </script>
 
 
 <script id="displacement-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision mediump float;
-    #endif
+    // #ifdef GL_ES
+    // precision mediump float;
+    // #endif
 
-    varying vec3 vVertexPosition;
-    varying vec2 vTextureCoord;
+    // varying vec3 vVertexPosition;
+    // varying vec2 vTextureCoord;
 
-    uniform sampler2D renderTexture;
-    uniform sampler2D displacementTexture;
+    // uniform sampler2D renderTexture;
+    // uniform sampler2D displacementTexture;
 
-    uniform float uDisplacement;
+    // uniform float uDisplacement;
 
-    void main( void ) {
-        vec2 textureCoords = vTextureCoord;
-        vec4 displacement = texture2D(displacementTexture, textureCoords);
+    // void main( void ) {
+    //     vec2 textureCoords = vTextureCoord;
+    //     vec4 displacement = texture2D(displacementTexture, textureCoords);
 
-        // displace along Y axis
-        textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
+    //     // displace along Y axis
+    //     textureCoords.y += (sin(displacement.r) / 5.0) * uDisplacement;
 
-        vec4 finalColor = texture2D(renderTexture, textureCoords);
-        gl_FragColor = finalColor;
-    }
+    //     vec4 finalColor = texture2D(renderTexture, textureCoords);
+    //     gl_FragColor = finalColor;
+    // }
 </script>
 <script src="/js/curtains.min.js"></script>
 <script src="/js/post.processing.displacement.setup.js" ></script>

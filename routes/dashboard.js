@@ -82,7 +82,7 @@ router.get('/', function(req, res, next) {
         //oneSensorModel.slice(-4).join(' ');
 
         res.render('dashboard', { 
-            "title": 'Dashboard',
+            "title": 'DASHBOARD',
             "sensor_1": oneSensorModel,
             "current": currentLevel,
             nav: true,
