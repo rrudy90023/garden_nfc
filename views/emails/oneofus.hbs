@@ -8,18 +8,24 @@
 				</div>
 			<div class="col-md-2"></div>
 		</div>
+		
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-12 col-md-10">
-				<p style="text-align: center; color: white; margin-top: 30px!important; margin-bottom: 30px!important; margin: auto;" >You will be notified on future events.</p>
+				<p style="text-align: center; color: white; margin-top: 30px!important; margin-bottom: 30px!important; margin: auto;" >Web page redirects after 5 seconds.</p>
 				<span style="color:red">{{error}}</span>
 			</div>
 			<div class="col-md-1"></div>
 		</div>
+
 	</div>
 
 </div>
 <script type="text/javascript">
 	AOS.init();
-
+</script>
+<script>
+ setTimeout(function(){
+    window.location.href = '/';
+ }, 5000);
 </script>

@@ -9,10 +9,10 @@ var aboutCopyFour = document.getElementById('aboutCopyFour');
   var h = 0;
   var k = 0;
 
-  var textOne = "A parcel that serves mainly as a sanctuary for wildlife and native plants also has a deep symbolic meaning because of its geographic location and its ecological stewards. After generations of systemic neglect in an area largely known as the Ellis Island of Los Angeles. The neighborhood of Boyle Heights has been and still is an area where residents endure ecological hardship. According to federal and state data, the area is considered one of the most environmentally hazardous in the state.";
-  var textTwo = "During the modernization of Los Angeles, the government allowed industrial polluters to operate near this migrant neighborhood. The birth of four freeways in the area was designed to segregate migrant communities even more from the rest of Los Angeles. This caused residents to be deprived of access to city resources(Redlining), access to state or local parks, and years of the worst air pollution in the country. Generations later, residents to this day are fighting for clean air, water, and access to green space. Regardless of government acknowledging the data of high cancer rates, low infant mortality, low graduation rates, and asthma, no meaningful action has been initiated.";
-  var textThree = "S17 is symbolic of the ever-growing resistance to government neglect on its residents. Increased community involvement has made positive strides in establishing neighborhood gardens, environmental activism, ground-truthing, and ecological restoration. Growing numbers in youth have been instrumental in raising awareness in the state, federal and local levels.";
-  var textFour = "S17 is a sanctuary for stewards who push back against local polluters and corrupt county supervisors and city councilmen who have oppressed generations of residents.";
+  var textOne = "This parcel that serves as a sanctuary for wildlife and native plants also has a deep symbolic meaning because of its geographic location. The neighborhood of Boyle Heights has been and still is an area where residents endure ecological hardship. According to federal and state data, the area is considered one of the most environmentally hazardous in the state.";
+  var textTwo = "During the modernization of Los Angeles, the government allowed industrial polluters to operate adjacent to this migrant neighborhood and the birth of four surrounding freeways exacerbated the already polluted area. This also caused residents deprived access to the city and resources(Redlining), access to state or local parks, and years of the worst air pollution in the country. Generations later, residents to this day are fighting for clean air, water, and access to green space. Regardless of government acknowledging the data of high cancer rates, low infant mortality, low graduation rates, and asthma, no meaningful action has been initiated.";
+  var textThree = "S17 is symbolic of the ever-growing resistance to government neglect on its residents. It nurtures community involvement, environmental activism, ground-truthing, and ecological restoration.";
+  //var textFour = "S17 is a sanctuary for stewards who push back against polluters and corrupt county supervisors and city councilmen who have oppressed generations of residents.";
 
 
   var speed = 20;
@@ -43,17 +43,17 @@ var aboutCopyFour = document.getElementById('aboutCopyFour');
       g++;
       setTimeout(typeWriterThree, speed);
     } else if (textThree.length === g) {
-        typeWriterFour();
+        //typeWriterFour();
     }
   }
 
-  function typeWriterFour() {
-    if (h < textFour.length) {
-      document.getElementById("aboutCopyFour").innerHTML += textFour.charAt(h);
-      h++;
-      setTimeout(typeWriterFour, speed);
-    }
-  }
+  // function typeWriterFour() {
+  //   if (h < textFour.length) {
+  //     document.getElementById("aboutCopyFour").innerHTML += textFour.charAt(h);
+  //     h++;
+  //     setTimeout(typeWriterFour, speed);
+  //   }
+  // }
 
 
 

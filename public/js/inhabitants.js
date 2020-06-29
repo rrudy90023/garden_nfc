@@ -12,7 +12,7 @@
 
   var textOne = "There were limited plants and species before reclamation. As predicted, many types of native California plants such as mallows, sages, grasses, attracted birds, insects, and reptiles.";
   var textTwo = "Mallows, sages, yarrows, and other variety of large shrubs were planted around the parcel. These were carefully selected depending on the region's climate and exposure to the sun, soil drainage, and other factors.";
-  var textThree = "Unexpected types of insects arrived at the sanctuary. Large cicadas, moths, spiders, and butterflies make the S17 their home. Migratory birds use the sanctuary for food replenishment due to the abundance of insects. Reptiles have multiplied and provide food for predatory birds such as the red-tailed hawk.";
+  var textThree = "Unexpected types of insects arrived at the sanctuary. Large grasshoppers, moths, spiders, and butterflies make the S17 their home. Migratory birds use the sanctuary for food replenishment due to the abundance of insects. Reptiles have multiplied and provide food for predatory birds such as the red-tailed hawk.";
   var textFour = "Migratory birds soon arrived for rest stops from as far as South America. Species such as finches, orioles, phoebes, and swallows enjoy feasting on insects and seeds before continuing their long journey.";
   var speed = 20;
 
