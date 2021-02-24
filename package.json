@@ -6,7 +6,8 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "10.x"
+    "node": "10.x",
+    "npm" : "6.x"
   },
   "dependencies": {
     "aws-sdk": "2.x",
