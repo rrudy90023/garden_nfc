@@ -107,6 +107,16 @@ background-color: black!important;
 
 /* normal styles */
 
+
+.no-exiforientation{ 
+background-color: red; 
+}
+
+.exiforientation{ 
+background-color: green; 
+}
+
+
 form {
 position: relative;
 width: 100%;
