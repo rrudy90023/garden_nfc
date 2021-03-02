@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   	nav: true,
   	intro: true,
   	footer: true,
-    title: 'Welcome to s17',
+    title: 'S17',
     error: req.flash('error')
   };
   res.render('index', vm);
