@@ -108,12 +108,13 @@ background-color: black!important;
 /* normal styles */
 
 
-.no-exiforientation{ 
-background-color: red; 
+.no-exiforientation .box{
+transform: rotate(45deg);  
+
 }
 
 .exiforientation{ 
-background-color: green; 
+
 }
 
 
